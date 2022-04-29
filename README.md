@@ -1,2 +1,2 @@
-### Geoid: All about Earth 😁
+# Geoid: All about Earth 😁
 
