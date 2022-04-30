@@ -1,15 +1,22 @@
+import styled from "styled-components"
+
 import Footer from "./Footer";
+import Home from "./pages/Home"
+
+
+const S = {}
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Geoid</h1>
-      <br />
-      <img src="location.png" alt="earth" />
-
+    <S.App>
+      <Home />
       <Footer />
-    </div>
+    </S.App>
   )
 }
+
+S.App = styled.div`
+  min-height: 100vh;
+`;
 
 export default App;
