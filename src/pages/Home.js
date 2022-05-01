@@ -18,7 +18,16 @@ const Home = () => {
         </S.GridRow>
       </S.Grid>
 
-      <div style={{ paddingBlock: 300, background: "white" }}>
+      <div style={{padding: 20}}>
+        <h2>Explore the Earth</h2>
+        <S.GridRow2>
+          <div>
+            Learn about Countries
+          </div>
+          <div>
+            Track and Locate IP Addresses
+          </div>
+        </S.GridRow2>
       </div>
     </S.Home>
   )
@@ -30,7 +39,6 @@ S.Home = styled.main`
 
 S.Grid = styled.div`
   display: grid;
-  /* padding-block: 8em; */
   position: relative;
 `;
 
@@ -117,6 +125,28 @@ S.GridCol2 = styled(S.GridCol)`
   @media (max-width: ${mid1}) {
     margin-top: 2em;
     min-height: 900px;
+  }
+`;
+
+S.GridRow2 = styled(S.GridRow)`
+  background: #333;
+
+  div {
+    padding: 3em;
+    border: 0em solid #00bb77;
+    margin: 1em;
+    min-height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(-50deg, white 50%, #00bb77 10%);
+    color: black;
+    font-size: 2em;
+    transition-duration: .3s;
+    cursor: pointer;
+
+    :hover {
+      color: white;
+      background: #00bb77;
+    }
   }
 `;
 
