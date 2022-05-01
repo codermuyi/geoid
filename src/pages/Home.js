@@ -8,15 +8,17 @@ const Home = () => {
     <S.Home>
       <S.Grid>
         <S.WhiteBg />
-        <S.GridCol1>
-          <h1>Geoid</h1>
-        </S.GridCol1>
-        <S.GridCol2>
-          <img src="location.png" alt="earth" />
-        </S.GridCol2>
+        <S.GridRow>
+          <S.GridCol1>
+            <h1>Geoid</h1>
+          </S.GridCol1>
+          <S.GridCol2>
+            <img src="location.png" alt="earth" />
+          </S.GridCol2>
+        </S.GridRow>
       </S.Grid>
 
-      <div style={{padding: 300, background: "white"}}>
+      <div style={{ paddingBlock: 300, background: "white" }}>
       </div>
     </S.Home>
   )
@@ -28,14 +30,8 @@ S.Home = styled.main`
 
 S.Grid = styled.div`
   display: grid;
-  padding-block: 8em;
+  /* padding-block: 8em; */
   position: relative;
-  /* margin-inline: auto; */
-  overflow: hidden;
-
-  @media (min-width: ${mid1}) {
-    grid-template-columns: 1fr 1fr;
-  }
 `;
 
 S.WhiteBg = styled.div`
@@ -72,12 +68,21 @@ S.WhiteBg = styled.div`
   }
 `;
 
+S.GridRow = styled.div`
+  display: grid;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-block: 8em;
+
+  @media (min-width: ${mid1}) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 S.GridCol = styled.div`
   align-self: center;
   justify-self: center;
   z-index: 5;
-
-
 `;
 
 S.GridCol1 = styled(S.GridCol)`
@@ -85,9 +90,10 @@ S.GridCol1 = styled(S.GridCol)`
   padding: .1em;
   margin-bottom: .3em;
   border-radius: 10px;
+  text-align: center;
 
   h1 {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 
   @media (min-width: ${mid2}) {
@@ -106,6 +112,11 @@ S.GridCol2 = styled(S.GridCol)`
     padding-inline: 10%;
     position: sticky;
     top: 0;
+  }
+
+  @media (max-width: ${mid1}) {
+    margin-top: 2em;
+    min-height: 900px;
   }
 `;
 

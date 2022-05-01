@@ -16,7 +16,7 @@ const App = () => {
 }
 
 S.App = styled.div`
-  min-height: 100vh;
+  
 `;
 
 export default App;
