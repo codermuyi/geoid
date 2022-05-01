@@ -94,7 +94,7 @@ S.GridCol = styled.div`
 `;
 
 S.GridCol1 = styled(S.GridCol)`
-  border: .1em solid #00bb77;
+  border: .1em solid var(--app-green);
   padding: .1em;
   margin-bottom: .3em;
   border-radius: 10px;
@@ -133,7 +133,7 @@ S.GridRow2 = styled(S.GridRow)`
 
   div {
     padding: 3em;
-    border: 0em solid #00bb77;
+    border: 0em solid var(--app-green);
     margin: 1em;
     min-height: 300px;
     border-radius: 50%;
@@ -145,7 +145,7 @@ S.GridRow2 = styled(S.GridRow)`
 
     :hover {
       color: white;
-      background: #00bb77;
+      background: var(--app-green);
     }
   }
 `;
