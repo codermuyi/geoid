@@ -17,6 +17,7 @@ const App = () => {
 
 S.App = styled.div`
   --app-green: #00bb77;
+  color: #333333;
 `;
 
 export default App;

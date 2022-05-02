@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <S.Home>
       <S.Grid>
-        <S.WhiteBg />
+        <S.Bg />
         <S.GridRow>
           <S.GridCol1>
             <h1>Geoid</h1>
@@ -18,23 +18,24 @@ const Home = () => {
         </S.GridRow>
       </S.Grid>
 
-      <div style={{padding: 20}}>
+      <S.Container>
         <h2>Explore the Earth</h2>
         <S.GridRow2>
           <div>
-            Learn about Countries
+            <a href="#pi">Learn about Countries</a>
           </div>
           <div>
-            Track and Locate IP Addresses
+            <a href="#pi">Track and Locate IP Addresses</a>
           </div>
         </S.GridRow2>
-      </div>
+      </S.Container>
     </S.Home>
   )
 }
 
 S.Home = styled.main`
   background-image: url(${image});
+  text-align: center;
 `;
 
 S.Grid = styled.div`
@@ -42,7 +43,7 @@ S.Grid = styled.div`
   position: relative;
 `;
 
-S.WhiteBg = styled.div`
+S.Bg = styled.div`
   position: absolute;
   inset: 0;
   bottom: 50%;
@@ -52,6 +53,7 @@ S.WhiteBg = styled.div`
   ::after {
     content: "";
     position: absolute;
+    left: 0;
     bottom: -5em;
     padding: 3em;
     width: 100%;
@@ -65,6 +67,7 @@ S.WhiteBg = styled.div`
     border-radius: 0 50% 50% 0;
 
     ::after {
+      left: initial;
       right: -280px;
       bottom: 0;
       top: 0;
@@ -94,7 +97,8 @@ S.GridCol = styled.div`
 `;
 
 S.GridCol1 = styled(S.GridCol)`
-  border: .1em solid var(--app-green);
+  /* border: .1em solid var(--app-green); */
+  background: conic-gradient(white 40%, var(--app-green) 40%);
   padding: .1em;
   margin-bottom: .3em;
   border-radius: 10px;
@@ -116,10 +120,12 @@ S.GridCol2 = styled(S.GridCol)`
   position: relative;
   
   img {
+    display: inline-block;
     width: 100%;
     padding-inline: 10%;
     position: sticky;
     top: 0;
+    padding-top: 1em;
   }
 
   @media (max-width: ${mid1}) {
@@ -128,24 +134,53 @@ S.GridCol2 = styled(S.GridCol)`
   }
 `;
 
+S.Container = styled.div`
+
+  h2 {
+    color: white;
+    font-size: 3em;
+    padding-bottom: 3em;
+  }
+
+  @media (min-width: ${mid1}) {
+    h2 {
+      padding-top: 3em;
+    }
+  }
+`;
+
 S.GridRow2 = styled(S.GridRow)`
-  background: #333;
+  padding-top: 0;
 
   div {
-    padding: 3em;
+    justify-self: center;
     border: 0em solid var(--app-green);
-    margin: 1em;
-    min-height: 300px;
+    aspect-ratio: 1 / 1;
+    width: 300px;
     border-radius: 50%;
-    background: linear-gradient(-50deg, white 50%, #00bb77 10%);
+    background: conic-gradient(white 40%, var(--app-green) 40%);
     color: black;
-    font-size: 2em;
-    transition-duration: .3s;
-    cursor: pointer;
+    font-size: 2rem;
+    transition-duration: .1s;
+    transition-timing-function: cubic-bezier(.22,.68,0,1.71);;
+    text-align: center;
+    overflow: hidden;
+    margin-block: 1em;
+
+    a {
+      cursor: pointer;
+      display: block;
+      width: inherit;
+      aspect-ratio: 1 / 1;
+      padding-block: 3em;
+      text-decoration: none;
+      color: inherit;
+    }
 
     :hover {
-      color: white;
-      background: var(--app-green);
+      /* background: var(--app-green); */
+      background: conic-gradient(var(--app-green) 80%, white 20%);
+      transform: scale(1.3) rotate(-10deg)
     }
   }
 `;
