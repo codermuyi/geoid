@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { mid1, mid2 } from "../media-queries"
 import image from "../moving.gif";
+import { Link } from "react-router-dom"
 const S = {}
 
 const Home = () => {
@@ -22,10 +23,10 @@ const Home = () => {
         <h2>Explore the Earth</h2>
         <S.GridRow2>
           <div>
-            <a href="#pi">Learn about Countries</a>
+            <Link to="/countries">Learn about Countries</Link>
           </div>
           <div>
-            <a href="#pi">Track and Locate IP Addresses</a>
+            <Link to="">Track and Locate IP Addresses</Link>
           </div>
         </S.GridRow2>
       </S.Container>
