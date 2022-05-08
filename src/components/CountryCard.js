@@ -8,7 +8,7 @@ const CountryCard = (props) => {
       <Flag src={flags.png} alt={name.common} />
       <CountryInfo>
         <p className="name">{"Country Name" && name.common}</p>
-        <p className="other-info">Population: <span className="light-text">{population}</span></p>
+        <p className="other-info">Population: <span className="light-text">{population.toLocaleString()}</span></p>
         <p className="other-info">Region: <span className="light-text">{region}</span></p>
         <p className="other-info">Capital: <span className="light-text">{capital}</span></p>
       </CountryInfo>
