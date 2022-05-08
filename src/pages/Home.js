@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { mid1, mid2 } from "../media-queries"
+import { mid1 } from "../media-queries"
 import image from "../moving.gif";
 import { Link } from "react-router-dom"
 
