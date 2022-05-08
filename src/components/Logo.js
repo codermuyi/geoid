@@ -15,6 +15,7 @@ const StyledLogo = styled.div`
   /* margin-bottom: .3em; */
   border-radius: 10px;
   text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
 
   p { 
     font-size: ${props => props.size};
