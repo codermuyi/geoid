@@ -2,6 +2,9 @@ import styled from "styled-components"
 import { mid1, mid2 } from "../media-queries"
 import image from "../moving.gif";
 import { Link } from "react-router-dom"
+
+import Logo from "../components/Logo"
+
 const S = {}
 
 const Home = () => {
@@ -10,9 +13,12 @@ const Home = () => {
       <S.Grid>
         <S.Bg />
         <S.GridRow>
-          <S.GridCol1>
+          {/* <S.GridCol1>
             <h1>Geoid</h1>
-          </S.GridCol1>
+          </S.GridCol1> */}
+          <S.GridCol>
+            <Logo size="6rem" />
+          </S.GridCol>
           <S.GridCol2>
             <img src="location.png" alt="earth" />
           </S.GridCol2>
@@ -97,25 +103,24 @@ S.GridCol = styled.div`
   z-index: 5;
 `;
 
-S.GridCol1 = styled(S.GridCol)`
-  /* border: .1em solid var(--app-green); */
-  background: conic-gradient(white 40%, var(--app-green) 40%);
-  padding: .1em;
-  margin-bottom: .3em;
-  border-radius: 10px;
-  text-align: center;
+// S.GridCol1 = styled(S.GridCol)`
+//   background: conic-gradient(white 40%, var(--app-green) 40%);
+//   padding: .1em;
+//   margin-bottom: .3em;
+//   border-radius: 10px;
+//   text-align: center;
 
-  h1 {
-    font-size: 5rem;
-  }
+//   h1 {
+//     font-size: 5rem;
+//   }
 
-  @media (min-width: ${mid2}) {
-    h1 {
-      font-size: 6rem;
-      letter-spacing: .1em;
-    }
-  }
-`;
+//   @media (min-width: ${mid2}) {
+//     h1 {
+//       font-size: 6rem;
+//       letter-spacing: .1em;
+//     }
+//   }
+// `;
 
 S.GridCol2 = styled(S.GridCol)`
   position: relative;
@@ -169,19 +174,15 @@ S.GridRow2 = styled(S.GridRow)`
     margin-block: 1em;
 
     a {
-      cursor: pointer;
       display: block;
       width: inherit;
       aspect-ratio: 1 / 1;
       padding-block: 3em;
-      text-decoration: none;
-      color: inherit;
     }
 
     :hover {
-      /* background: var(--app-green); */
       background: conic-gradient(var(--app-green) 80%, white 20%);
-      transform: scale(1.3) rotate(-10deg)
+      transform: scale(1.1) rotate(-10deg)
     }
   }
 `;
