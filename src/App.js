@@ -24,7 +24,12 @@ const App = () => {
 
 S.App = styled.div`
   --app-green: #00bb77;
-  /* color: #333333; */
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 export default App;
