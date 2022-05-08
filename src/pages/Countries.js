@@ -28,7 +28,7 @@ const Countries = () => {
 
         <CountryList>
           {countriesData.map((country, index) => 
-            <Country key={index} {...country}x />
+            <Country key={index} {...country} />
           )}
         </CountryList>
       </Container>
