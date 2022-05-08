@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Footer from "./Footer";
 import Home from "./pages/Home"
 import Countries from "./pages/Countries"
-
+import "./App.css"
 
 const S = {}
 
@@ -24,7 +24,7 @@ const App = () => {
 
 S.App = styled.div`
   --app-green: #00bb77;
-  color: #333333;
+  /* color: #333333; */
 `;
 
 export default App;
