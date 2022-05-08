@@ -17,6 +17,7 @@ const App = () => {
           <Route path="/countries" element={<Countries />} />
         </Routes>
       </Router>
+      
       <Footer />
     </S.App>
   )
