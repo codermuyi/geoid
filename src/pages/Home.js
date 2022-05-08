@@ -103,25 +103,6 @@ S.GridCol = styled.div`
   z-index: 5;
 `;
 
-// S.GridCol1 = styled(S.GridCol)`
-//   background: conic-gradient(white 40%, var(--app-green) 40%);
-//   padding: .1em;
-//   margin-bottom: .3em;
-//   border-radius: 10px;
-//   text-align: center;
-
-//   h1 {
-//     font-size: 5rem;
-//   }
-
-//   @media (min-width: ${mid2}) {
-//     h1 {
-//       font-size: 6rem;
-//       letter-spacing: .1em;
-//     }
-//   }
-// `;
-
 S.GridCol2 = styled(S.GridCol)`
   position: relative;
   
