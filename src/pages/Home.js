@@ -13,9 +13,6 @@ const Home = () => {
       <S.Grid>
         <S.Bg />
         <S.GridRow>
-          {/* <S.GridCol1>
-            <h1>Geoid</h1>
-          </S.GridCol1> */}
           <S.GridCol>
             <Logo size="6rem" />
           </S.GridCol>
