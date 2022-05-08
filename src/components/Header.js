@@ -5,7 +5,9 @@ import Logo from "./Logo"
 const Header = () => {
   return (
     <StyledHeader>
-      <Link to="/"><Logo /></Link>
+      <Link to="/">
+        <Logo />
+      </Link>
     </StyledHeader>
   )
 }
