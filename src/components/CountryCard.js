@@ -21,7 +21,7 @@ const StyledCountry = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   flex-shrink: 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
   background-color: white;
@@ -29,7 +29,7 @@ const StyledCountry = styled.div`
 
 const Flag = styled.img`
   width: 100%;
-  height: 200px;
+  height: 150px;
 `
 
 const CountryInfo = styled.div`
