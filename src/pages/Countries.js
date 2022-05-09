@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
+import Select from "react-select"
 import { mid2 } from "../media-queries"
 
 import Header from "../components/Header"
@@ -8,28 +9,49 @@ import Country from "../components/CountryCard"
 const Countries = () => {
   const [countriesData, setCountriesData] = useState([])
   const [searchInput, setSearchInput] = useState("")
+  const [region, setRegion] = useState("africa")
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/region/europe")
+    fetch(`https://restcountries.com/v3.1/region/${region}`)
       .then(res => res.json())
       .then(data => setCountriesData(data))
       .catch(error => console.log(error))
-  }, []);
+  }, [region]);
 
-  function handleSearch(e) {
-    setSearchInput(e.target.value)
+  function handleChange(e) {
+    if (e.target) {
+      setSearchInput(e.target.value)
+      return
+    }
+    setRegion(e.value)
   }
 
-  console.log(searchInput)
+  console.log(searchInput, region)
+
+  const options = [
+    { value: 'africa', label: 'Africa' },
+    { value: 'america', label: 'America' },
+    { value: 'asia', label: 'Asia' },
+    { value: 'europe', label: 'Europe' },
+    { value: 'oceania', label: 'Oceania' }
+  ]
 
   return (
     <div>
       <Header />
       <Container>
-        <Search value={searchInput} onChange={handleSearch} />
+        <div>
+          <Search value={searchInput} onChange={handleChange} />
+          <Select 
+            noOptionsMessage={"Filter by region"}
+            value={region} 
+            options={options} 
+            onChange={handleChange} 
+          />
+        </div>
 
         <CountryList>
-          {countriesData.map((country, index) => 
+          {countriesData.map((country, index) =>
             <Country key={index} {...country} />
           )}
         </CountryList>
@@ -41,7 +63,8 @@ const Countries = () => {
 const Container = styled.div`
   padding: 1em;
   background-color: hsl(0, 0%, 98%);
-  margin-top: 5rem; 
+  margin-top: 5rem;
+  color: hsl(200, 15%, 8%);
 `
 
 const Search = styled.input.attrs(props => ({
@@ -59,7 +82,11 @@ const Search = styled.input.attrs(props => ({
   text-indent: 2em;
 
   :placeholder {
-    color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 52%)
+  }
+  
+  @media (min-width: ${mid2}) {
+    margin-left: 4em;
   }
 `
 
@@ -70,7 +97,7 @@ const CountryList = styled.div`
   gap: 3em;
   margin: 3em 2em;
 
-  @media (min-width: mid2) {
+  @media (min-width: ${mid2}) {
     margin-inline: 3.5em;
   }
 `
