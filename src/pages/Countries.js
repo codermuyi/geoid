@@ -5,17 +5,27 @@ import { mid2 } from "../media-queries"
 
 import Header from "../components/Header"
 import Country from "../components/CountryCard"
+import Loader from "../components/Loader"
 
 const Countries = () => {
   const [countriesData, setCountriesData] = useState([])
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("africa")
+  const [hasLoaded, setHasLoaded] = useState(false)
+  const [failedToFetch, setFailedToFetch] = useState(false)
 
   useEffect(() => {
+    setHasLoaded(false)
+
     fetch(`https://restcountries.com/v3.1/region/${region}`)
       .then(res => res.json())
-      .then(data => setCountriesData(data))
-      .catch(error => console.log(error))
+      .then(data => {
+        setFailedToFetch(false)
+        setHasLoaded(true)
+        setCountriesData(data)
+      })
+      .catch(() => setFailedToFetch(true))
+      .finally(() => setHasLoaded(true))
   }, [region]);
 
   function handleChange(e) {
@@ -47,11 +57,17 @@ const Countries = () => {
           />
         </div>
 
-        <CountryList>
-          {countriesData.map((country, index) =>
-            <Country key={index} {...country} />
-          )}
-        </CountryList>
+        {
+          failedToFetch ? 
+            <p style={{padding: "2em 0", textAlign: "center", fontSize: "3em"}}>Could not load. Check your data connections</p> :
+            !hasLoaded ? 
+              <Loader /> :
+              <CountryList>
+              {countriesData.map((country, index) =>
+                <Country key={index} {...country} />
+              )}
+            </CountryList>
+        }
       </Container>
     </div>
   )
