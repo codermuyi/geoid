@@ -84,6 +84,8 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    max-width: 1200px;
+    margin-inline: auto;
 
     > * {
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
