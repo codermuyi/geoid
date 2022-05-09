@@ -26,8 +26,6 @@ const Countries = () => {
     setRegion(e.value)
   }
 
-  console.log(searchInput, region)
-
   const options = [
     { value: 'africa', label: 'Africa' },
     { value: 'america', label: 'America' },
@@ -40,13 +38,12 @@ const Countries = () => {
     <div>
       <Header />
       <Container>
-        <div>
+        <div className="form">
           <Search value={searchInput} onChange={handleChange} />
-          <Select 
-            noOptionsMessage={"Filter by region"}
-            value={region} 
-            options={options} 
-            onChange={handleChange} 
+          <Select
+            options={options}
+            onChange={handleChange}
+            placeholder="Filter by region"
           />
         </div>
 
@@ -65,6 +62,27 @@ const Container = styled.div`
   background-color: hsl(0, 0%, 98%);
   margin-top: 5rem;
   color: hsl(200, 15%, 8%);
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    > * {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      > * {
+        border-color: var(--app-green);
+        padding: .1em 2em;
+      }
+    }
+
+    @media (min-width: ${mid2}) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 `
 
 const Search = styled.input.attrs(props => ({
@@ -75,7 +93,6 @@ const Search = styled.input.attrs(props => ({
   border: 0;
   border-radius: 1em;
   background: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   width: 100%;
   max-width: 40em;
   margin-block: 2em;
@@ -85,9 +102,9 @@ const Search = styled.input.attrs(props => ({
     color: hsl(0, 0%, 52%)
   }
   
-  @media (min-width: ${mid2}) {
+  /* @media (min-width: ${mid2}) {
     margin-left: 4em;
-  }
+  } */
 `
 
 const CountryList = styled.div`
