@@ -29,6 +29,7 @@ const StyledHeader = styled.div`
   background: white;
   display: flex;
   transition-duration: .3s;
+  z-index: 100;
 `
 
 export default Header
