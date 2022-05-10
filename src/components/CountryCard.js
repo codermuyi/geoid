@@ -40,11 +40,16 @@ const Flag = styled.img`
 const CountryInfo = styled.div`
   padding: 0 1em;
   height: 200px;
+  overflow: hidden;
 
   .name { 
     font-size: 1.5em;
     font-weight: 700;
     margin-block: .8em;
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .other-info {
@@ -58,7 +63,6 @@ const CountryInfo = styled.div`
       font-size: 1.15em;
     }
   }
-
 `
 
 export default CountryCard
