@@ -7,6 +7,7 @@ import { mid2 } from "../media-queries"
 import Header from "../components/Header"
 import Country from "../components/CountryCard"
 import Loader from "../components/Loader"
+import ScrollToTop from "../components/ScrollToTop"
 
 // import offLineCountriesData from "../countries-data"
 
@@ -51,6 +52,7 @@ const Countries = () => {
   return (
     <div>
       <Header />
+      <ScrollToTop />
       <Container>
         <div className="form">
           <Search value={searchInput} onChange={handleChange} />
