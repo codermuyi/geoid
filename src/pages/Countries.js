@@ -7,6 +7,14 @@ import Header from "../components/Header"
 import Country from "../components/CountryCard"
 import Loader from "../components/Loader"
 
+const regionFilterOptions = [
+  { value: 'africa', label: 'Africa' },
+  { value: 'america', label: 'America' },
+  { value: 'asia', label: 'Asia' },
+  { value: 'europe', label: 'Europe' },
+  { value: 'oceania', label: 'Oceania' }
+]
+
 const Countries = () => {
   const [countriesData, setCountriesData] = useState([])
   const [searchInput, setSearchInput] = useState("")
@@ -36,14 +44,7 @@ const Countries = () => {
     setRegion(e.value)
   }
 
-  const options = [
-    { value: 'africa', label: 'Africa' },
-    { value: 'america', label: 'America' },
-    { value: 'asia', label: 'Asia' },
-    { value: 'europe', label: 'Europe' },
-    { value: 'oceania', label: 'Oceania' }
-  ]
-
+  // console.log(countriesData)
   return (
     <div>
       <Header />
@@ -51,7 +52,7 @@ const Countries = () => {
         <div className="form">
           <Search value={searchInput} onChange={handleChange} />
           <Select
-            options={options}
+            options={regionFilterOptions}
             onChange={handleChange}
             placeholder="Filter by region"
             className="region-filter-container"
