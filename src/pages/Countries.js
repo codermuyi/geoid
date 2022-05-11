@@ -53,9 +53,8 @@ const Countries = () => {
   return (
     <div>
       <Header />
-      <ScrollToTop />
       <Container>
-        <div className="form">
+        <Filter>
           <Search 
             value={searchInput}
             onChange={handleChange}
@@ -67,7 +66,7 @@ const Countries = () => {
             className="region-filter-container"
             classNamePrefix="region-filter"
           />
-        </div>
+        </Filter>
 
         {
           failedToFetch ?
@@ -83,6 +82,7 @@ const Countries = () => {
               </CountryList>
         }
       </Container>
+      <ScrollToTop />
     </div>
   )
 }
@@ -92,37 +92,37 @@ const Container = styled.div`
   background-color: hsl(0, 0%, 98%);
   margin-top: 5rem;
   color: hsl(200, 15%, 8%);
+`
 
-  .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin-inline: auto;
+const Filter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin-inline: auto;
 
-    > * {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    
-    .region-filter__control {
-      border-color: var(--app-green);
-      padding: .4em 1em;
-    }
-    
-    .region-filter__menu-list {
-      padding: .1em 1em;
+  > * {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
 
-      > *:hover {
-        background-color: rgba(0, 187, 119, .5);
-      }
-    }
+  .region-filter__control {
+    border-color: var(--app-green);
+    padding: .4em 1em;
+  }
 
-    @media (min-width: ${mid2}) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+  .region-filter__menu-list {
+    padding: .1em 1em;
+
+    > *:hover {
+      background-color: rgba(0, 187, 119, .5);
     }
+  }
+
+  @media (min-width: ${mid2}) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 `
 
