@@ -39,7 +39,8 @@ const Countries = () => {
 
   function handleChange(e) {
     if (e.target) {
-      setSearchInput(e.target.value)
+      let value = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+      setSearchInput(value)
       return
     }
     setRegion(e.value)
