@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Error = () => {
+const FetchError = () => {
 
   return (
     <ErrorDisplay>
@@ -20,4 +20,4 @@ const ErrorDisplay = styled.div`
   }
 `
 
-export default Error
+export default FetchError
