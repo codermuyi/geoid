@@ -26,10 +26,10 @@ const Home = () => {
         <h2>Explore the Earth</h2>
         <S.GridRow2>
           <div>
-            <Link to="/countries">Learn about Countries</Link>
+            <Link to="countries">Learn about Countries</Link>
           </div>
           <div>
-            <Link to="">Track and Locate IP Addresses</Link>
+            <Link to="locator">Track and Locate IP Addresses</Link>
           </div>
         </S.GridRow2>
       </S.Container>

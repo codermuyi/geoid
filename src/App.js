@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Footer from "./Footer";
 import Home from "./pages/Home"
 import Countries from "./pages/Countries"
+import Locator from "./pages/Locator"
 import "./App.css"
 
 const S = {}
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/countries" element={<Countries />} />
+          <Route path="/locator" element={<Locator />} />
         </Routes>
       </Router>
       
