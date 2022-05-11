@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 import Logo from "./Logo"
 
-const Header = () => {
+const Header = props => {
   const [windowScroll, setWindowScroll] = useState(0)
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Header = () => {
   }, [])
 
   return (
-    <StyledHeader scroll={windowScroll}>
+    <StyledHeader scroll={windowScroll} homepage={props.homepage}>
       <img src="world.png" alt="earth"/>
       <Link to="/">
         <Logo />
@@ -33,6 +33,7 @@ const StyledHeader = styled.div`
   z-index: 100;
 
   img {
+    display: ${props => props.homepage ? "none" : "inline-block"};
     width: ${props => props.scroll ? "60px" : "0"};
     height: 50px;
     padding-right: .5em;

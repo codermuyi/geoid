@@ -4,12 +4,14 @@ import image from "../moving.gif";
 import { Link } from "react-router-dom"
 
 import Logo from "../components/Logo"
+import Header from "../components/Header"
 
 const S = {}
 
 const Home = () => {
   return (
     <S.Home>
+      <Header homepage/>
       <S.Grid>
         <S.Bg />
         <S.GridRow>
@@ -108,7 +110,7 @@ S.GridCol2 = styled(S.GridCol)`
     width: 100%;
     padding-inline: 10%;
     position: sticky;
-    top: 0;
+    top: 5em;
     padding-top: 1em;
   }
 
