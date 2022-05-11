@@ -54,19 +54,21 @@ const Countries = () => {
             options={options}
             onChange={handleChange}
             placeholder="Filter by region"
+            className="region-filter-container"
+            classNamePrefix="region-filter"
           />
         </div>
 
         {
-          failedToFetch ? 
-            <p style={{padding: "2em 0", textAlign: "center", fontSize: "3em"}}>Could not load. Check your data connections</p> :
-            !hasLoaded ? 
+          failedToFetch ?
+            <p style={{ padding: "2em 0", textAlign: "center", fontSize: "3em" }}>Could not load. Check your data connections</p> :
+            !hasLoaded ?
               <Loader /> :
               <CountryList>
-              {countriesData.map((country, index) =>
-                <Country key={index} {...country} />
-              )}
-            </CountryList>
+                {countriesData.map((country, index) =>
+                  <Country key={index} {...country} />
+                )}
+              </CountryList>
         }
       </Container>
     </div>
@@ -89,9 +91,18 @@ const Container = styled.div`
 
     > * {
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      > * {
-        border-color: var(--app-green);
-        padding: .1em 2em;
+    }
+    
+    .region-filter__control {
+      border-color: var(--app-green);
+      padding: .4em 1em;
+    }
+    
+    .region-filter__menu-list {
+      padding: .1em 1em;
+
+      > *:hover {
+        background-color: rgba(0, 187, 119, .5);
       }
     }
 
