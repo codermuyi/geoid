@@ -13,9 +13,9 @@ const Footer = () => {
 
 S.Footer = styled.footer`
   text-align: center;
-  padding-block: 5em;
+  padding-block: 6em;
   color: var(--app-green);
-  border-inline: 1em dashed var(--app-green);
+  border-inline: 5em dotted var(--app-green);
 
   a {
     text-decoration: none;
