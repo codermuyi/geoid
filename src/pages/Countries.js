@@ -7,7 +7,7 @@ import { mid2 } from "../media-queries"
 import Header from "../components/Header"
 import Country from "../components/CountryCard"
 import Loader from "../components/Loader"
-import Error from "../components/FetchError"
+import FetchError from "../components/FetchError"
 import ScrollToTop from "../components/ScrollToTop"
 
 // import offLineCountriesData from "../countries-data"
@@ -71,7 +71,7 @@ const Countries = () => {
 
         {
           failedToFetch ?
-            <Error /> :
+            <FetchError /> :
             !hasLoaded ?
               <Loader /> :
               <CountryList>
