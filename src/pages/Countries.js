@@ -8,6 +8,8 @@ import Header from "../components/Header"
 import Country from "../components/CountryCard"
 import Loader from "../components/Loader"
 
+// import offLineCountriesData from "../countries-data"
+
 const regionFilterOptions = [
   { value: 'africa', label: 'Africa' },
   { value: 'americas', label: 'America' },
@@ -45,7 +47,7 @@ const Countries = () => {
     }
     setRegion(e.value)
   }
-  
+
   return (
     <div>
       <Header />
