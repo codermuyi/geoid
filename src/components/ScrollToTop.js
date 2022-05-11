@@ -1,25 +1,25 @@
 import styled from "styled-components"
-
 import { useState, useEffect } from "react"
+
+import { ReactComponent as Arrow } from "../assets/up-arrow.svg"
 
 const ScrollToTop = () => {
   const [scrollTop, setScrollTop] = useState(0)
 
   useEffect(() => {
-    let scrollEvent = window.addEventListener("scroll", () => {
+    let scrollEvent = window.addEventListener("scroll", (e) => {
       setScrollTop(window.scrollY)
     })
     return () => window.removeEventListener("scroll", scrollEvent)
   }, [])
-  console.log(scrollTop)
 
   function scrollToTop(e) {
-    console.log("positivity")
+    window.scrollTo(0, 0)
   }
 
   return (
     <Button top={scrollTop} onClick={scrollToTop}>
-      <p>Scroll to top</p>
+      <Arrow />
     </Button>
   )
 }
@@ -27,10 +27,11 @@ const ScrollToTop = () => {
 const Button = styled.button`
   position: fixed;
   bottom: 2em;
-  right: 2em;
-  padding: 3em;
-  background-color: white;
-  display: ${props => props.top < 1000 ? "block" : "hidden"};
+  border-color: var(--app-green);
+  width: 4em;
+  background-color: transparent;
+  right: ${props => props.top > 900 ? "2em" : "-10em"};
+  transition-duration: .2s;
 `
 
 export default ScrollToTop
