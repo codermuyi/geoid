@@ -7,6 +7,7 @@ import { mid2 } from "../media-queries"
 import Header from "../components/Header"
 import Country from "../components/CountryCard"
 import Loader from "../components/Loader"
+import Error from "../components/Error"
 import ScrollToTop from "../components/ScrollToTop"
 
 // import offLineCountriesData from "../countries-data"
@@ -67,7 +68,7 @@ const Countries = () => {
 
         {
           failedToFetch ?
-            <p style={{ padding: "2em 0", textAlign: "center", fontSize: "3em" }}>Could not load. Check your data connections</p> :
+            <Error /> :
             !hasLoaded ?
               <Loader /> :
               <CountryList>
