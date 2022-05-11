@@ -9,7 +9,7 @@ import Loader from "../components/Loader"
 
 const regionFilterOptions = [
   { value: 'africa', label: 'Africa' },
-  { value: 'america', label: 'America' },
+  { value: 'americas', label: 'America' },
   { value: 'asia', label: 'Asia' },
   { value: 'europe', label: 'Europe' },
   { value: 'oceania', label: 'Oceania' }
@@ -25,7 +25,7 @@ const Countries = () => {
   useEffect(() => {
     setHasLoaded(false)
 
-    fetch(`https://restcountries.com/v3.1/region/${region}`)
+    fetch(`https://restcountries.com/v3.1/all`)
       .then(res => res.json())
       .then(data => {
         setFailedToFetch(false)
@@ -34,7 +34,7 @@ const Countries = () => {
       })
       .catch(() => setFailedToFetch(true))
       .finally(() => setHasLoaded(true))
-  }, [region]);
+  }, []);
 
   function handleChange(e) {
     if (e.target) {
@@ -43,8 +43,7 @@ const Countries = () => {
     }
     setRegion(e.value)
   }
-
-  // console.log(countriesData)
+  
   return (
     <div>
       <Header />
@@ -66,9 +65,11 @@ const Countries = () => {
             !hasLoaded ?
               <Loader /> :
               <CountryList>
-                {countriesData.map((country, index) =>
-                  <Country key={index} {...country} />
-                )}
+                {countriesData.map((country, index) => {
+                  if (country.region.toLowerCase() === region) {
+                    return <Country key={index} {...country} />;
+                  }
+                })}
               </CountryList>
         }
       </Container>
