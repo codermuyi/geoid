@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import Select from "react-select"
