@@ -47,6 +47,7 @@ S.Home = styled.main`
 S.Grid = styled.div`
   display: grid;
   position: relative;
+  margin-top: 4em;
 `;
 
 S.Bg = styled.div`
