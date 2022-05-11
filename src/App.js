@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import Footer from "./Footer";
+import SharedLayout from "./components/SharedLayout"
 import Home from "./pages/Home"
 import Countries from "./pages/Countries"
 import Locator from "./pages/Locator"
@@ -15,12 +15,12 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/countries" element={<Countries />} />
-          <Route path="/locator" element={<Locator />} />
+          <Route path="/" element={<SharedLayout />}>
+            <Route path="countries" element={<Countries />} />
+            <Route path="locator" element={<Locator />} />
+          </Route>
         </Routes>
       </Router>
-      
-      <Footer />
     </S.App>
   )
 }
