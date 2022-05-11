@@ -4,14 +4,12 @@ import image from "../moving.gif";
 import { Link } from "react-router-dom"
 
 import Logo from "../components/Logo"
-import Header from "../components/Header"
 
 const S = {}
 
 const Home = () => {
   return (
     <S.Home>
-      <Header homepage/>
       <S.Grid>
         <S.Bg />
         <S.GridRow>

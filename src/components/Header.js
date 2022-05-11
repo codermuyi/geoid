@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Logo from "./Logo"
 
 const Header = props => {
   const [windowScroll, setWindowScroll] = useState(0)
+
+  const path = useLocation().pathname
 
   useEffect(() => {
     let scrollEvent = window.addEventListener("scroll", () => setWindowScroll(window.scrollY))
@@ -12,7 +14,7 @@ const Header = props => {
   }, [])
 
   return (
-    <StyledHeader scroll={windowScroll} homepage={props.homepage}>
+    <StyledHeader scroll={windowScroll} homepage={path === "/"}>
       <img src="world.png" alt="earth"/>
       <Link to="/">
         <Logo />

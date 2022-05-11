@@ -14,8 +14,8 @@ const App = () => {
     <S.App>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
             <Route path="countries" element={<Countries />} />
             <Route path="locator" element={<Locator />} />
           </Route>

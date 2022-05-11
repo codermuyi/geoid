@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Select from "react-select"
 import { mid2 } from "../media-queries"
 
-// import Header from "../components/Header"
 import Country from "../components/CountryCard"
 import Loader from "../components/Loader"
 import FetchError from "../components/FetchError"
@@ -52,7 +51,6 @@ const Countries = () => {
 
   return (
     <div>
-      {/* <Header /> */}
       <Container>
         <Filter>
           <Search 
