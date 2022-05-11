@@ -26,8 +26,8 @@ const StyledHeader = styled.div`
   top: 0;
   width: 100%;
   padding: .5em;
-  box-shadow: ${props => props.scroll ? "0 3px 4px rgba(0, 0, 0, 0.1)" : "0"};
-  background: white;
+  box-shadow: ${props => props.homepage ? "none" : props.scroll ? "0 3px 4px rgba(0, 0, 0, 0.1)" : "0"};
+  background-color: ${props => props.homepage ? "transparent" : "white"};
   display: flex;
   transition-duration: .3s;
   z-index: 100;
