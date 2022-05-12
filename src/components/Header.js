@@ -36,12 +36,13 @@ const StyledHeader = styled.div`
 
   img {
     display: ${props => props.homepage ? "none" : "inline-block"};
+    transform: ${props => props.scroll ? "scale(1)" : "scale(0)"};
     width: ${props => props.scroll ? "60px" : "0"};
     height: 50px;
     padding-right: .5em;
     flex-shrink: 0;
     object-fit: cover;
-    transition-duration: inherit;
+    transition-duration: .2s;
   }
 `
 
