@@ -22,7 +22,7 @@ const regionFilterOptions = [
 const Countries = () => {
   const [countriesData, setCountriesData] = useState([])
   const [searchInput, setSearchInput] = useState("")
-  const [region, setRegion] = useState("africa")
+  const [region, setRegion] = useState("")
   const [hasLoaded, setHasLoaded] = useState(false)
   const [failedToFetch, setFailedToFetch] = useState(false)
 
@@ -74,7 +74,9 @@ const Countries = () => {
               <CountryList>
                 {countriesData.map((country, index) => {
                   if (country.region.toLowerCase() === region) {
-                    return <Country key={index} {...country} />;
+                    return <Country key={index} {...country} />
+                  } else if (!region) {
+                    return <Country key={index} {...country} />
                   }
                 })}
               </CountryList>
