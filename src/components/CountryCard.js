@@ -10,7 +10,7 @@ const CountryCard = (props) => {
 
   return (
     <StyledCountry>
-      <Flag src={flags.png} alt={name.common} />
+      <Flag src={flags.png} alt={name.common} loading="lazy" />
       <CountryInfo>
         <p className="name">{"Country Name" && name.common}</p>
         <p className="other-info">Population: <span className="light-text">{population.toLocaleString()}</span></p>
