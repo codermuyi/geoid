@@ -41,7 +41,7 @@ const CountryInfo = styled.div`
   padding: 0 1em;
   height: 200px;
   overflow: hidden;
-  border-top: .5em solid grey;
+  border-top: .5em solid rgba(0, 0, 0, .1);
 
   .name { 
     font-size: 1.5em;
