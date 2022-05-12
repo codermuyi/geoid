@@ -15,7 +15,7 @@ S.Footer = styled.footer`
   text-align: center;
   padding-block: 6em;
   color: var(--app-green);
-  border-inline: 5em dotted var(--app-green);
+  border-bottom: 1em dotted var(--app-green);
 
   a {
     text-decoration: none;
