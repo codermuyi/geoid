@@ -42,12 +42,29 @@ const Countries = () => {
 
   function handleChange(e) {
     if (e.target) {
-      let value = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+      let value = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase();
       setSearchInput(value)
       return
     }
     setRegion(e.value)
   }
+
+  const countries = countriesData.map((country, index) => {
+    const comp = <Country key={index} {...country} />
+    const nameList = Object.values(country.name)
+
+    if (searchInput) {
+      if (nameList.includes(searchInput.trim()) || nameList.join("").toLowerCase().includes(searchInput.toLowerCase().trim())) {
+        return comp
+      }
+    } else {
+      if (!region) {
+        return comp
+      } else if (country.region.toLowerCase() === region) {
+        return comp
+      }
+    }
+  })
 
   return (
     <div>
@@ -72,13 +89,7 @@ const Countries = () => {
             !hasLoaded ?
               <Loader /> :
               <CountryList>
-                {countriesData.map((country, index) => {
-                  if (country.region.toLowerCase() === region) {
-                    return <Country key={index} {...country} />
-                  } else if (!region) {
-                    return <Country key={index} {...country} />
-                  }
-                })}
+                {countries ? countries : <p>No country with such name</p>}
               </CountryList>
         }
       </Container>
