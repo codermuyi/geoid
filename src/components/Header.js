@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styled from "styled-components"
 import { Link, useLocation } from "react-router-dom"
 import Logo from "./Logo"
+import imgUrl from "../assets/world.png"
 
 const Header = props => {
   const [windowScroll, setWindowScroll] = useState(0)
@@ -15,7 +16,7 @@ const Header = props => {
 
   return (
     <StyledHeader scroll={windowScroll} homepage={path === "/"}>
-      <img src="world.png" alt="earth"/>
+      <img src={imgUrl} alt="earth"/>
       <Link to="/">
         <Logo />
       </Link>
