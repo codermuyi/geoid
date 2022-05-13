@@ -1,12 +1,13 @@
 import styled from "styled-components"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
+import "./App.css"
 import SharedLayout from "./components/SharedLayout"
+import Error from "./components/Error"
 import Home from "./pages/Home"
 import Countries from "./pages/Countries"
 import Country from "./pages/Country"
 import Locator from "./pages/Locator"
-import "./App.css"
 
 const S = {}
 
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="countries" element={<Countries />} />
             <Route path="countries/:country" element={<Country />} />
             <Route path="locator" element={<Locator />} />
+            <Route path="*" element={<Error message="404. Page not found." />} />
           </Route>
         </Routes>
       </Router>
