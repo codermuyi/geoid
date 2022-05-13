@@ -15,4 +15,5 @@ body {
   padding: 1em;
   margin-top: 5rem;
   color: hsl(200, 15%, 8%);
+  min-height: 60vh;
 }
