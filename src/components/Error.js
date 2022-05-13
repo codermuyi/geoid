@@ -24,7 +24,10 @@ const ErrorDisplay = styled.div`
   }
 
   a {
-    font-size: .5em;
+    font-size: .4em;
+    background-color: #ffffff;
+    padding: .4em;
+    box-shadow: 0 0 .2em rgba(0, 0, 0, .1)
   }
 `
 
