@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import SharedLayout from "./components/SharedLayout"
 import Home from "./pages/Home"
 import Countries from "./pages/Countries"
+import Country from "./pages/Country"
 import Locator from "./pages/Locator"
 import "./App.css"
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
             <Route path="countries" element={<Countries />} />
+            <Route path="countries/:country" element={<Country />} />
             <Route path="locator" element={<Locator />} />
           </Route>
         </Routes>
