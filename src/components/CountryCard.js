@@ -44,7 +44,7 @@ const CountryInfo = styled.div`
   border-top: .5em solid rgba(0, 0, 0, .1);
 
   .name { 
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 700;
     margin-block: .8em;
     width: 240px;
@@ -57,11 +57,10 @@ const CountryInfo = styled.div`
     padding: 0;
     margin: .15em 0;
     font-weight: 600;
-    font-size: 1.1em;
 
     .light-text {
       font-weight: 200;
-      font-size: 1.15em;
+      font-size: 1.1em;
     }
   }
 `
