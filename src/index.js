@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import LogRocket from 'logrocket';
+
+LogRocket.init('sl4yxa/geoid');
 
 const root = createRoot(document.getElementById('root'))
 root.render(
