@@ -67,43 +67,34 @@ const Countries = () => {
   })
 
   return (
-    <div>
-      <Container>
-        <Filter>
-          <Search 
-            value={searchInput}
-            onChange={handleChange}
-          />
-          <Select
-            options={regionFilterOptions}
-            onChange={handleChange}
-            placeholder="Filter by region"
-            className="region-filter-container"
-            classNamePrefix="region-filter"
-          />
-        </Filter>
+    <div className="page">
+      <Filter>
+        <Search
+          value={searchInput}
+          onChange={handleChange}
+        />
+        <Select
+          options={regionFilterOptions}
+          onChange={handleChange}
+          placeholder="Filter by region"
+          className="region-filter-container"
+          classNamePrefix="region-filter"
+        />
+      </Filter>
 
-        {
-          failedToFetch ?
-            <FetchError /> :
-            !hasLoaded ?
-              <Loader /> :
-              <CountryList>
-                {countries ? countries : <p>No country with such name</p>}
-              </CountryList>
-        }
-      </Container>
+      {
+        failedToFetch ?
+          <FetchError /> :
+          !hasLoaded ?
+            <Loader /> :
+            <CountryList>
+              {countries ? countries : <p>No country with such name</p>}
+            </CountryList>
+      }
       <ScrollToTop />
     </div>
   )
 }
-
-const Container = styled.div`
-  padding: 1em;
-  background-color: hsl(0, 0%, 98%);
-  margin-top: 5rem;
-  color: hsl(200, 15%, 8%);
-`
 
 const Filter = styled.div`
   display: flex;

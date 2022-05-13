@@ -4,7 +4,7 @@ const Country = () => {
   const { country } = useParams()
 
   return (
-    <div style={{padding: "5em"}}>
+    <div className="page">
       Hello, {country}
     </div>
   )

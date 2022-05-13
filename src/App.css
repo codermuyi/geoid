@@ -9,3 +9,10 @@ body {
 * {
   outline-color: var(--app-green);
 }
+
+.page {
+  background-color: hsl(0, 0%, 98%);
+  padding: 1em;
+  margin-top: 5rem;
+  color: hsl(200, 15%, 8%);
+}
