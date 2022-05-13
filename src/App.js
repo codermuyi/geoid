@@ -21,7 +21,7 @@ const App = () => {
             <Route path="countries" element={<Countries />} />
             <Route path="countries/:country" element={<Country />} />
             <Route path="locator" element={<Locator />} />
-            <Route path="*" element={<Error message="404. Page not found." />} />
+            <Route path="*" element={<Error page />} />
           </Route>
         </Routes>
       </Router>

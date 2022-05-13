@@ -1,13 +1,16 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-const Error = ({ message }) => {
+const Error = ({ page, fetch }) => {
 
   return (
     <div className="page">
       <ErrorDisplay>
-        <p>{message}</p>
-        {message.includes("404") && <Link to="/">Go back to home page</Link>}
+        {page && <>
+          <p>404. Page not found.</p>
+          <Link to="/">Go back to home page</Link>
+        </>}
+        {fetch && <p>Could not load. Please check your data connection or refresh the page.</p>}
       </ErrorDisplay>
     </div>
   )

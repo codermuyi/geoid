@@ -84,7 +84,7 @@ const Countries = () => {
 
       {
         failedToFetch ?
-          <Error message="Could not load. Please check your data connection or refresh the page." /> :
+          <Error fetch /> :
           hasLoaded ?
             <CountryList>
               {countries ? countries : <p>No country with such name</p>}
