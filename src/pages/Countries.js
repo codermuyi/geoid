@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Select from "react-select"
 import { mid2 } from "../media-queries"
 
-import Country from "../components/CountryCard"
+import CountryCard from "../components/CountryCard"
 import Loader from "../components/Loader"
 import Error from "../components/Error"
 import ScrollToTop from "../components/ScrollToTop"
@@ -50,7 +50,7 @@ const Countries = () => {
   }
 
   const countries = countriesData.map((country, index) => {
-    const comp = <Country key={index} {...country} />
+    const comp = <CountryCard key={index} {...country} />
     const nameList = Object.values(country.name)
 
     if (searchInput) {
