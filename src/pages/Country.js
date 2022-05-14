@@ -25,7 +25,7 @@ const Country = () => {
         hasLoaded ?
           <Content>
             <Col>
-              <img src={countryData.flags.png} alt="" />
+              <img src={countryData.flags.png} alt={`Flag of ${countryData.name.common}`} />
             </Col>
             <Col>
               <h2>{countryData.name.official}</h2>

@@ -7,7 +7,7 @@ const CountryCard = (props) => {
   return (
     <StyledCountry>
       <Link to={name.common}>
-        <Flag src={flags.png} alt={name.common} loading="lazy" />
+        <Flag src={flags.png} alt={`Flag of ${name.common}`} loading="lazy" />
       </Link>
       <CountryInfo>
         <p className="name">{"Country Name" && name.common}</p>
