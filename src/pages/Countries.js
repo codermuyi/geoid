@@ -27,8 +27,6 @@ const Countries = () => {
   const [failedToFetch, setFailedToFetch] = useState(false)
 
   useEffect(() => {
-    setHasLoaded(false)
-    
     if (retrieveData() === null || retrieveData() === undefined) {
       fetch(`https://restcountries.com/v3.1/all`)
         .then(res => res.json())
