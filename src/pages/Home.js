@@ -23,7 +23,7 @@ const Home = () => {
       </S.Grid>
 
       <S.Container>
-        <h2>Explore the Earth</h2>
+        <h2>Learn about the Earth</h2>
         <S.GridRow2>
           <div>
             <Link to="countries">Learn about Countries</Link>
