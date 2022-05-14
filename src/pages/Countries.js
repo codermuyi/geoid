@@ -28,17 +28,32 @@ const Countries = () => {
 
   useEffect(() => {
     setHasLoaded(false)
-
-    fetch(`https://restcountries.com/v3.1/all`)
-      .then(res => res.json())
-      .then(data => {
-        setFailedToFetch(false)
-        setHasLoaded(true)
-        setCountriesData(data)
-      })
-      .catch(() => setFailedToFetch(true))
-      .finally(() => setHasLoaded(true))
+    
+    if (retrieveData() === null || retrieveData() === undefined) {
+      fetch(`https://restcountries.com/v3.1/all`)
+        .then(res => res.json())
+        .then(data => {
+          setFailedToFetch(false)
+          setHasLoaded(true)
+          setCountriesData(data)
+          storeData(data)
+        })
+        .catch(() => setFailedToFetch(true))
+        .finally(() => setHasLoaded(true))
+    } else {
+      setCountriesData(retrieveData())
+      setHasLoaded(true)
+    }
   }, []);
+
+
+  function storeData(data) {
+    localStorage.setItem("countries-data", JSON.stringify(data))
+  }
+
+  function retrieveData() {
+    return JSON.parse(localStorage.getItem("countries-data"))
+  }
 
   function handleChange(e) {
     if (e.target) {
