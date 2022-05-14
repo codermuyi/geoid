@@ -60,6 +60,7 @@ const Countries = () => {
       return
     }
     setRegion(e.value)
+    setSearchInput("")
   }
 
   const countries = countriesData.map((country, index) => {
