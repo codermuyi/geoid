@@ -1,16 +1,14 @@
-import { useEffect } from "react"
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 
 const CountryCard = (props) => {
-  const {name, flags, population, region, capital} = props
-  
-  useEffect(() => {
-
-  }, [])
+  const { name, flags, population, region, capital } = props
 
   return (
     <StyledCountry>
-      <Flag src={flags.png} alt={name.common} loading="lazy" />
+      <Link to={name.common}>
+        <Flag src={flags.png} alt={name.common} loading="lazy" />
+      </Link>
       <CountryInfo>
         <p className="name">{"Country Name" && name.common}</p>
         <p className="other-info">Population: <span className="light-text">{population.toLocaleString()}</span></p>
