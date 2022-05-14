@@ -10,7 +10,7 @@ const Error = ({ page, fetch }) => {
           <p>404. Page not found.</p>
           <Link to="/">Go back to home page</Link>
         </>}
-        {fetch && <p>Could not load. Please check your data connection or refresh the page.</p>}
+        {fetch && <p>Could not load. Please check your data connection and refresh the page.</p>}
       </ErrorDisplay>
     </div>
   )
