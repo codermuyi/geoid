@@ -8,13 +8,13 @@ const CountryCard = (props) => {
     <StyledCountry>
       <Link to={name.common}>
         <Flag src={flags.png} alt={`Flag of ${name.common}`} loading="lazy" />
+        <CountryInfo>
+          <p className="name">{"Country Name" && name.common}</p>
+          <p className="other-info">Population: <span className="light-text">{population.toLocaleString()}</span></p>
+          <p className="other-info">Region: <span className="light-text">{region}</span></p>
+          <p className="other-info">Capital: <span className="light-text">{props?.capital ? capital[0] : "No Capital"}</span></p>
+        </CountryInfo>
       </Link>
-      <CountryInfo>
-        <p className="name">{"Country Name" && name.common}</p>
-        <p className="other-info">Population: <span className="light-text">{population.toLocaleString()}</span></p>
-        <p className="other-info">Region: <span className="light-text">{region}</span></p>
-        <p className="other-info">Capital: <span className="light-text">{props?.capital ? capital[0] : "No Capital"}</span></p>
-      </CountryInfo>
     </StyledCountry>
   )
 }
