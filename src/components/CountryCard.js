@@ -28,6 +28,12 @@ const StyledCountry = styled.div`
   flex-shrink: 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
   background-color: white;
+  transition-duration: .12s;
+  
+  :hover {
+    transform: scale(1.05);
+  }
+
 `
 
 const Flag = styled.img`
