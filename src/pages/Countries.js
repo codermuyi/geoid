@@ -3,11 +3,13 @@ import { useState, useEffect } from "react"
 import styled from "styled-components"
 import Select from "react-select"
 import { mid2 } from "../media-queries"
+import searchIconUrl from "../assets/search.svg"
 
 import CountryCard from "../components/CountryCard"
 import Loader from "../components/Loader"
 import Error from "../components/Error"
 import ScrollToTop from "../components/ScrollToTop"
+
 
 // import offLineCountriesData from "../countries-data"
 
@@ -83,10 +85,13 @@ const Countries = () => {
   return (
     <div className="page">
       <Filter>
-        <Search
-          value={searchInput}
-          onChange={handleChange}
-        />
+        <Search>
+          <SearchIcon />
+          <SearchInput
+            value={searchInput}
+            onChange={handleChange}
+          />
+        </Search>
         <Select
           options={regionFilterOptions}
           onChange={handleChange}
@@ -142,22 +147,44 @@ const Filter = styled.div`
   }
 `
 
-const Search = styled.input.attrs(props => ({
+const Search = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 40em;
+  padding: 0;
+  margin-block: 2em;
+  border-radius: 1em;
+`
+
+const SearchInput = styled.input.attrs(props => ({
   type: "search",
   placeholder: "Search for a country...",
 }))`
   padding: 1.3em;
   border: 0;
-  border-radius: 1em;
+  border-radius: inherit;
   background: white;
   width: 100%;
-  max-width: 40em;
-  margin-block: 2em;
-  text-indent: 2em;
+  text-indent: 2.2em;
+  font-weight: 600;
+  font-size: .9em;
+  letter-spacing: .09em;
 
   :placeholder {
-    color: hsl(0, 0%, 52%)
+    color: hsl(0, 0%, 52%);
   }
+`
+
+const SearchIcon = styled.img.attrs(props => ({
+  src: searchIconUrl,
+  alt: "Search Icon",
+}))`
+  position: absolute;
+  bottom: .8em;
+  left: .7em;
+  width: 1.6em;
+  height: 1.6em;
+  opacity: .5;
 `
 
 const CountryList = styled.div`
