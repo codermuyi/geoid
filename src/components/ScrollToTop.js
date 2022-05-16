@@ -1,17 +1,10 @@
 import styled from "styled-components"
-import { useState, useEffect } from "react"
+import useScroll from "../assets/useScroll"
 
 import { ReactComponent as Arrow } from "../assets/images/up-arrow.svg"
 
 const ScrollToTop = () => {
-  const [scrollTop, setScrollTop] = useState(0)
-
-  useEffect(() => {
-    let scrollEvent = window.addEventListener("scroll", (e) => {
-      setScrollTop(window.scrollY)
-    })
-    return () => window.removeEventListener("scroll", scrollEvent)
-  }, [])
+  const scrollTop = useScroll()
 
   function scrollToTop(e) {
     window.scrollTo(0, 0)
