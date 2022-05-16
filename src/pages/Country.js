@@ -4,7 +4,6 @@ import { useParams, Link } from "react-router-dom"
 import Loader from "../components/Loader"
 
 const Country = () => {
-  console.log(useParams())
   const { country } = useParams()
   const [countryData, setCountryData] = useState([])
   const [hasLoaded, setHasLoaded] = useState(false)
