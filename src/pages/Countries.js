@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import Select from "react-select"
-import { mid2 } from "../assets/media-queries"
+import { mid2 } from "../assets/breakpoints"
 import searchIconUrl from "../assets/images/search.svg"
 
 import CountryCard from "../components/CountryCard"

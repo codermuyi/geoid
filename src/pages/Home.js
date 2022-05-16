@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { mid1 } from "../assets/media-queries"
+import { mid1 } from "../assets/breakpoints"
 import image from "../assets/images/moving.gif";
 import { Link } from "react-router-dom"
 

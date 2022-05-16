@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { mid2 } from "../assets/media-queries"
+import { mid2 } from "../assets/breakpoints"
 
 const Logo = (props) => {
   return (
@@ -12,7 +12,6 @@ const Logo = (props) => {
 const StyledLogo = styled.div`
   background: conic-gradient(white 40%, var(--app-green) 40%);
   padding: .1em;
-  /* margin-bottom: .3em; */
   border-radius: 10px;
   text-align: center;
   font-family: "Source Sans Pro", sans-serif;
