@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { mid2 } from "../media-queries"
+import { mid2 } from "../assets/media-queries"
 
 const Logo = (props) => {
   return (

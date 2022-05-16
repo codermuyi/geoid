@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { mid1 } from "../media-queries"
-import image from "../assets/moving.gif";
+import { mid1 } from "../assets/media-queries"
+import image from "../assets/images/moving.gif";
 import { Link } from "react-router-dom"
 
 import Logo from "../components/Logo"

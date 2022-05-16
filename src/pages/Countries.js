@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import Select from "react-select"
-import { mid2 } from "../media-queries"
-import searchIconUrl from "../assets/search.svg"
+import { mid2 } from "../assets/media-queries"
+import searchIconUrl from "../assets/images/search.svg"
 
 import CountryCard from "../components/CountryCard"
 import Loader from "../components/Loader"

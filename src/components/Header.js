@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styled from "styled-components"
 import { Link, useLocation } from "react-router-dom"
 import Logo from "./Logo"
-import imgUrl from "../assets/world.png"
+import imgUrl from "../assets/images/world.png"
 
 const Header = props => {
   const [windowScroll, setWindowScroll] = useState(0)

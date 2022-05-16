@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useState, useEffect } from "react"
 
-import { ReactComponent as Arrow } from "../assets/up-arrow.svg"
+import { ReactComponent as Arrow } from "../assets/images/up-arrow.svg"
 
 const ScrollToTop = () => {
   const [scrollTop, setScrollTop] = useState(0)
