@@ -25,7 +25,7 @@ const Country = () => {
       .finally(() => setHasLoaded(true))
   }, [country])
 
-  console.log(countryData)
+  // console.log(countryData)
 
   return (
     <div className="page">
@@ -58,7 +58,11 @@ const Country = () => {
                 <div style={{ marginTop: 30 }}>
                   <h3>Border Countries:</h3>
                   <div className="bottons">
-                    {countryData.borders?.map(v => <Button><Link to={`/countries/${v}`}>{v}</Link></Button>)}
+                    {countryData.borders?.map((v, i) => 
+                      <Button key={i}>
+                        <Link to={`/countries/${v}`}>{v}</Link>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </Col>
