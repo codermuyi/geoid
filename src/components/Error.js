@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import Button from "./Button"
 
 const Error = ({ page, fetch }) => {
 
@@ -8,7 +9,7 @@ const Error = ({ page, fetch }) => {
       <ErrorDisplay>
         {page && <>
           <p>404. Page not found.</p>
-          <Link to="/">Go back to home page</Link>
+          <Button><Link to="/">Go back to home page</Link></Button>
         </>}
         {fetch && <p>Could not load. Please check your data connection and refresh the page.</p>}
       </ErrorDisplay>
@@ -24,13 +25,6 @@ const ErrorDisplay = styled.div`
   p {
     margin-inline: auto;
     max-width: 1000px;
-  }
-
-  a {
-    font-size: .4em;
-    background-color: #ffffff;
-    padding: .4em;
-    box-shadow: 0 0 .2em rgba(0, 0, 0, .1)
   }
 `
 

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useParams, Link } from "react-router-dom"
+import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
 import Loader from "../components/Loader"
 import Error from "../components/Error"
-import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
+import Button from "../components/Button"
 
 const Country = () => {
   const { country } = useParams()
@@ -12,6 +13,8 @@ const Country = () => {
   const [failedToFetch, setFailedToFetch] = useState(false)
 
   useEffect(() => {
+    setHasLoaded(false)
+
     fetch(`https://restcountries.com/v3.1/name/${country}`)
       .then(res => res.json())
       .then(data => {
@@ -20,7 +23,7 @@ const Country = () => {
       })
       .catch(() => setFailedToFetch(true))
       .finally(() => setHasLoaded(true))
-  })
+  }, [country])
 
   console.log(countryData)
 
@@ -65,10 +68,6 @@ const Country = () => {
     </div>
   )
 }
-
-const Button = styled.button`
-
-`
 
 const Col = styled.div`
   display: flex;
