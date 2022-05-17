@@ -7,6 +7,7 @@ const magicKingdomLatLng = [28.3852, -81.5639];
 function Mapy({country}) {
   const mapRef = useRef();
   const [latLong, setLatLong] = useState(magicKingdomLatLng)
+  const [cood, setCood] = useState(JSON.parse(localStorage.getItem("coordinates")))
 
   useEffect(() => {
     const options = {
@@ -23,6 +24,9 @@ function Mapy({country}) {
         setLatLong([res[0].lat, res[0].lon])
       })
       .catch(err => console.error(err.message));
+    
+    setCood(prevCood => ({...prevCood, [country]: latLong}))
+    localStorage.setItem("coordinates", JSON.stringify(cood))
   }, [country])
 
   useEffect(() => {
@@ -33,6 +37,9 @@ function Mapy({country}) {
         duration: 3
       });
     }, 1000)
+
+    setCood(prevCood => ({...prevCood, [country]: latLong}))
+    localStorage.setItem("coordinates", JSON.stringify(cood))
   }, [latLong])
 
   return (
