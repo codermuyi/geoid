@@ -12,7 +12,7 @@ function Map({country}) {
   const [cood, setCood] = useState(JSON.parse(localStorage.getItem("coordinates")))
 
   useEffect(() => {
-    if ( !cood ) return
+    // if ( !cood ) return
 
     const options = {
       method: 'GET',
