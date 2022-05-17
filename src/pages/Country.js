@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useParams, Link } from "react-router-dom"
+
 import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
 import Loader from "../components/Loader"
 import Error from "../components/Error"
 import Button from "../components/Button"
+import Map from "../components/Map"
 
 const Country = () => {
   const { country } = useParams()
@@ -24,8 +26,6 @@ const Country = () => {
       .catch(() => setFailedToFetch(true))
       .finally(() => setHasLoaded(true))
   }, [country])
-
-  // console.log(countryData)
 
   return (
     <div className="page">
@@ -58,7 +58,7 @@ const Country = () => {
                 <div style={{ marginTop: 30 }}>
                   <h3>Border Countries:</h3>
                   <div className="bottons">
-                    {countryData.borders?.map((v, i) => 
+                    {countryData.borders?.map((v, i) =>
                       <Button key={i}>
                         <Link to={`/countries/${v}`}>{v}</Link>
                       </Button>
@@ -69,6 +69,9 @@ const Country = () => {
             </Content> :
             <Loader />
       }
+      <div id="map">
+        <Map country={country} />
+      </div>
     </div>
   )
 }

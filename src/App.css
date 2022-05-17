@@ -17,3 +17,10 @@ body {
   color: hsl(200, 15%, 8%);
   min-height: 60vh;
 }
+
+.leaflet-container {
+  width: 100%;
+  max-width: 700px;
+  height: 50em;
+  margin: 6em auto;
+}

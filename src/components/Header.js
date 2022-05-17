@@ -27,7 +27,7 @@ const StyledHeader = styled.div`
   background-color: ${props => props.homepage ? "transparent" : "white"};
   display: flex;
   transition-duration: .3s;
-  z-index: 100;
+  z-index: 2000;
 
   img {
     display: ${props => props.homepage ? "none" : "inline-block"};
