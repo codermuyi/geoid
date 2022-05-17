@@ -37,9 +37,13 @@ function Mapy({country}) {
 
   return (
       <Map ref={mapRef} center={latLong} zoom={4}>
-        <TileLayer url="https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+        <TileLayer url="https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
       </Map>
   );
 }
+
+// Extra Map API
+// https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be
+// https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be
 
 export default Mapy;
