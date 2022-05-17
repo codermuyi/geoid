@@ -66,12 +66,12 @@ const Country = () => {
                   </div>
                 </div>
               </Col>
+              <div id="map">
+                <Map country={country} />
+              </div>
             </Content> :
             <Loader />
       }
-      <div id="map">
-        <Map country={country} />
-      </div>
     </div>
   )
 }
@@ -135,19 +135,22 @@ const Col = styled.div`
       gap: 6em;
     }
   }
-  `
+`
 
 const Content = styled.div`
   max-width: 1500px;
   margin-inline: auto;
-
+  display: grid;
+  grid-row: auto auto auto;
+  
   @media (min-width: ${mid2}) {
-    display: flex;
+    grid-template-columns: 1fr 1fr;
+    grid-row: auto auto;
     gap: 3em;
     justify-content: center;
 
-    ${Col} {
-      flex: 1;
+    #map {
+      grid-column: 1 / -1;
     }
   }
 `

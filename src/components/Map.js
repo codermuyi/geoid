@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { MapContainer as Map, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import styled from "styled-components"
+import { mid2, lg2 } from "../assets/breakpoints"
 
 const magicKingdomLatLng = [28.3852, -81.5639];
 
-function Mapy({country}) {
+function Map({country}) {
   const mapRef = useRef();
   const [latLong, setLatLong] = useState(magicKingdomLatLng)
   const [cood, setCood] = useState(JSON.parse(localStorage.getItem("coordinates")))
@@ -52,7 +53,7 @@ function Mapy({country}) {
   );
 }
 
-const SMap = styled(Map)`
+const SMap = styled(MapContainer)`
   width: calc(100%-4em);
   max-width: 1000px;
   height: 50em;
@@ -61,7 +62,12 @@ const SMap = styled(Map)`
   margin-left: 1em;
   border: .5em solid var(--app-green);
 
-  @media (min-width: 1200px) {
+  @media (min-width: ${mid2}) {
+    width: calc(100%-8em);
+    margin-right: 8em;
+  }
+
+  @media (min-width: ${lg2}) {
     margin-inline: auto;
   }
 `
@@ -70,4 +76,4 @@ const SMap = styled(Map)`
 // https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be
 // https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be
 
-export default Mapy;
+export default Map;

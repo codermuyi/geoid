@@ -10,7 +10,6 @@ import Loader from "../components/Loader"
 import Error from "../components/Error"
 import ScrollToTop from "../components/ScrollToTop"
 
-
 // import offLineCountriesData from "../countries-data"
 
 const regionFilterOptions = [
@@ -45,7 +44,6 @@ const Countries = () => {
       setHasLoaded(true)
     }
   }, []);
-
 
   function storeData(data) {
     localStorage.setItem("countries-data", JSON.stringify(data))
@@ -100,7 +98,6 @@ const Countries = () => {
           classNamePrefix="region-filter"
         />
       </Filter>
-
       {
         failedToFetch ?
           <Error fetch /> :
