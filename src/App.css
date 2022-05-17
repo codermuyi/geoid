@@ -17,19 +17,3 @@ body {
   color: hsl(200, 15%, 8%);
   min-height: 60vh;
 }
-
-.leaflet-container {
-  width: calc(100%-4em);
-  max-width: 1000px;
-  height: 50em;
-  margin-block: 6em;
-  margin-right: 4em;
-  margin-left: 1em;
-  border: .5em solid var(--app-green);
-}
-
-@media (min-width: 1200px) {
-  .leaflet-container {
-    margin-inline: auto;
-  }
-}

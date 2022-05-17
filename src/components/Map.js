@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { MapContainer as Map, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import styled from "styled-components"
 
 const magicKingdomLatLng = [28.3852, -81.5639];
 
@@ -10,6 +11,8 @@ function Mapy({country}) {
   const [cood, setCood] = useState(JSON.parse(localStorage.getItem("coordinates")))
 
   useEffect(() => {
+    if ( !cood ) return
+
     const options = {
       method: 'GET',
       headers: {
@@ -30,12 +33,12 @@ function Mapy({country}) {
   }, [country])
 
   useEffect(() => {
-    if ( !mapRef.current ) return;
+    if ( !mapRef.current ) return
 
     setTimeout(() => {
       mapRef.current.flyTo(latLong, 5, {
         duration: 3
-      });
+      })
     }, 1000)
 
     setCood(prevCood => ({...prevCood, [country]: latLong}))
@@ -43,11 +46,25 @@ function Mapy({country}) {
   }, [latLong])
 
   return (
-      <Map ref={mapRef} center={latLong} zoom={4}>
+      <SMap ref={mapRef} center={latLong} zoom={4}>
         <TileLayer url="https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
-      </Map>
+      </SMap>
   );
 }
+
+const SMap = styled(Map)`
+  width: calc(100%-4em);
+  max-width: 1000px;
+  height: 50em;
+  margin-block: 6em;
+  margin-right: 4em;
+  margin-left: 1em;
+  border: .5em solid var(--app-green);
+
+  @media (min-width: 1200px) {
+    margin-inline: auto;
+  }
+`
 
 // Extra Map API
 // https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=5cb76341c4mshc353bc68b13a6cdp15c19cjsna963896fc6be
