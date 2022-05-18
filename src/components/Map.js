@@ -1,9 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+// import icon from 'leaflet/dist/images/marker-icon.png';
+import icon from "../assets/images/marker.png"
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styled from "styled-components"
 import { mid2, lg2 } from "../assets/breakpoints"
 import useFetch from "../assets/useFetch"
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const magicKingdomLatLng = [28.3852, -81.5639];
 const options = {
@@ -16,12 +27,12 @@ const options = {
 
 function Map({ country }) {
   const mapRef = useRef({});
-  const [latLong, setLatLong] = useState(magicKingdomLatLng)
+  const [position, setPosition] = useState(magicKingdomLatLng)
   const { data, status } = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
 
   useEffect(() => {
     if (status === "fetched") {
-      setLatLong([data[0].lat, data[0].lon])
+      setPosition([data[0].lat, data[0].lon])
     }
   }, [data, status])
 
@@ -29,15 +40,16 @@ function Map({ country }) {
     if (!mapRef.current) return
 
     setTimeout(() => {
-      mapRef.current?.flyTo(latLong, 5, {
+      mapRef.current?.flyTo(position, 5, {
         duration: 3
       })
     }, 1000)
-  }, [latLong])
+  }, [position])
 
   return (
-    <SMap ref={mapRef} center={latLong} zoom={4}>
-      <TileLayer url={`https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_API_KEY}`} attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+    <SMap ref={mapRef} center={position} zoom={4} scrollWheelZoom={false}>
+      <TileLayer url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`} attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+      <Marker position={position}></Marker>
     </SMap>
   );
 }
@@ -61,7 +73,7 @@ const SMap = styled(MapContainer)`
   }
 `
 
-// Extra Map API
+// Extra Map APIs
 // https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_API_KEY}
 // https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_API_KEY}
 
