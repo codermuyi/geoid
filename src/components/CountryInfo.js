@@ -31,7 +31,7 @@ const CountryInfo = ({ country, data }) => {
           <h3>Border Countries:</h3>
           <div className="bottons">
             {data.borders?.map((name, i) =>
-              <Button key={i} size={1}>
+              <Button key={i} pad={1} size={5}>
                 <Link to={`/countries/${name}`}>{name}</Link>
               </Button>
             )}

@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
-const Button = ({children, size}) => {
+const Button = ({children, size, pad}) => {
   return (
-    <Btn size={size}>
+    <Btn size={size} pad={pad}>
       {children}
     </Btn>
   )
@@ -15,9 +15,14 @@ const Btn = styled.button`
   margin: .4em;
   border: 0;
 
+  :hover {
+    background-color: rgba(0, 187, 119, .2);
+  }
+  
   a {
     display: block;
-    padding: ${props => `calc(${props.size/2}rem) ${props.size}rem`};
+    width: ${props => props.size+"rem"};
+    padding: ${props => `calc(${props.pad/2}rem) ${props.pad}rem`};
   }
 `
 
