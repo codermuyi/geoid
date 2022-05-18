@@ -12,7 +12,9 @@ const Country = () => {
   return (
     <div className="page">
       <br />
-      <Button><Link to="/countries">Back</Link></Button>
+      <Button size={1}>
+        <Link to="/countries">Back</Link>
+      </Button>
       {
         status === "error" ?
           <Error fetch /> :
