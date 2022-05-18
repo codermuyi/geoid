@@ -4,13 +4,11 @@ import styled from "styled-components"
 import Select from "react-select"
 import { mid2 } from "../assets/breakpoints"
 import searchIconUrl from "../assets/images/search.svg"
-
+import useFetch from "../assets/useFetch"
 import CountryCard from "../components/CountryCard"
 import Loader from "../components/Loader"
 import Error from "../components/Error"
 import ScrollToTop from "../components/ScrollToTop"
-
-// import offLineCountriesData from "../countries-data"
 
 const regionFilterOptions = [
   { value: 'africa', label: 'Africa' },
@@ -21,37 +19,28 @@ const regionFilterOptions = [
 ]
 
 const Countries = () => {
-  const [countriesData, setCountriesData] = useState([])
+  // const [countriesData, setCountriesData] = useState([])
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("")
-  const [hasLoaded, setHasLoaded] = useState(false)
-  const [failedToFetch, setFailedToFetch] = useState(false)
+  const { data, status } = useFetch(`https://restcountries.com/v3.1/all`)
+  // storeData(data)
 
-  useEffect(() => {
-    if (retrieveData() === null || retrieveData() === undefined) {
-      fetch(`https://restcountries.com/v3.1/all`)
-        .then(res => res.json())
-        .then(data => {
-          setFailedToFetch(false)
-          setHasLoaded(true)
-          setCountriesData(data)
-          storeData(data)
-        })
-        .catch(() => setFailedToFetch(true))
-        .finally(() => setHasLoaded(true))
-    } else {
-      setCountriesData(retrieveData())
-      setHasLoaded(true)
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (retrieveData() === null || retrieveData() === undefined) {
+  //     setCountriesData(data)
+  //     storeData(data)
+  //   } else {
+  //     setCountriesData(retrieveData())
+  //   }
+  // }, [data]);
 
-  function storeData(data) {
-    localStorage.setItem("countries-data", JSON.stringify(data))
-  }
+  // function storeData(data) {
+  //   localStorage.setItem("countries-data", JSON.stringify(data))
+  // }
 
-  function retrieveData() {
-    return JSON.parse(localStorage.getItem("countries-data"))
-  }
+  // function retrieveData() {
+  //   return JSON.parse(localStorage.getItem("countries-data"))
+  // }
 
   function handleChange(e) {
     if (e.target) {
@@ -63,7 +52,7 @@ const Countries = () => {
     setSearchInput("")
   }
 
-  const countries = countriesData.map((country, index) => {
+  const countries = data.map((country, index) => {
     const comp = <CountryCard key={index} {...country} />
     const nameList = Object.values(country.name)
 
@@ -100,9 +89,9 @@ const Countries = () => {
       </Filter>
       <p style={{textAlign: "center"}}>Click country for details</p>
       {
-        failedToFetch ?
+        status === "failed" ?
           <Error fetch /> :
-          hasLoaded ?
+          status === "fetched" ?
             <CountryList>
               {countries ? countries : <p>No country with such name</p>}
             </CountryList> :

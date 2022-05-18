@@ -3,53 +3,42 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import styled from "styled-components"
 import { mid2, lg2 } from "../assets/breakpoints"
+import useFetch from "../assets/useFetch"
 
 const magicKingdomLatLng = [28.3852, -81.5639];
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com',
+    'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
+  }
+};
 
-function Map({country}) {
-  const mapRef = useRef();
+function Map({ country }) {
+  const mapRef = useRef({});
   const [latLong, setLatLong] = useState(magicKingdomLatLng)
-  const [cood, setCood] = useState(JSON.parse(localStorage.getItem("coordinates")))
+  const { data, status } = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
 
   useEffect(() => {
-    // if ( !cood ) return
-
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com',
-        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
-      }
-    };
-
-    fetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
-      .then(response => response.json())
-      .then(res => {
-        setLatLong([res[0].lat, res[0].lon])
-      })
-      .catch(err => console.error(err.message));
-    
-    setCood(prevCood => ({...prevCood, [country]: latLong}))
-    localStorage.setItem("coordinates", JSON.stringify(cood))
-  }, [country])
+    if (status === "fetched") {
+      setLatLong([data[0].lat, data[0].lon])
+    }
+  }, [data, status])
 
   useEffect(() => {
-    if ( !mapRef.current ) return
+    if (!mapRef.current) return
 
     setTimeout(() => {
-      mapRef.current.flyTo(latLong, 5, {
+      mapRef.current?.flyTo(latLong, 5, {
         duration: 3
       })
     }, 1000)
-
-    setCood(prevCood => ({...prevCood, [country]: latLong}))
-    localStorage.setItem("coordinates", JSON.stringify(cood))
   }, [latLong])
 
   return (
-      <SMap ref={mapRef} center={latLong} zoom={4}>
-        <TileLayer url={`https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_API_KEY}`} attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
-      </SMap>
+    <SMap ref={mapRef} center={latLong} zoom={4}>
+      <TileLayer url={`https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_API_KEY}`} attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+    </SMap>
   );
 }
 
