@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import styled from "styled-components"
 import Select from "react-select"
 import { mid2 } from "../assets/breakpoints"
@@ -19,28 +19,9 @@ const regionFilterOptions = [
 ]
 
 const Countries = () => {
-  // const [countriesData, setCountriesData] = useState([])
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("")
   const { data, status } = useFetch(`https://restcountries.com/v3.1/all`)
-  // storeData(data)
-
-  // useEffect(() => {
-  //   if (retrieveData() === null || retrieveData() === undefined) {
-  //     setCountriesData(data)
-  //     storeData(data)
-  //   } else {
-  //     setCountriesData(retrieveData())
-  //   }
-  // }, [data]);
-
-  // function storeData(data) {
-  //   localStorage.setItem("countries-data", JSON.stringify(data))
-  // }
-
-  // function retrieveData() {
-  //   return JSON.parse(localStorage.getItem("countries-data"))
-  // }
 
   function handleChange(e) {
     if (e.target) {
