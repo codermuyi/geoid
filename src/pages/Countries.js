@@ -98,6 +98,7 @@ const Countries = () => {
           classNamePrefix="region-filter"
         />
       </Filter>
+      <p style={{textAlign: "center"}}>Click country for details</p>
       {
         failedToFetch ?
           <Error fetch /> :
