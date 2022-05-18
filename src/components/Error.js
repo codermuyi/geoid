@@ -9,7 +9,7 @@ const Error = ({ page, fetch }) => {
       <ErrorDisplay>
         {page && <>
           <p>404. Page not found.</p>
-          <Button size={2}>
+          <Button pad={1}>
             <Link to="/">Go back to home page</Link>
           </Button>
         </>}
