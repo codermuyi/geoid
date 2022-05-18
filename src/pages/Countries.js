@@ -74,7 +74,7 @@ const Countries = () => {
           <Error fetch /> :
           status === "fetched" ?
             <CountryList>
-              {countries ? countries : <p>No country with such name</p>}
+              {countries}
             </CountryList> :
             <Loader />
       }
