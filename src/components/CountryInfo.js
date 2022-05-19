@@ -9,7 +9,7 @@ const CountryInfo = ({ country, data }) => {
   if (data) return (
     <Content>
       <Col>
-        <img src={data.flags.svg} alt={`Flag of ${data.name.common}`} />
+        <img src={data.flags.svg} alt={`Flag of ${data.name.common}`} loading="lazy"/>
       </Col>
       <Col>
         <h2 className="name">{data.name.common}</h2>
