@@ -1,9 +1,11 @@
+import { lazy } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
-import Map from "../components/Map"
 import Button from "../components/Button"
 import Error from "../components/Error"
+
+const Map = lazy(() => import("../components/Map"))
 
 const CountryInfo = ({ country, data }) => {
   if (data) {
@@ -80,6 +82,7 @@ const Col = styled.div`
   p {
     margin-left: 2px !important;
   }
+
 
   .name {
     margin-top: 0;
