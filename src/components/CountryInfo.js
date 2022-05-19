@@ -6,43 +6,60 @@ import Button from "../components/Button"
 import Error from "../components/Error"
 
 const CountryInfo = ({ country, data }) => {
-  if (data) return (
-    <Content>
-      <Col>
-        <img src={data.flags.svg} alt={`Flag of ${data.name.common}`} loading="lazy"/>
-      </Col>
-      <Col>
-        <h2 className="name">{data.name.common}</h2>
-        <div className="list-of-info">
-          <div className="first">
-            <p className="other-info">Native Name(s): <span className="light-text">{Object.values(data?.name.nativeName).map(v => v.common).join(", ")}</span></p>
-            <p className="other-info">Population: <span className="light-text">{data.population.toLocaleString()}</span></p>
-            <p className="other-info">Region: <span className="light-text">{data.region}</span></p>
-            <p className="other-info">Sub Region: <span className="light-text">{data.subregion}</span></p>
-            <p className="other-info">Capital: <span className="light-text">{data.capital}</span></p>
+  if (data) {
+    let commonName = data.name.common,
+        flagSrc = data.flags.svg,
+        nativeName = data.name.nativeName ? Object.values(data.name.nativeName).map(v => v.common).join(", ") : "None",
+        population = data.population.toLocaleString(),
+        region = data.region,
+        subregion = data.subregion ? data.subregion : "None",
+        capital = data.capital ? data.capital : "None",
+        tld = data.tld,
+        currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
+        languages = data.languages ? Object.values(data.languages).join(", ") : "None",
+        borders = data.borders ? data.borders : ["None"]
+
+    return (
+      <Content>
+        <Col>
+          <img src={flagSrc} alt={`Flag of ${commonName}`} loading="lazy"/>
+        </Col>
+        <Col>
+          <h2 className="name">{data.name.common}</h2>
+          <div className="list-of-info">
+            <div className="first">
+              <p className="other-info">Native Name(s): <span className="light-text">{nativeName}</span></p>
+              <p className="other-info">Population: <span className="light-text">{population}</span></p>
+              <p className="other-info">Region: <span className="light-text">{region}</span></p>
+              <p className="other-info">Sub Region: <span className="light-text">{subregion}</span></p>
+              <p className="other-info">Capital: <span className="light-text">{capital}</span></p>
+            </div>
+            <div className="second">
+              <p className="other-info">Top Level Domain: <span className="light-text">{tld}</span></p>
+              <p className="other-info">Currencies: <span className="light-text">{currencies}</span></p>
+              <p className="other-info">Languages: <span className="light-text">{languages}</span></p>
+            </div>
           </div>
-          <div className="second">
-            <p className="other-info">Top Level Domain: <span className="light-text">{data.tld}</span></p>
-            <p className="other-info">Currencies: <span className="light-text">{Object.values(data.currencies).map(v => v.name)}</span></p>
-            <p className="other-info">Languages: <span className="light-text">{Object.values(data.languages).join(", ")}</span></p>
+          <div style={{ marginTop: 30 }}>
+            <h3>Border Countries:</h3>
+            <div className="bottons">
+              {borders?.map((name, i) => {
+                if (name !== "None")
+                return <Button key={i} pad={1} size={5}>
+                  <Link to={`/countries/${name}`}>{name}</Link>
+                </Button>
+                return <p>{name}</p>
+              })}
+            </div>
           </div>
+        </Col>
+        <div id="map">
+          <Map country={country} />
         </div>
-        <div style={{ marginTop: 30 }}>
-          <h3>Border Countries:</h3>
-          <div className="bottons">
-            {data.borders?.map((name, i) =>
-              <Button key={i} pad={1} size={5}>
-                <Link to={`/countries/${name}`}>{name}</Link>
-              </Button>
-            )}
-          </div>
-        </div>
-      </Col>
-      <div id="map">
-        <Map country={country} />
-      </div>
-    </Content>
-  )
+      </Content>
+    )
+  }
+  
   return <Error page />
 }
 
