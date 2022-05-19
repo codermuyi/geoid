@@ -20,9 +20,9 @@ const Error = ({ page, fetch }) => {
 }
 
 const ErrorDisplay = styled.div`
-  padding: 2em;
+  padding: 2rem;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2.5rem;
 
   p {
     margin-inline: auto;
