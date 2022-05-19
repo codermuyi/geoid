@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState, lazy } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+// import icon from 'leaflet/dist/images/marker-icon.png';
 import icon from "../assets/images/marker.png"
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styled from "styled-components"
 import { mid2, lg2 } from "../assets/breakpoints"
 import useFetch from "../assets/useFetch"
-
-const L = lazy(() => import("leaflet"))
 
 let DefaultIcon = L.icon({
     iconUrl: icon,

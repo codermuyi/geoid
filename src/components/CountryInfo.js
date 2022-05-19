@@ -50,7 +50,7 @@ const CountryInfo = ({ country, data }) => {
                 return <Button key={i} pad={1} size={5}>
                   <Link to={`/countries/${name}`}>{name}</Link>
                 </Button>
-                return <p>{name}</p>
+                return <p key={i}>{name}</p>
               })}
             </div>
           </div>
