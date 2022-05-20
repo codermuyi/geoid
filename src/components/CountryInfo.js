@@ -1,4 +1,4 @@
-import { lazy } from "react"
+import { lazy, Suspense } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
@@ -10,21 +10,21 @@ const Map = lazy(() => import("../components/Map"))
 const CountryInfo = ({ country, data }) => {
   if (data) {
     let commonName = data.name.common,
-        flagSrc = data.flags.svg,
-        nativeName = data.name.nativeName ? Object.values(data.name.nativeName).map(v => v.common).join(", ") : "None",
-        population = data.population.toLocaleString(),
-        region = data.region,
-        subregion = data.subregion ? data.subregion : "None",
-        capital = data.capital ? data.capital : "None",
-        tld = data.tld,
-        currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
-        languages = data.languages ? Object.values(data.languages).join(", ") : "None",
-        borders = data.borders ? data.borders : ["None"]
+      flagSrc = data.flags.svg,
+      nativeName = data.name.nativeName ? Object.values(data.name.nativeName).map(v => v.common).join(", ") : "None",
+      population = data.population.toLocaleString(),
+      region = data.region,
+      subregion = data.subregion ? data.subregion : "None",
+      capital = data.capital ? data.capital : "None",
+      tld = data.tld,
+      currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
+      languages = data.languages ? Object.values(data.languages).join(", ") : "None",
+      borders = data.borders ? data.borders : ["None"]
 
     return (
       <Content>
         <Col>
-          <img src={flagSrc} alt={`Flag of ${commonName}`} loading="lazy"/>
+          <img src={flagSrc} alt={`Flag of ${commonName}`} loading="lazy" />
         </Col>
         <Col>
           <h2 className="name">{data.name.common}</h2>
@@ -47,21 +47,23 @@ const CountryInfo = ({ country, data }) => {
             <div className="bottons">
               {borders?.map((name, i) => {
                 if (name !== "None")
-                return <Button key={i} pad={1} size={5}>
-                  <Link to={`/countries/${name}`}>{name}</Link>
-                </Button>
+                  return <Button key={i} pad={1} size={5}>
+                    <Link to={`/countries/${name}`}>{name}</Link>
+                  </Button>
                 return <p key={i}>{name}</p>
               })}
             </div>
           </div>
         </Col>
         <div id="map">
-          <Map country={country} />
+          <Suspense>
+            <Map country={country} />
+          </Suspense>
         </div>
       </Content>
     )
   }
-  
+
   return <Error page />
 }
 
