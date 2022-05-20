@@ -30,10 +30,13 @@ const StyledCountry = styled.div`
   background-color: white;
   transition-duration: .12s;
   
+  a {
+    line-height: 0;
+  }
+
   :hover {
     transform: scale(1.05);
   }
-
 `
 
 const Flag = styled.img`
@@ -46,6 +49,7 @@ const CountryInfo = styled.div`
   height: 200px;
   overflow: hidden;
   border-top: .5em solid rgba(0, 0, 0, .1);
+  line-height: normal;
 
   .name { 
     font-size: 1.4em;
