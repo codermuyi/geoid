@@ -1,14 +1,13 @@
 import { useParams, Link } from "react-router-dom"
 import useFetch from "../assets/useFetch"
-import {ReactComponent as Back} from "../assets/images/left-arrow.svg"
-import Loader from "../components/Loader"
-import Error from "../components/Error"
+import { ReactComponent as Back } from "../assets/images/left-arrow.svg"
 import CountryInfo from "../components/CountryInfo"
 import Button from "../components/Button"
+import { displayFetchResults } from "../assets/utilities"
 
 const Country = () => {
   const { country } = useParams()
-  const {data, status} = useFetch(`https://restcountries.com/v3.1/name/${country}`)
+  const [data, status] = useFetch(`https://restcountries.com/v3.1/name/${country}`)
 
   return (
     <div className="page">
@@ -17,14 +16,11 @@ const Country = () => {
         <Link to="/countries"><Back /></Link>
       </Button>
       {
-        status === "error" ?
-          <Error fetch /> :
-          status === "fetched" ?
-            <CountryInfo
-              country={country} 
-              data={data[0]}
-            /> :
-            <Loader />
+        displayFetchResults(status,
+          <CountryInfo
+            country={country} 
+            data={data[0]}
+          />)
       }
     </div>
   )

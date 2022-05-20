@@ -6,9 +6,8 @@ import { mid2 } from "../assets/breakpoints"
 import searchIconUrl from "../assets/images/search.svg"
 import useFetch from "../assets/useFetch"
 import CountryCard from "../components/CountryCard"
-import Loader from "../components/Loader"
-import Error from "../components/Error"
 import ScrollToTop from "../components/ScrollToTop"
+import { displayFetchResults } from "../assets/utilities"
 
 const regionFilterOptions = [
   { value: 'africa', label: 'Africa' },
@@ -21,7 +20,7 @@ const regionFilterOptions = [
 const Countries = () => {
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("")
-  const { data, status } = useFetch(`https://restcountries.com/v3.1/all`)
+  const [data, status] = useFetch(`https://restcountries.com/v3.1/all`)
 
   function handleChange(e) {
     if (e.target) {
@@ -68,15 +67,12 @@ const Countries = () => {
           classNamePrefix="region-filter"
         />
       </Filter>
-      <p style={{textAlign: "center"}}>Click country for details</p>
+      <p style={{ textAlign: "center" }}>Click country for details</p>
       {
-        status === "failed" ?
-          <Error fetch /> :
-          status === "fetched" ?
-            <CountryList>
-              {countries}
-            </CountryList> :
-            <Loader />
+        displayFetchResults(status,
+          <CountryList>
+            {countries}
+          </CountryList>)
       }
       <ScrollToTop />
     </div>

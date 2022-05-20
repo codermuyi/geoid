@@ -28,7 +28,7 @@ const options = {
 function Map({ country }) {
   const mapRef = useRef({});
   const [position, setPosition] = useState(magicKingdomLatLng)
-  const { data, status } = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
+  const [data, status] = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
 
   useEffect(() => {
     if (status === "fetched") {
