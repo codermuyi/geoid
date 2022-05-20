@@ -43,7 +43,7 @@ function Map({ country }) {
       mapRef.current?.flyTo(position, 5, {
         duration: 3
       })
-    }, 1000)
+    }, 500)
   }, [position])
 
   return (
