@@ -22,11 +22,11 @@ const Error = ({ page, fetch }) => {
 const ErrorDisplay = styled.div`
   padding: 2rem;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   p {
     margin-inline: auto;
-    max-width: 1000px;
+    max-width: 800px;
   }
 `
 
