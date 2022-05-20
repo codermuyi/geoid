@@ -20,7 +20,6 @@ const CountryCard = (props) => {
 }
 
 const StyledCountry = styled.div`
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -36,6 +35,7 @@ const StyledCountry = styled.div`
 
   :hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 `
 
