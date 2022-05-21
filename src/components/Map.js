@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-// import icon from 'leaflet/dist/images/marker-icon.png';
 import icon from "../assets/images/marker.png"
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styled from "styled-components"
@@ -13,10 +12,9 @@ let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow
 });
-
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const magicKingdomLatLng = [28.3852, -81.5639];
+const Lagos = [6.5934154, 3.2915605]
 const options = {
   method: 'GET',
   headers: {
@@ -27,7 +25,7 @@ const options = {
 
 function Map({ country }) {
   const mapRef = useRef({});
-  const [position, setPosition] = useState(magicKingdomLatLng)
+  const [position, setPosition] = useState(Lagos)
   const [data, status] = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
 
   useEffect(() => {
@@ -41,9 +39,9 @@ function Map({ country }) {
 
     setTimeout(() => {
       mapRef.current?.flyTo(position, 5, {
-        duration: 3
+        duration: 2.2
       })
-    }, 500)
+    }, 600)
   }, [position])
 
   return (
