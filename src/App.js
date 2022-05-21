@@ -3,12 +3,7 @@ import styled from "styled-components"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import "./App.css"
-// import SharedLayout from "./components/SharedLayout"
-// import Error from "./components/Error"
-// import Home from "./pages/Home"
-// import Countries from "./pages/Countries"
-// import Country from "./pages/Country"
-// import Locator from "./pages/Locator"
+import Loader from "./components/Loader"
 const SharedLayout = lazy(() => import("./components/SharedLayout"))
 const Error = lazy(() => import("./components/Error"))
 const Home = lazy(() => import("./pages/Home"))
@@ -22,7 +17,7 @@ const App = () => {
   return (
     <S.App>
       <Router>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<Home />} />
