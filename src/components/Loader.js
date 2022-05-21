@@ -23,7 +23,7 @@ const LoaderCircle = styled.div`
   padding: 6em;
   position: relative;
   overflow: hidden;
-  animation: rotate 1s linear infinite;
+  animation: rotate .8s linear infinite;
 
   ::before {
     content: "";
