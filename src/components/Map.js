@@ -57,7 +57,7 @@ function Map({ country }) {
 const SMap = styled(MapContainer)`
   width: calc(100%-4em);
   max-width: 1000px;
-  height: 50em;
+  height: 30rem;
   margin-block: 6em;
   margin-right: 4em;
   margin-left: 1em;
@@ -75,7 +75,7 @@ const SMap = styled(MapContainer)`
   }
 
   @media (min-width: ${lg2}) {
-    margin-inline: auto;
+    resize: auto;
   }
 `
 
