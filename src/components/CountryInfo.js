@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react"
+import { lazy } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
@@ -62,9 +62,7 @@ const CountryInfo = ({ country, data }) => {
           </div>
         </Col>
         <div id="map">
-          <Suspense>
-            <Map country={country} />
-          </Suspense>
+          <Map country={country} />
         </div>
       </Content>
     )
