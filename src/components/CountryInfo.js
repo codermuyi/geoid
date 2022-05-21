@@ -5,6 +5,7 @@ import Button from "../components/Button"
 import Error from "../components/Error"
 import Map from "../components/Map"
 import countryCodes from "../assets/country-codes.json"
+// Country code url in myjson: http://myjson.dit.upm.es/api/bins/h4vj
 
 const CountryInfo = ({ country, data }) => {
   if (data) {
