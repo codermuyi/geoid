@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
 import Button from "../components/Button"
 import Error from "../components/Error"
+import countryCodes from "../assets/country-codes.json"
 
 const Map = lazy(() => import("../components/Map"))
 
@@ -48,7 +49,12 @@ const CountryInfo = ({ country, data }) => {
               {borders?.map((name, i) => {
                 if (name !== "None")
                   return <Button key={i} pad={1} size={5}>
-                    <Link to={`/countries/${name}`}>{name}</Link>
+                    <Link 
+                      style={{ fontSize: ".6rem"}}
+                      to={`/countries/${countryCodes[name]}`}
+                    >
+                      {countryCodes[name]}
+                    </Link>
                   </Button>
                 return <p key={i}>{name}</p>
               })}
