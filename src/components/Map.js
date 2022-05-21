@@ -62,6 +62,12 @@ const SMap = styled(MapContainer)`
   margin-right: 4em;
   margin-left: 1em;
   border: .5em solid var(--app-green);
+  border-radius: 20px;
+  transition: border .4s linear;
+  
+  :hover {
+    border: .5em solid var(--light-green);
+  }
 
   @media (min-width: ${mid2}) {
     width: calc(100%-8em);

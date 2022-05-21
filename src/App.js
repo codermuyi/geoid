@@ -40,6 +40,7 @@ const App = () => {
 
 S.App = styled.div`
   --app-green: #00bb77;
+  --light-green: rgba(0, 187, 119, .2);
 
   a {
     cursor: pointer;
