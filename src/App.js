@@ -10,6 +10,7 @@ const Home = lazy(() => import("./pages/Home"))
 const Countries = lazy(() => import("./pages/Countries"))
 const Country = lazy(() => import("./pages/Country"))
 const Locator = lazy(() => import("./pages/Locator"))
+const About = lazy(() => import("./pages/About"))
 
 const S = {}
 
@@ -24,6 +25,7 @@ const App = () => {
               <Route path="countries" element={<Countries />} />
               <Route path="countries/:country" element={<Country />} />
               <Route path="locator" element={<Locator />} />
+              <Route path="about" element={<About />} />
               <Route path="*" element={<Error page />} />
             </Route>
           </Routes>
