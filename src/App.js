@@ -16,7 +16,7 @@ const S = {}
 const GlobalStyles = createGlobalStyle`
   :root {
     --app-green: #00bb77;
-    --light-green: rgba(0, 187, 119, .2);
+    --light-green: rgba(0, 187, 119, .4);
   }
 
   a {
