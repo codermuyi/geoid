@@ -68,7 +68,7 @@ const Countries = () => {
           classNamePrefix="region-filter"
         />
       </Filter>
-      {status === "fetched" && <p style={{ textAlign: "center", marginTop: "1rem" }}>Click country for details</p>}
+      {status === "fetched" && <p style={{ textAlign: "center", marginTop: "2rem" }}>Click country for details</p>}
 
       {
         (() => {
