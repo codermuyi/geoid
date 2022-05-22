@@ -30,6 +30,7 @@ const ScrollToTopButton = styled.button`
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 .3rem .4rem rgba(0, 0, 0, .15);
+  z-index: 50;
   
   & > * {
     transition-duration: inherit;
