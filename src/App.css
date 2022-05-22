@@ -63,8 +63,6 @@ body {
   .country-info-skeleton .list-of-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* align-items: flex-start;
-    gap: 1em; */
   }
 
   .country-info-skeleton .second {
