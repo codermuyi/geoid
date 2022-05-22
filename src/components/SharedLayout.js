@@ -15,12 +15,12 @@ function ForceScrollToTop() {
 
 const SharedLayout = () => {
   return (
-    <div>
+    <>
       <ForceScrollToTop />
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   )
 }
 
