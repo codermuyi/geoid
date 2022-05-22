@@ -3,7 +3,8 @@ import useFetch from "../assets/useFetch"
 import { ReactComponent as Back } from "../assets/images/left-arrow.svg"
 import CountryInfo from "../components/CountryInfo"
 import Button from "../components/Button"
-import { displayFetchResults } from "../assets/utilities"
+import Error from "../components/Error"
+import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 
 const Country = () => {
   const { country } = useParams()
@@ -16,11 +17,20 @@ const Country = () => {
         <Back />
       </Button>
       {
-        displayFetchResults(status,
-          <CountryInfo
-            country={country} 
-            data={data[0]}
-          />)
+        (() => {
+          if (status === "fetching") {
+            return <CountryInfoSkeleton />
+          }
+          if (status === "fetched") {
+            return <CountryInfo
+              country={country}
+              data={data[0]}
+            />
+          }
+          if (status === "error") {
+            return <Error fetch />
+          }
+        })()
       }
     </div>
   )

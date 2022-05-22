@@ -1,13 +1,14 @@
 /* eslint-disable array-callback-return */
 import { useState } from "react"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import Select from "react-select"
 import { mid2 } from "../assets/breakpoints"
 import searchIconUrl from "../assets/images/search.svg"
 import useFetch from "../assets/useFetch"
 import CountryCard from "../components/CountryCard"
 import ScrollToTop from "../components/ScrollToTop"
-import { displayFetchResults } from "../assets/utilities"
+import Error from "../components/Error"
+import { CountryListSkeleton } from "../components/CustomSkeleton"
 
 const regionFilterOptions = [
   { value: 'africa', label: 'Africa' },
@@ -67,12 +68,24 @@ const Countries = () => {
           classNamePrefix="region-filter"
         />
       </Filter>
-      <p style={{ textAlign: "center" }}>Click country for details</p>
+      {status === "fetched" && <p style={{ textAlign: "center", marginTop: "1rem" }}>Click country for details</p>}
+
       {
-        displayFetchResults(status,
-          <CountryList>
-            {countries}
-          </CountryList>)
+        (() => {
+          if (status === "fetching") {
+            return <CountryList>
+                <CountryListSkeleton />
+              </CountryList>
+          }
+          if (status === "fetched") {
+            return <CountryList>
+                {countries}
+              </CountryList>
+          }
+          if (status === "error") {
+            return <Error fetch />
+          }
+        })()
       }
       <ScrollToTop />
     </div>

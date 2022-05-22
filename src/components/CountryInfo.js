@@ -72,6 +72,24 @@ const CountryInfo = ({ country, data }) => {
   return <Error page />
 }
 
+const Content = styled.div`
+  max-width: 1500px;
+  margin-inline: auto;
+  display: grid;
+  grid-row: auto auto auto;
+  
+  @media (min-width: ${mid2}) {
+    grid-template-columns: 1fr 1fr;
+    grid-row: auto auto;
+    gap: 3em;
+    justify-content: center;
+
+    #map {
+      grid-column: 1 / -1;
+    }
+  }
+`
+
 const Col = styled.div`
   display: flex;
   flex-direction: column;
@@ -89,7 +107,6 @@ const Col = styled.div`
   p {
     margin-left: 2px !important;
   }
-
 
   .name {
     margin-top: 0;
@@ -130,24 +147,6 @@ const Col = styled.div`
     }
     .list-of-info {
       gap: 6em;
-    }
-  }
-`
-
-const Content = styled.div`
-  max-width: 1500px;
-  margin-inline: auto;
-  display: grid;
-  grid-row: auto auto auto;
-  
-  @media (min-width: ${mid2}) {
-    grid-template-columns: 1fr 1fr;
-    grid-row: auto auto;
-    gap: 3em;
-    justify-content: center;
-
-    #map {
-      grid-column: 1 / -1;
     }
   }
 `
