@@ -23,5 +23,3 @@ npm-debug.log*
 .env
 .env.build
 .vercel
-
-countries-data.js
