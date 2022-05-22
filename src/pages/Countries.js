@@ -99,6 +99,7 @@ const Filter = styled.div`
   align-items: flex-start;
   max-width: 1200px;
   margin-inline: auto;
+  gap: 1rem;
 
   > * {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
