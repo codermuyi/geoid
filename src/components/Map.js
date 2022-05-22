@@ -46,7 +46,7 @@ function Map({ country }) {
 
   return (
     <SMap ref={mapRef} center={position} zoom={4} scrollWheelZoom={false}>
-      <TileLayer url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`} attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+      <TileLayer url={`https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png`} attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' />
       <Marker position={position}></Marker>
     </SMap>
   );

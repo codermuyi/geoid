@@ -29,6 +29,7 @@ const About = () => {
           <li><a className="link" href="https://bennettfeely.com/clippy/">Clippy</a></li>
           <li><a className="link" href="https://restcountries.com/">REST Countries</a></li>
           <li><a className="link" href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
+          <li><a className="link" href="https://stadiamaps.com/">Stadia Maps</a></li>
         </ul>
       </Article>
     </div>
