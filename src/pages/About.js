@@ -21,6 +21,15 @@ const About = () => {
           I plan to extend this app to include as much earthy stuff as possible. If you have any ideas or tips that you don’t mind sharing,
           you can reach me at <a className="link" href="mailto:oluwamuyiwaadepoju@gmail.com">my email address</a>.
         </p>
+        <h2>Helpful sources</h2>
+        <ul>
+          <li><a className="link" href="https://frontendmentor.io">Frontend Mentor</a></li>
+          <li><a className="link" href="https://www.flaticon.com/">Flaticon</a></li>
+          <li><a className="link" href="https://svgrepo.com">svgrepo</a></li>
+          <li><a className="link" href="https://bennettfeely.com/clippy/">Clippy</a></li>
+          <li><a className="link" href="https://restcountries.com/">REST Countries</a></li>
+          <li><a className="link" href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
+        </ul>
       </Article>
     </div>
   )
@@ -30,10 +39,14 @@ const Article = styled.article`
   background: white;
   max-width: 60ch;
   margin-inline: auto;
-  padding: 3rem;
+  padding: 3rem 2rem;
   font-size: 1.3rem;
   color: #555555;
   position: relative;
+
+  h1 {
+    font-size: 3rem;
+  }
 
   .earth {
     width: 100%;
@@ -43,7 +56,7 @@ const Article = styled.article`
 
   @media (min-width: ${lg1}) {
     margin-block: 15rem 10rem;
-    padding-block: 5rem;
+    padding: 5rem 3rem;
 
     .earth {
       position: absolute;
