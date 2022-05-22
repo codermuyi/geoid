@@ -26,6 +26,7 @@ const Btn = styled.button`
   padding: ${props => props.pad ? `calc(${props.pad / 2}rem) ${props.pad}rem` : ""};
   font-size: ${props => props.fontSize ? `${props.fontSize}rem` : "inherit"};
   border-radius: ${props => props.round && "50%"};
+  transition-duration: .2s;
 
   :hover {
     background-color: rgba(0, 187, 119, .2);
