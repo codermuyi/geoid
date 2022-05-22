@@ -1,4 +1,4 @@
-import styled from "styled-components/macro"
+import styled from "styled-components"
 import useScroll from "../assets/useScroll"
 
 import { ReactComponent as Arrow } from "../assets/images/up-arrow.svg"
@@ -11,20 +11,32 @@ const ScrollToTop = () => {
   }
 
   return (
-    <Button top={scrollTop} onClick={scrollToTop}>
+    <ScrollToTopButton
+      top={scrollTop} 
+      onClick={scrollToTop}
+    >
       <Arrow />
-    </Button>
+    </ScrollToTopButton>
   )
 }
 
-const Button = styled.button`
+const ScrollToTopButton = styled.button`
   position: fixed;
-  bottom: 2em;
-  border-color: var(--app-green);
-  width: 4em;
-  background-color: transparent;
-  right: ${props => props.top > 900 ? "2em" : "-10em"};
+  right: 2rem;
+  bottom: ${props => props.top > 900 ? "2em" : "-10em"};
   transition-duration: .2s;
+  width: 4rem;
+  border: 0;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 .3rem .4rem rgba(0, 0, 0, .15);
+  
+  & > * {
+    transition-duration: inherit;
+  }
+  :hover > * {
+    transform: translateY(-40%)
+  }
 `
 
 export default ScrollToTop
