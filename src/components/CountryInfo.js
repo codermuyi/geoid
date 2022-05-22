@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
 import Button from "../components/Button"

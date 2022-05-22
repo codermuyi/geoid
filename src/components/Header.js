@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components/macro"
 import { Link, useLocation } from "react-router-dom"
 import Logo from "./Logo"
 import imgUrl from "../assets/images/world.png"
@@ -31,8 +31,17 @@ const StyledHeader = styled.div`
 
   img {
     display: ${props => props.homepage ? "none" : "inline-block"};
-    transform: ${props => props.scrollY ? "scale(1)" : "scale(0)"};
-    width: ${props => props.scrollY ? "60px" : "0"};
+    ${props => 
+      props.scrollY ? 
+      css`
+        transform: scale(1);
+        width: 60px;
+      `: 
+      css`
+        transform: scale(0);
+        width: 0;
+      `
+    }
     height: 50px;
     padding-right: .5em;
     flex-shrink: 0;

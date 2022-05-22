@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { mid1 } from "../assets/breakpoints"
 import image from "../assets/images/moving.gif";
 import { Link } from "react-router-dom"

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import styled from "styled-components/macro"
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import icon from "../assets/images/marker.png"
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import styled from "styled-components"
 import { mid2, lg2 } from "../assets/breakpoints"
 import useFetch from "../assets/useFetch"
 
