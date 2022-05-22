@@ -7,23 +7,16 @@ const CountryListSkeleton = () => {
   return (
     <>
       {
-        skeletonList.map((val, index) =>
+        skeletonList.map((_val, index) => (
           <div key={index} className="country" style={{ width: 250 }}>
             <Skeleton height={150} />
             <p className="country-name">
               <Skeleton height={36} width={`95%`} />
             </p>
-            <div className="country-info">
-              <Skeleton width={`90%`} />
-            </div>
-            <div className="country-info">
-              <Skeleton width={`90%`} />
-            </div>
-            <div className="country-info" style={{ marginBottom: "3rem" }}>
-              <Skeleton width={`90%`} />
-            </div>
+            <Skeleton width={`90%`} count={3} />
+            <div className="country-info" style={{ marginBottom: "3rem" }}></div>
           </div>
-        )
+        ))
       }
     </>
   )
@@ -38,25 +31,17 @@ const CountryInfoSkeleton = () => {
           <Skeleton height={40} width="95%" style={{ marginBottom: "2rem" }} />
           <div className="list-of-info">
             <div className="first">
-              <Skeleton height={15} width="90%" />
-              <Skeleton height={15} width="90%" />
-              <Skeleton height={15} width="90%" />
-              <Skeleton height={15} width="90%" />
-              <Skeleton height={15} width="90%" />
+              <Skeleton height={15} width="90%" count={5} />
             </div>
             <div className="second">
-              <Skeleton height={15} width="90%" />
-              <Skeleton height={15} width="90%" />
-              <Skeleton height={15} width="90%" />
+              <Skeleton height={15} width="90%" count={3} />
             </div>
           </div>
         </div>
         <div>
           <Skeleton height={30} width="60%" style={{ marginBlock: "1.3rem" }} />
           <div style={{ display: "flex", gap: 10 }}>
-            <Skeleton height={30} width={100} />
-            <Skeleton height={30} width={100} />
-            <Skeleton height={30} width={100} />
+            <Skeleton height={30} width={100} count={3} />
           </div>
         </div>
       </div>
