@@ -43,8 +43,8 @@ const App = () => {
   return (
     <S.App>
       <Router>
+        <GlobalStyles />
         <Suspense fallback={<Loader />}>
-          <GlobalStyles />
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<Home />} />
