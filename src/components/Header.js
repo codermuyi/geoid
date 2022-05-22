@@ -9,7 +9,7 @@ const Header = props => {
   const path = useLocation().pathname
 
   return (
-    <StyledHeader scrollY={windowScroll} homepage={path === "/"}>
+    <StyledHeader scrollY={windowScroll} homepage={path === "/"} about={path === "/about"}>
       <img src={imgUrl} alt="earth"/>
       <Link to="/">
         <Logo />
@@ -30,7 +30,7 @@ const StyledHeader = styled.div`
   z-index: 2000;
 
   img {
-    display: ${props => props.homepage ? "none" : "inline-block"};
+    display: ${props => props.homepage || props.about ? "none" : "inline-block"};
     ${props => 
       props.scrollY ? 
       css`
