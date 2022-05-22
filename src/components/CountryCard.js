@@ -28,6 +28,7 @@ const StyledCountry = styled.div`
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
   background-color: white;
   transition-duration: .12s;
+  border-radius: 10px;
   
   a {
     line-height: 0;

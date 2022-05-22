@@ -1,28 +1,32 @@
 import styled from "styled-components"
 
-const Button = ({children, size, pad}) => {
+const Button = ({ children, size, pad, fontSize, as, to }) => {
   return (
-    <Btn size={size} pad={pad}>
+    <Btn
+      size={size}
+      pad={pad}
+      fontSize={fontSize}
+      as={as || "button"}
+      to={to}
+    >
       {children}
     </Btn>
   )
 }
 
 const Btn = styled.button`
+  display: inline-flex;
   cursor: pointer;
   background-color: #ffffff;
   box-shadow: 0 .1em .2em rgba(0, 0, 0, .1);
   margin: .4em;
   border: 0;
+  width: ${props => props.size}rem;
+  padding: ${props => `calc(${props.pad / 2}rem) ${props.pad}rem`};
+  font-size: ${props => props.fontSize}rem;
 
   :hover {
     background-color: rgba(0, 187, 119, .2);
-  }
-  
-  a {
-    display: block;
-    width: ${props => props.size+"rem"};
-    padding: ${props => `calc(${props.pad/2}rem) ${props.pad}rem`};
   }
 `
 
