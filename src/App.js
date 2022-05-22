@@ -27,6 +27,9 @@ const GlobalStyles = createGlobalStyle`
   a.link {
     color: var(--app-green);
   }
+  a.link:hover {
+    color: blue;
+  }
 `
 
 const App = () => {
