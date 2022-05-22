@@ -22,9 +22,9 @@ const Btn = styled.button`
   box-shadow: 0 .1em .2em rgba(0, 0, 0, .1);
   margin: .4em;
   border: 0;
-  width: ${props => props.size}rem;
-  padding: ${props => `calc(${props.pad / 2}rem) ${props.pad}rem`};
-  font-size: ${props => props.fontSize}rem;
+  width: ${props => props.size ? `${props.size}rem` : ""};
+  padding: ${props => props.pad ? `calc(${props.pad / 2}rem) ${props.pad}rem` : ""};
+  font-size: ${props => props.fontSize ? `${props.fontSize}rem` : "inherit"};
   border-radius: ${props => props.round && "50%"};
 
   :hover {
