@@ -2,18 +2,18 @@ import Skeleton from "react-loading-skeleton"
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const CountryListSkeleton = () => {
-  const skeletonList = Array(10).fill()
+  const skeletonList = Array(20).fill()
 
   return (
     <>
       {
         skeletonList.map((_val, index) => (
-          <div key={index} className="country" style={{ width: 250 }}>
+          <div key={index} className="country" style={{ width: 250, border: "1px solid #eeeeee" }}>
             <Skeleton height={150} />
-            <p className="country-name">
+            <p className="country-name" style={{ margin: "1rem"}}>
               <Skeleton height={36} width={`95%`} />
             </p>
-            <Skeleton width={`90%`} count={3} />
+            <Skeleton width={`75%`} count={3} style={{marginLeft: "16px"}}/>
             <div className="country-info" style={{ marginBottom: "3rem" }}></div>
           </div>
         ))
