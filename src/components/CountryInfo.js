@@ -44,7 +44,7 @@ const CountryInfo = ({ country, data }) => {
           </div>
           <div style={{ marginTop: 30 }}>
             <h3>Border Countries:</h3>
-            <div className="bottons">
+            <div className="border-links">
               {borders?.map((name, i) => {
                 if (name !== "None")
                   return <Button
