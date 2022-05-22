@@ -24,11 +24,17 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-  a.link {
+  a.link:link {
     color: var(--app-green);
   }
+  a.link:visited {
+    color: var(--light-green);
+  }
   a.link:hover {
-    color: blue;
+    color: black;
+  }
+  a.link:active {
+    color: black;
   }
 `
 
