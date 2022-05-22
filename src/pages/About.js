@@ -18,7 +18,7 @@ const About = () => {
           So I combined them and made Geoid: an app about Earth and its locations/places/countries.
         </p>
         <p>
-          I plan to extend this app to include as much earthy stuff as possible. If you have any ideas that you don’t mind sharing,
+          I plan to extend this app to include as much earthy stuff as possible. If you have any ideas or tips that you don’t mind sharing,
           you can reach me at <a className="link" href="mailto:oluwamuyiwaadepoju@gmail.com">my email address</a>.
         </p>
       </Article>
