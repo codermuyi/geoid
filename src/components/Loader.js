@@ -13,6 +13,8 @@ const StyledLoader = styled.div`
   justify-content: center;
   align-items: center;
   padding: 5em;
+  width: 100vw;
+  height: 100vh;
 `
 
 const LoaderCircle = styled.div`
