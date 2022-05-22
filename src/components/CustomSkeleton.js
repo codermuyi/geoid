@@ -41,7 +41,9 @@ const CountryInfoSkeleton = () => {
         <div>
           <Skeleton height={30} width="60%" style={{ marginBlock: "1.3rem" }} />
           <div style={{ display: "flex", gap: 10 }}>
-            <Skeleton height={30} width={100} count={3} />
+            <Skeleton height={30} width={100} />
+            <Skeleton height={30} width={100} />
+            <Skeleton height={30} width={100} />
           </div>
         </div>
       </div>
