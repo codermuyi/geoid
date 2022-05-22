@@ -12,8 +12,8 @@ const Country = () => {
   return (
     <div className="page">
       <br />
-      <Button size={2.5}>
-        <Link to="/countries"><Back /></Link>
+      <Button size={2.7} pad={0.2} as={Link} to="/countries">
+        <Back />
       </Button>
       {
         displayFetchResults(status,

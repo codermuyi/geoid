@@ -47,13 +47,15 @@ const CountryInfo = ({ country, data }) => {
             <div className="bottons">
               {borders?.map((name, i) => {
                 if (name !== "None")
-                  return <Button key={i} pad={1} size={5}>
-                    <Link 
-                      style={{ fontSize: ".6rem"}}
-                      to={`/countries/${countryCodes[name]}`}
-                    >
-                      {countryCodes[name]}
-                    </Link>
+                  return <Button
+                    key={i}
+                    as={Link}
+                    to={`/countries/${countryCodes[name]}`}
+                    pad={1}
+                    size={6}
+                    fontSize={.7}
+                  >
+                    {countryCodes[name]}
                   </Button>
                 return <p key={i}>{name}</p>
               })}
