@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="page">
       <Article>
-        <img className="earth" src={earthSrc} alt="Earth image" />
+        <img className="earth" src={earthSrc} alt="Earth" />
         <h1>About Geoid</h1>
         <p>This project was inspired by two Frontend Mentor challenges: </p>
         <ul>
