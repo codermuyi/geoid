@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
   }
   a.link:visited {
     color: var(--light-green);
+    text-decoration: underline;
   }
   a.link:hover {
     color: black;
