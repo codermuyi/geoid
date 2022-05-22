@@ -25,7 +25,7 @@ const CountryListSkeleton = () => {
 const CountryInfoSkeleton = () => {
   return (
     <div className="country-info-skeleton">
-      <Skeleton className="col" height={250} />
+      <Skeleton className="col" height={280} />
       <div className="col">
         <div>
           <Skeleton height={40} width="95%" style={{ marginBottom: "2rem" }} />
