@@ -14,7 +14,7 @@ const Footer = () => {
 S.Footer = styled.footer`
   text-align: center;
   padding-block: 6em;
-  color: var(--app-green);
+  color: var(--app-color);
   position: relative;
 
   a:link {
@@ -32,7 +32,7 @@ S.Footer = styled.footer`
     bottom: 0;
     top: 0;
     width: 200px;
-    /* background-color: var(--app-green); */
+    /* background-color: var(--app-color); */
     background-color: var(--light-green);
     z-index: 1;
   }

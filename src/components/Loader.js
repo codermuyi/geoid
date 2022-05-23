@@ -20,8 +20,8 @@ const StyledLoader = styled.div`
 const LoaderCircle = styled.div`
   border-radius: 50%;
   border: 1em solid transparent;
-  border-top: 1em solid var(--app-green);
-  border-bottom: 1em solid var(--app-green);
+  border-top: 1em solid var(--app-color);
+  border-bottom: 1em solid var(--app-color);
   padding: 6em;
   position: relative;
   overflow: hidden;
@@ -34,8 +34,8 @@ const LoaderCircle = styled.div`
     padding-bottom: 2em;
     transform: translateX(-50%);
     border: 5em solid transparent;
-    border-top-color: var(--app-green);
-    border-bottom-color: var(--app-green);
+    border-top-color: var(--app-color);
+    border-bottom-color: var(--app-color);
   }
 
   @keyframes rotate {

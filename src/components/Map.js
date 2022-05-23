@@ -59,7 +59,7 @@ const SMap = styled(MapContainer)`
   margin-block: 6em;
   margin-right: 4em;
   margin-left: 1em;
-  border: .5em solid var(--app-green);
+  border: .5em solid var(--app-color);
   border-radius: 20px;
   transition: border .4s linear;
   

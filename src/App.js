@@ -15,7 +15,7 @@ const About = lazy(() => import("./pages/About"))
 const S = {}
 const GlobalStyles = createGlobalStyle`
   :root {
-    --app-green: #00bb77;
+    --app-color: #00bb77;
     --light-green: rgba(0, 187, 119, .4);
   }
 
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
   a.link:link {
-    color: var(--app-green);
+    color: var(--app-color);
   }
   a.link:visited {
     color: var(--light-green);

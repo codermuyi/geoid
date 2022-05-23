@@ -143,11 +143,11 @@ S.GridRow2 = styled(S.GridRow)`
 
   div {
     justify-self: center;
-    border: 0em solid var(--app-green);
+    border: 0em solid var(--app-color);
     aspect-ratio: 1 / 1;
     width: 300px;
     border-radius: 50%;
-    background: conic-gradient(white 40%, var(--app-green) 40%);
+    background: conic-gradient(white 40%, var(--app-color) 40%);
     color: black;
     font-size: 2rem;
     transition-duration: .1s;
@@ -164,7 +164,7 @@ S.GridRow2 = styled(S.GridRow)`
     }
 
     :hover {
-      background: conic-gradient(var(--app-green) 80%, white 20%);
+      background: conic-gradient(var(--app-color) 80%, white 20%);
       transform: scale(1.1) rotate(-10deg)
     }
   }

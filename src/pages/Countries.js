@@ -111,7 +111,7 @@ const Filter = styled.div`
   }
 
   .region-filter__control {
-    border-color: var(--app-green);
+    border-color: var(--app-color);
     padding: .4em 1em;
   }
 
