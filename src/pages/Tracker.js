@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 
 const Tracker = () => {
   useEffect(() => {
-    document.title = "Geoid - Tracker"
+    document.title = "Tracker | Geoid"
   }, [])
 
   return (

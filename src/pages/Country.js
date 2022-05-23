@@ -12,7 +12,7 @@ const Country = () => {
   const [data, status] = useFetch(`https://restcountries.com/v3.1/name/${country}`)
   
   useEffect(() => {
-    document.title = `Geoid - ${country}`
+    document.title = `${country} | Geoid`
   }, [country])
 
   return (

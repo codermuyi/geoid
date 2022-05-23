@@ -5,7 +5,7 @@ import { lg1 } from "../assets/breakpoints"
 
 const About = () => {
   useEffect(() => {
-    document.title = "Geoid - About"
+    document.title = "About | Geoid"
   }, [])
   
   return (

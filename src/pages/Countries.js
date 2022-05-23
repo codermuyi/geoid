@@ -24,7 +24,7 @@ const Countries = () => {
   const [data, status] = useFetch(`https://restcountries.com/v3.1/all`)
 
   useEffect(() => {
-    document.title = "Geoid - Countries"
+    document.title = "Countries | Geoid"
   }, [])
 
   function handleChange(e) {
