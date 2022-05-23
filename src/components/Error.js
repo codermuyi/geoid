@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/macro"
 import { Link } from "react-router-dom"
 import Button from "./Button"
 
-const Error = ({ page, fetch }) => {
+const Error = ({ page, fetch, result }) => {
 
   return (
     <ErrorDisplay page={page}>
@@ -13,6 +13,7 @@ const Error = ({ page, fetch }) => {
         </Button>
       </>}
       {fetch && <p>Could not load. Please check your data connection and refresh the page.</p>}
+      {result && <p>No results found.</p>}
     </ErrorDisplay>
   )
 }
