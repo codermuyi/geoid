@@ -28,13 +28,13 @@ const About = () => {
         </p>
         <h2>Helpful sources</h2>
         <ul>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://frontendmentor.io">Frontend Mentor</a></li>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://www.flaticon.com/">Flaticon</a></li>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://svgrepo.com">svgrepo</a></li>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://bennettfeely.com/clippy/">Clippy</a></li>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://restcountries.com/">REST Countries</a></li>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
-          <li><a className="link" target="_blank" rel="noreferrer" href="https://stadiamaps.com/">Stadia Maps</a></li>
+          <li><a className="link" href="https://frontendmentor.io">Frontend Mentor</a></li>
+          <li><a className="link" href="https://www.flaticon.com/">Flaticon</a></li>
+          <li><a className="link" href="https://svgrepo.com">svgrepo</a></li>
+          <li><a className="link" href="https://bennettfeely.com/clippy/">Clippy</a></li>
+          <li><a className="link" href="https://restcountries.com/">REST Countries</a></li>
+          <li><a className="link" href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
+          <li><a className="link" href="https://stadiamaps.com/">Stadia Maps</a></li>
         </ul>
       </Article>
     </div>
