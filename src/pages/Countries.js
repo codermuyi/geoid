@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components/macro"
 import Select from "react-select"
 import { mid2 } from "../assets/breakpoints"
@@ -22,6 +22,10 @@ const Countries = () => {
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("")
   const [data, status] = useFetch(`https://restcountries.com/v3.1/all`)
+
+  useEffect(() => {
+    document.title = "Geoid - Countries"
+  }, [])
 
   function handleChange(e) {
     if (e.target) {

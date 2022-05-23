@@ -1,6 +1,11 @@
+import { useEffect } from "react"
 import styled from "styled-components/macro"
 
 const Locator = () => {
+  useEffect(() => {
+    document.title = "Geoid - Tracker"
+  }, [])
+
   return (
     <StyledLocator>
       <p>This page is not yet available. Please check back later</p>

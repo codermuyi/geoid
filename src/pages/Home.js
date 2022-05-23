@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import styled from "styled-components/macro"
 import { mid1 } from "../assets/breakpoints"
 import image from "../assets/images/moving.gif";
@@ -8,6 +9,10 @@ import Logo from "../components/Logo"
 const S = {}
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Geoid"
+  }, [])
+  
   return (
     <S.Home>
       <S.Grid>

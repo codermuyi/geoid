@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import useFetch from "../assets/useFetch"
 import { ReactComponent as Back } from "../assets/images/left-arrow.svg"
@@ -9,6 +10,10 @@ import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 const Country = () => {
   const { country } = useParams()
   const [data, status] = useFetch(`https://restcountries.com/v3.1/name/${country}`)
+  
+  useEffect(() => {
+    document.title = `Geoid - ${country}`
+  }, [country])
 
   return (
     <div className="page">
