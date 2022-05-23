@@ -9,7 +9,7 @@ const Header = props => {
   const path = useLocation().pathname
 
   return (
-    <StyledHeader scrollY={windowScroll} homepage={path === "/"} about={path === "/about"}>
+    <StyledHeader scrollY={windowScroll} homepage={path === "/"} about={path === "/about" ? "yes" : undefined}>
       <img src={imgUrl} alt="earth"/>
       <Link to="/">
         <Logo />
