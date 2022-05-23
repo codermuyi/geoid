@@ -28,6 +28,7 @@ body {
   margin-bottom: 15rem;
 }
 .country-info-skeleton .col {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding-block: 2em;
