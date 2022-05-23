@@ -9,7 +9,7 @@ const Error = lazy(() => import("./components/Error"))
 const Home = lazy(() => import("./pages/Home"))
 const Countries = lazy(() => import("./pages/Countries"))
 const Country = lazy(() => import("./pages/Country"))
-const Locator = lazy(() => import("./pages/Locator"))
+const Tracker = lazy(() => import("./pages/Tracker"))
 const About = lazy(() => import("./pages/About"))
 
 const S = {}
@@ -50,7 +50,7 @@ const App = () => {
               <Route index element={<Home />} />
               <Route path="countries" element={<Countries />} />
               <Route path="countries/:country" element={<Country />} />
-              <Route path="locator" element={<Locator />} />
+              <Route path="locator" element={<Tracker />} />
               <Route path="about" element={<About />} />
               <Route path="*" element={<Error page />} />
             </Route>

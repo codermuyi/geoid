@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import styled from "styled-components/macro"
 
-const Locator = () => {
+const Tracker = () => {
   useEffect(() => {
     document.title = "Geoid - Tracker"
   }, [])
@@ -20,4 +20,4 @@ const StyledLocator = styled.div`
   background-color: hsl(0, 0%, 98%);
 `
 
-export default Locator
+export default Tracker
