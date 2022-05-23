@@ -17,10 +17,12 @@
 .env.test.local
 .env.production.local
 
+todo.txt
+useLocalStorage.js
+
 npm-debug.log*
 
 # Environment Variables
 .env
 .env.build
 .vercel
-todo.txt
