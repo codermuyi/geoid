@@ -1,23 +1,23 @@
-import { useEffect } from "react"
-import { Outlet, useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Outlet } from "react-router-dom"
+import ForceScrollToTop from "./ForceScrollToTop"
 import Header from './Header'
 import Footer from './Footer'
-
-function ForceScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+import Sidebar from './Sidebar'
 
 const SharedLayout = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const toggleSidebar = () => setIsSidebarOpen(open => !open);
+
   return (
     <>
       <ForceScrollToTop />
-      <Header />
+      <Header toggleSidebar={toggleSidebar} />
+      <Sidebar
+        isOpen={isSidebarOpen}
+        toggle={toggleSidebar}
+      />
       <Outlet />
       <Footer />
     </>
