@@ -12,6 +12,28 @@ const Country = lazy(() => import("./pages/Country"))
 const Tracker = lazy(() => import("./pages/Tracker"))
 const About = lazy(() => import("./pages/About"))
 
+const App = () => {
+  return (
+    <S.App>
+      <Router>
+        <GlobalStyles />
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<SharedLayout />}>
+              <Route index element={<Home />} />
+              <Route path="countries" element={<Countries />} />
+              <Route path="countries/:country" element={<Country />} />
+              <Route path="tracker" element={<Tracker />} />
+              <Route path="about" element={<About />} />
+              <Route path="*" element={<Error page />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </Router>
+    </S.App>
+  )
+}
+
 const S = {}
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -39,28 +61,6 @@ const GlobalStyles = createGlobalStyle`
     color: black;
   }
 `
-
-const App = () => {
-  return (
-    <S.App>
-      <Router>
-        <GlobalStyles />
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<SharedLayout />}>
-              <Route index element={<Home />} />
-              <Route path="countries" element={<Countries />} />
-              <Route path="countries/:country" element={<Country />} />
-              <Route path="tracker" element={<Tracker />} />
-              <Route path="about" element={<About />} />
-              <Route path="*" element={<Error page />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </Router>
-    </S.App>
-  )
-}
 
 S.App = styled.div`
   
