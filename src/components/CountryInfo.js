@@ -51,7 +51,8 @@ const CountryInfo = ({ country, data }) => {
                     key={i}
                     as={Link}
                     to={`/countries/${countryCodes[name]}`}
-                    pad={1}
+                    padY={0.5}
+                    padX={1}
                     size={6}
                     fontSize={.7}
                   >
