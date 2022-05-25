@@ -12,13 +12,15 @@ const Button = props => {
     to,
     round,
     noShadow,
-    bgColor 
+    bgColor,
+    onClick
   } = props
 
   return (
     <Btn
       as={as || "button"}
       to={to}
+      onClick={onClick}
       $pad={pad}
       $padX={padX}
       $padY={padY}
