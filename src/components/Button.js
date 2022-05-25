@@ -1,14 +1,32 @@
-import styled from "styled-components/macro"
+import styled from "styled-components"
 
-const Button = ({ children, size, pad, fontSize, as, to, round }) => {
+const Button = props => {
+  const { 
+    children,
+    size,
+    pad,
+    padX,
+    padY,
+    fontSize,
+    as,
+    to,
+    round,
+    noShadow,
+    bgColor 
+  } = props
+
   return (
     <Btn
-      size={size}
-      pad={pad}
-      fontSize={fontSize}
       as={as || "button"}
       to={to}
-      round={round}
+      $pad={pad}
+      $padX={padX}
+      $padY={padY}
+      $size={size}
+      $round={round}
+      $fontSize={fontSize}
+      $noShadow={noShadow}
+      $bgColor={bgColor}
     >
       {children}
     </Btn>
@@ -18,18 +36,25 @@ const Button = ({ children, size, pad, fontSize, as, to, round }) => {
 const Btn = styled.button`
   display: inline-flex;
   cursor: pointer;
-  background-color: #ffffff;
-  box-shadow: 0 .1em .2em rgba(0, 0, 0, .1);
+  background-color: ${props => props.bgColor ? props.bgColor : "#ffffff"};
   margin: .4em;
   border: 0;
-  width: ${props => props.size ? `${props.size}rem` : ""};
-  padding: ${props => props.pad ? `calc(${props.pad / 2}rem) ${props.pad}rem` : ""};
-  font-size: ${props => props.fontSize ? `${props.fontSize}rem` : "inherit"};
-  border-radius: ${props => props.round && "50%"};
+  box-shadow: ${props => !props.$noShadow && "0 .1em .2em rgba(0, 0, 0, .1)"};
+  width: ${props => props.$size ? `${props.$size}rem` : ""};
+  padding: ${props => props.$pad && `${props.$pad}rem`};
+  padding-inline: ${props => props.$padX && `${props.$padX}rem`};
+  padding-block: ${props => props.$padY && `${props.$padY}rem`};
+  font-size: ${props => props.$fontSize ? `${props.$fontSize}rem` : "inherit"};
+  border-radius: ${props => props.$round && "50%"};
   transition-duration: .2s;
+  text-align: center;
 
   :hover {
-    background-color: rgba(0, 187, 119, .2);
+    background-color: var(--light-green);
+  }
+
+  :active {
+    box-shadow: inset 0 .1em .2em rgba(0, 0, 0, .1);
   }
 `
 
