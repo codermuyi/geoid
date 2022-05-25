@@ -11,7 +11,7 @@ const CountryInfo = ({ country, data }) => {
   if (data) {
     let commonName = data.name.common,
       flagSrc = data.flags.svg,
-      nativeName = data.name.nativeName ? Object.values(data.name.nativeName).map(v => v.common).join(", ") : "None",
+      nativeName = data.name.nativeName ? new Set(Object.values(data.name.nativeName).map(v => v.common)).join(", ") : "None",
       population = data.population.toLocaleString(),
       region = data.region,
       subregion = data.subregion ? data.subregion : "None",
@@ -20,7 +20,7 @@ const CountryInfo = ({ country, data }) => {
       currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
       languages = data.languages ? Object.values(data.languages).join(", ") : "None",
       borders = data.borders ? data.borders : ["None"]
-
+    
     return (
       <Content>
         <Col>
