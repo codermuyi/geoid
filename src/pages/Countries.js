@@ -82,7 +82,6 @@ const Countries = () => {
               </CountryList>
           }
           if (status === "fetched") {
-            console.log(countries)
             return <CountryList>
                 {countries.every(country => country === undefined) ? <Error result /> : countries}
               </CountryList>
