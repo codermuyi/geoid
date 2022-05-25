@@ -34,7 +34,7 @@ const Home = () => {
             <Link to="countries">Learn about Countries</Link>
           </div>
           <div>
-            <Link to="locator">Track and Locate IP Addresses</Link>
+            <Link to="tracker">Track and Locate IP Addresses</Link>
           </div>
         </S.GridRow2>
       </S.Container>
