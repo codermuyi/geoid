@@ -20,7 +20,7 @@ const About = () => {
         </ul>
         <p>
           I saw a similarity in the two challenges. They both exhibit something about locations. 
-          So I combined them and made Geoid: an app about Earth and its locations/places/countries.
+          So I combined them and made Geoid: an app about Earth and its locations.
         </p>
         <p>
           I plan to extend this app to include as much earthy stuff as possible. If you have any ideas or tips that you don’t mind sharing,
