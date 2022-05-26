@@ -4,6 +4,7 @@ import ForceScrollToTop from "./ForceScrollToTop"
 import Header from './Header'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
+import Overlay from './Overlay'
 
 const SharedLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -21,6 +22,10 @@ const SharedLayout = () => {
       <Sidebar
         isOpen={isSidebarOpen}
         toggle={toggleSidebar}
+      />
+      <Overlay 
+        isSidebarOpen={isSidebarOpen} 
+        toggleSidebar={toggleSidebar}
       />
       <Outlet />
       <Footer />
