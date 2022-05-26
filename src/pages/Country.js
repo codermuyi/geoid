@@ -9,8 +9,8 @@ import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 
 const Country = () => {
   const { country } = useParams()
-  const [data, status] = useFetch(`https://restcountries.com/v3.1/name/${country}`)
-  
+  const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${country}`)
+
   useEffect(() => {
     document.title = `${country} | Geoid`
   }, [country])
@@ -23,16 +23,16 @@ const Country = () => {
       </Button>
       {
         (() => {
-          if (status === "fetching") {
+          if (countryDataStatus === "fetching") {
             return <CountryInfoSkeleton />
           }
-          if (status === "fetched") {
+          if (countryDataStatus === "fetched") {
             return <CountryInfo
               country={country}
-              data={data[0]}
+              data={countryData[0]}
             />
           }
-          if (status === "error") {
+          if (countryDataStatus === "error") {
             return <Error fetch />
           }
         })()
