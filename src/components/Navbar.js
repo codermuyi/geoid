@@ -25,6 +25,7 @@ const Nav = styled.nav`
   display: flex;
   background-color: var(--app-color-2);
   flex-direction: ${props => props.sidebar && "column"};
+  gap: .2rem;
 `
 
 const NavItem = styled.div`
