@@ -1,18 +1,33 @@
+import { useEffect, useState } from "react"
 import styled, { css } from "styled-components/macro"
 import { Link, useLocation } from "react-router-dom"
 import Logo from "./Logo"
+import Button from "./Button"
+import Navbar from "./Navbar"
+import { MenuIcon } from "./Icons"
 import imgUrl from "../assets/images/world.png"
 import useScroll from "../assets/useScroll"
-import Button from "./Button"
+import { mid2 } from "../assets/breakpoints"
+
+function getMatch() {
+  return window.matchMedia(`(min-width: ${mid2})`).matches
+}
 
 const Header = props => {
+  const [match, setMatch] = useState(getMatch())
   const windowScroll = useScroll()
   const path = useLocation().pathname
   const { toggleSidebar } = props
 
+  useEffect(() => {
+    let listener = window.addEventListener("resize", () => {
+      setMatch(getMatch())
+    })
+    return () => window.removeEventListener("resize", listener)
+  }, [])
+
   return (
-    <StyledHeader
-      $scrollY={windowScroll}
+    <StyledHeader $scrollY={windowScroll}
       $homepage={path === "/"}
       $about={path === "/about"}
     >
@@ -22,15 +37,15 @@ const Header = props => {
           <Logo />
         </Link>
       </HeaderItem>
+
       <HeaderItem>
-        <Button
-          size={3}
-          pad={1}
-          noShadow
-          onClick={toggleSidebar}
-        >
-          <MenuIcon />
-        </Button>
+        {
+          match ?
+            <Navbar /> :
+            <Button size={3} pad={1} onClick={toggleSidebar} noShadow>
+              <MenuIcon />
+            </Button>
+        }
       </HeaderItem>
     </StyledHeader>
   )
@@ -42,16 +57,24 @@ const StyledHeader = styled.div`
   width: 100%;
   padding: .5em;
   box-shadow: ${props => props.$homepage ? "none" : props.$scrollY ? "0 3px 4px rgba(0, 0, 0, 0.1)" : "0"};
-  background-color: ${props => props.$homepage ? "transparent" : "white"};
+  background-color: ${props => props.$homepage ? "transparent" : "var(--app-color-2)"};
   display: flex;
   transition-duration: .3s;
   z-index: 2000;
   justify-content: space-between;
 
+  ${props => props.$homepage ? 
+    css`
+      & > *:first-child {
+        display: none;
+      }
+    `:
+    ""
+  }
+
   img {
-    display: ${props => props.$homepage || props.$about ? "none" : "inline-block"};
-    ${props =>
-    props.$scrollY ?
+    display: ${props => props.$about ? "none" : "inline-block"};
+    ${props =>props.$scrollY ?
       css`
         transform: scale(1);
         width: 60px;
@@ -60,7 +83,7 @@ const StyledHeader = styled.div`
         transform: scale(0);
         width: 0;
       `
-  }
+    }
     height: 50px;
     padding-right: .5em;
     flex-shrink: 0;
@@ -72,37 +95,7 @@ const StyledHeader = styled.div`
 const HeaderItem = styled.div`
   display: flex;
   align-items: center;
-  padding-right: .3rem;
-`
-
-const MenuIcon = styled.i`
- transform: scale(var(--ggs,1));
-
-  &,
-  &::after,
-  &::before {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  width: 20px;
-  height: 2px;
-  border-radius: 3px;
-  background: currentColor
-  }
-
-  &::after,
-  &::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  right: 0;
-  width: 10px
-  }
-
-  &::after {
-  top: 6px;
-  width: 14px
-  } 
+  padding-right: .6rem;
 `
 
 export default Header
