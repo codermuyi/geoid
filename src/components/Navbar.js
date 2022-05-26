@@ -1,5 +1,6 @@
-import styled, { css } from "styled-components/macro"
+import styled from "styled-components/macro"
 import { NavLink } from "react-router-dom"
+import { mid2 } from "../assets/breakpoints"
 
 const Navbar = (props) => {
   return (
@@ -23,31 +24,33 @@ const Navbar = (props) => {
 const Nav = styled.nav`
   display: flex;
   background-color: var(--app-color-2);
-
-  ${props => props.sidebar ?
-    css`
-      flex-direction: column;
-    `
-   : ""}
+  flex-direction: ${props => props.sidebar && "column"};
 `
 
 const NavItem = styled.div`
- cursor: pointer;
- /* border: 2px solid black; */
- background-color: inherit;
+  cursor: pointer;
+  background-color: inherit;
  
- :hover {
-   background-color: var(--light-green);
-  }
-  
-  .active {
-    border-left: 3px solid var(--app-color)
+  &:hover {
+    background-color: var(--light-green);
   }
   
   a {
-   padding: .5rem 1rem;
-   display: block;
- }
+    padding: .5rem 1rem;
+    display: block;
+  }
+
+  .active {
+    border-left: 3px solid var(--app-color);
+
+  }
+
+  @media (min-width: ${mid2}) {
+    .active {
+      border: 0;
+      border-bottom: 3px solid var(--app-color);
+    }
+  }
 `
 
 export default Navbar
