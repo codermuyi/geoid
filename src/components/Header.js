@@ -13,11 +13,10 @@ function getMatch() {
   return window.matchMedia(`(min-width: ${mid2})`).matches
 }
 
-const Header = props => {
+const Header = ({ toggleSidebar }) => {
   const [match, setMatch] = useState(getMatch())
   const windowScroll = useScroll()
   const path = useLocation().pathname
-  const { toggleSidebar } = props
 
   useEffect(() => {
     let listener = window.addEventListener("resize", () => {
@@ -62,14 +61,9 @@ const StyledHeader = styled.div`
   transition-duration: .3s;
   z-index: 2000;
   justify-content: space-between;
-
-  ${props => props.$homepage ? 
-    css`
-      & > *:first-child {
-        display: none;
-      }
-    `:
-    ""
+  
+  & > *:first-child {
+    display: ${props => props.$homepage && "none"};
   }
 
   img {

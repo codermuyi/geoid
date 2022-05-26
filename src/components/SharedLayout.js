@@ -10,12 +10,9 @@ const SharedLayout = () => {
   const location = useLocation()
   const toggleSidebar = () => setIsSidebarOpen(open => !open);
 
-
   useEffect(() => {
     setIsSidebarOpen(false)
-    console.log(location.pathname)
   }, [location]);
-
 
   return (
     <>
