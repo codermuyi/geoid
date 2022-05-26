@@ -1,15 +1,19 @@
 import styled from "styled-components/macro"
 import Navbar from "./Navbar"
 import Button from "./Button"
+import { CloseIcon } from "./Icons"
+import { mid2 } from "../assets/breakpoints"
 
 const Sidebar = props => {
   const { isOpen, toggle } = props
 
   return (
     <StyledSidebar isOpen={isOpen}>
-      <Button onClick={toggle} style={{float: "right"}} noShadow>
-        <CloseIcon />
-      </Button>
+      <SidebarTop>
+        <Button onClick={toggle} noShadow>
+          <CloseIcon />
+        </Button>
+      </SidebarTop>
       <Navbar sidebar />
     </StyledSidebar>
   )
@@ -24,39 +28,20 @@ const StyledSidebar = styled.div`
   bottom: 0;
   z-index: 2000;
   background-color: var(--app-color-2);
-  transition-duration: .1s; /* change later */
+  transition-duration: .15s;
   padding-block: .3rem;
   box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, .2);
+
+  @media (min-width: ${mid2}) {
+    display: none;
+  }
 `
 
-const CloseIcon = styled.i`
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  transform: scale(var(--ggs,1));
-  width: 22px;
-  height: 22px;
-  border: 2px solid transparent;
-  border-radius: 40px;
-
-  &::after,
-  &::before {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 16px;
-  height: 2px;
-  background: currentColor;
-  transform: rotate(45deg);
-  border-radius: 5px;
-  top: 8px;
-  left: 1px
-  }
-
-  &::after {
-  transform: rotate(-45deg)
-  } 
+const SidebarTop = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-bottom: 1px solid #fefefe;
 `
 
 export default Sidebar
