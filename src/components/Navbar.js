@@ -31,6 +31,7 @@ const Nav = styled.nav`
 const NavItem = styled.div`
   cursor: pointer;
   background-color: inherit;
+  transition-duration: .2s;
  
   &:hover {
     background-color: var(--light-green);
