@@ -59,7 +59,7 @@ const StyledHeader = styled.div`
   background-color: ${props => props.$homepage ? "transparent" : "var(--app-color-2)"};
   display: flex;
   transition-duration: .3s;
-  z-index: 2000;
+  z-index: 1500;
   justify-content: space-between;
   
   & > *:first-child {
