@@ -25,7 +25,7 @@ const StyledSidebar = styled.div`
   position: fixed;
   right: ${props => props.isOpen ? "0" : "-100%"};
   top: 0px; 
-  bottom: 0;
+  /* bottom: 0; */
   z-index: 2000;
   background-color: var(--app-color-2);
   transition-duration: .15s;
