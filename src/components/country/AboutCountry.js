@@ -41,7 +41,7 @@ const About = styled.div`
   text-align: center;
   overflow-x: hidden;
   border-radius: 1rem;
-  background-color: #fff;
+  background-color: var(--app-color-2);
   margin-top: 3rem;
 
   @media (min-width: ${lg1}) {
