@@ -74,6 +74,7 @@ const SMap = styled(MapContainer)`
 
   @media (min-width: ${lg2}) {
     resize: auto;
+    margin-right: 1rem;
   }
 `
 
