@@ -119,6 +119,7 @@ const Col = styled.div`
   .name {
     margin-top: 0;
     font-weight: 800;
+    font-size: 2rem;
   }
 
   .other-info {
@@ -145,6 +146,10 @@ const Col = styled.div`
     }
   }
   @media (min-width: ${lg1}) {
+    .name {
+      font-size: 3rem;
+    }
+    
     .list-of-info {
       gap: 3em;
     }
