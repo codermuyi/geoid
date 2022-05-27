@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
-import useFetch from "../assets/useFetch"
+import useFetch from "../assets/hooks/useFetch"
 import { ReactComponent as Back } from "../assets/images/left-arrow.svg"
-import CountryInfo from "../components/CountryInfo"
-import Button from "../components/Button"
-import Error from "../components/Error"
+import CountryInfo from "../components/country/CountryInfo"
+import Button from "../components/common/Button"
+import Error from "../components/common/Error"
 import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 
 const Country = () => {

@@ -1,8 +1,8 @@
 import styled from "styled-components/macro"
 import Navbar from "./Navbar"
 import Button from "./Button"
-import { CloseIcon } from "./Icons"
-import { mid2 } from "../assets/breakpoints"
+import { CloseIcon } from "../Icons"
+import { mid2 } from "../../assets/breakpoints"
 
 const Sidebar = props => {
   const { isOpen, toggle } = props

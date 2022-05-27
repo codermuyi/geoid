@@ -6,7 +6,7 @@ import L from 'leaflet';
 import icon from "../assets/images/marker.png"
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { mid2, lg2 } from "../assets/breakpoints"
-import useFetch from "../assets/useFetch"
+import useFetch from "../assets/hooks/useFetch"
 
 let DefaultIcon = L.icon({
     iconUrl: icon,

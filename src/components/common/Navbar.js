@@ -1,6 +1,6 @@
 import styled from "styled-components/macro"
 import { NavLink } from "react-router-dom"
-import { mid2 } from "../assets/breakpoints"
+import { mid2 } from "../../assets/breakpoints"
 
 const Navbar = (props) => {
   return (

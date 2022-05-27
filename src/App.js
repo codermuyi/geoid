@@ -3,9 +3,9 @@ import styled, { createGlobalStyle } from "styled-components"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import "./App.css"
-import Loader from "./components/Loader"
+import Loader from "./components/common/Loader"
 const SharedLayout = lazy(() => import("./components/SharedLayout"))
-const Error = lazy(() => import("./components/Error"))
+const Error = lazy(() => import("./components/common/Error"))
 const Home = lazy(() => import("./pages/Home"))
 const Countries = lazy(() => import("./pages/Countries"))
 const Country = lazy(() => import("./pages/Country"))

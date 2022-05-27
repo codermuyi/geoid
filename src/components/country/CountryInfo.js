@@ -1,11 +1,11 @@
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
-import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
-import Button from "../components/Button"
-import Error from "../components/Error"
-import Map from "../components/Map"
-import AboutCountry from "../components/AboutCountry"
-import countryCodes from "../assets/country-codes.json"
+import { mid1, mid2, lg1, lg2 } from "../../assets/breakpoints"
+import Button from "../common/Button"
+import Error from "../common/Error"
+import Map from "../Map"
+import AboutCountry from "./AboutCountry"
+import countryCodes from "../../assets/country-codes.json"
 // Country code url in myjson: http://myjson.dit.upm.es/api/bins/h4vj
 
 const CountryInfo = ({ country, data }) => {

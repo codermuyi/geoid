@@ -1,9 +1,9 @@
 import styled from "styled-components/macro"
 import Skeleton from "react-loading-skeleton"
 import 'react-loading-skeleton/dist/skeleton.css'
-import useFetch from "../assets/useFetch"
-import Button from "./Button"
-import { lg1, lg2 } from "../assets/breakpoints"
+import useFetch from "../../assets/hooks/useFetch"
+import { lg1, lg2 } from "../../assets/breakpoints"
+import Button from "../common/Button"
 
 const AboutCountry = ({ country }) => {
   const [wikiInfo, wikiInfoStatus] = useFetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${country}`)

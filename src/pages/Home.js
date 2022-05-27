@@ -4,7 +4,7 @@ import { mid1 } from "../assets/breakpoints"
 import image from "../assets/images/moving.gif";
 import { Link } from "react-router-dom"
 
-import Logo from "../components/Logo"
+import Logo from "../components/common/Logo"
 
 const S = {}
 

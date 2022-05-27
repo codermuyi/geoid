@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import styled, { css } from "styled-components/macro"
 import { Link, useLocation } from "react-router-dom"
+import imgUrl from "../../assets/images/world.png"
+import useScroll from "../../assets/hooks/useScroll"
+import { mid2 } from "../../assets/breakpoints"
 import Logo from "./Logo"
 import Button from "./Button"
 import Navbar from "./Navbar"
-import { MenuIcon } from "./Icons"
-import imgUrl from "../assets/images/world.png"
-import useScroll from "../assets/useScroll"
-import { mid2 } from "../assets/breakpoints"
+import { MenuIcon } from "../Icons"
 
 function getMatch() {
   return window.matchMedia(`(min-width: ${mid2})`).matches

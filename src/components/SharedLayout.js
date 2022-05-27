@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { Outlet, useLocation } from "react-router-dom"
 import ForceScrollToTop from "./ForceScrollToTop"
-import Header from './Header'
-import Footer from './Footer'
-import Sidebar from './Sidebar'
-import Overlay from './Overlay'
+import Header from './common/Header'
+import Footer from './common/Footer'
+import Sidebar from './common/Sidebar'
+import Overlay from './common/Overlay'
 
 const SharedLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)

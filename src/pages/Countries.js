@@ -4,10 +4,10 @@ import styled from "styled-components/macro"
 import Select from "react-select"
 import { mid2 } from "../assets/breakpoints"
 import searchIconUrl from "../assets/images/search.svg"
-import useFetch from "../assets/useFetch"
-import CountryCard from "../components/CountryCard"
+import useFetch from "../assets/hooks/useFetch"
+import CountryCard from "../components/country/CountryCard"
 import ScrollToTop from "../components/ScrollToTop"
-import Error from "../components/Error"
+import Error from "../components/common/Error"
 import { CountryListSkeleton } from "../components/CustomSkeleton"
 
 const regionFilterOptions = [

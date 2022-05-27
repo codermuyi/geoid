@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { mid2 } from "../assets/breakpoints"
+import { mid2 } from "../../assets/breakpoints"
 
 const Logo = (props) => {
   return (

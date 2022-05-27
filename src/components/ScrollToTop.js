@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import useScroll from "../assets/useScroll"
+import useScroll from "../assets/hooks/useScroll"
 
 import { ReactComponent as Arrow } from "../assets/images/up-arrow.svg"
 
