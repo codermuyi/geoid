@@ -4,6 +4,7 @@ import { mid1, mid2, lg1, lg2 } from "../assets/breakpoints"
 import Button from "../components/Button"
 import Error from "../components/Error"
 import Map from "../components/Map"
+import AboutCountry from "../components/AboutCountry"
 import countryCodes from "../assets/country-codes.json"
 // Country code url in myjson: http://myjson.dit.upm.es/api/bins/h4vj
 
@@ -20,7 +21,7 @@ const CountryInfo = ({ country, data }) => {
       currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
       languages = data.languages ? Object.values(data.languages).join(", ") : "None",
       borders = data.borders ? data.borders : ["None"]
-    
+
     return (
       <Content>
         <Col>
@@ -63,6 +64,7 @@ const CountryInfo = ({ country, data }) => {
             </div>
           </div>
         </Col>
+        <AboutCountry country={country} />
         <div id="map">
           <Map country={country} />
         </div>
@@ -74,19 +76,23 @@ const CountryInfo = ({ country, data }) => {
 }
 
 const Content = styled.div`
-  max-width: 1500px;
+  max-width: 2000px;
   margin-inline: auto;
   display: grid;
-  grid-row: auto auto auto;
   
   @media (min-width: ${mid2}) {
     grid-template-columns: 1fr 1fr;
-    grid-row: auto auto;
-    gap: 3em;
+    gap: 2rem;
     justify-content: center;
-
+    
     #map {
       grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: ${lg2}) {
+    #map {
+      grid-column: 2 / -1;
     }
   }
 `
