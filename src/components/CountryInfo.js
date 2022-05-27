@@ -79,6 +79,7 @@ const Content = styled.div`
   max-width: 2000px;
   margin-inline: auto;
   display: grid;
+  margin-bottom: 4rem;
   
   @media (min-width: ${mid2}) {
     grid-template-columns: 1fr 1fr;
