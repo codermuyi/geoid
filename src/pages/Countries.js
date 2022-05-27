@@ -39,10 +39,18 @@ const Countries = () => {
 
   const countries = data.map((country, index) => {
     const comp = <CountryCard key={index} {...country} />
+    
     const nameList = Object.values(country.name)
-
-    if (searchInput) {
-      if (nameList.includes(searchInput.trim()) || nameList.join("").toLowerCase().includes(searchInput.toLowerCase().trim())) {
+    const search = searchInput.trim().toLowerCase()
+    const altSpelling = []
+    for (let spelling of country.altSpellings) {
+      altSpelling.push(spelling.toLowerCase())
+    }
+    const isAltSpelling = altSpelling.includes(search)
+    
+    if (search) {
+      if (isAltSpelling || nameList.includes(searchInput.trim()) || nameList.join("").toLowerCase().includes(search)) {
+        console.log(isAltSpelling, country)
         return comp
       }
     } else {
