@@ -15,7 +15,7 @@ const AboutCountry = ({ country }) => {
           if (wikiInfoStatus === "fetched") {
             return <>
               <div dangerouslySetInnerHTML={{ __html: wikiInfo.extract_html }}></div>
-              <Button as="a" href={wikiInfo.content_urls?.desktop.page} pad="1" noShadow>Go to Wikipedia</Button>
+              <Button as="a" href={wikiInfo.content_urls?.desktop.page} pad="1">Go to Wikipedia</Button>
             </>
           }
           if (wikiInfoStatus === "fetching") {
