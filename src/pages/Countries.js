@@ -29,7 +29,7 @@ const Countries = () => {
 
   function handleChange(e) {
     if (e.target) {
-      let value = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase();
+      let value = e.target.value //.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase();
       setSearchInput(value)
       return
     }
@@ -39,7 +39,7 @@ const Countries = () => {
 
   const countries = data.map((country, index) => {
     const comp = <CountryCard key={index} {...country} />
-    
+
     const nameList = Object.values(country.name)
     const search = searchInput.trim().toLowerCase()
     const altSpelling = []
