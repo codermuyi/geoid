@@ -9,7 +9,7 @@ import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 
 const Country = () => {
   const { country } = useParams()
-  const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${country}`)
+  const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
 
   useEffect(() => {
     document.title = `${country} | Geoid`
