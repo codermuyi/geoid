@@ -7,6 +7,7 @@ import useMatchMedia from "../../assets/hooks/useMatchMedia"
 import Logo from "./Logo"
 import Button from "./Button"
 import Navbar from "./Navbar"
+import ThemeToggle from "./ThemeToggle"
 import { MenuIcon } from "../Icons"
 
 const Header = ({ toggleSidebar }) => {
@@ -24,6 +25,10 @@ const Header = ({ toggleSidebar }) => {
         <Link to="/">
           <Logo />
         </Link>
+      </HeaderItem>
+
+      <HeaderItem>
+        <ThemeToggle />
       </HeaderItem>
 
       <HeaderItem>
