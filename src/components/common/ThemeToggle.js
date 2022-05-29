@@ -1,11 +1,20 @@
+import { useEffect } from "react"
 import styled from "styled-components/macro"
 import { SunIcon, MoonIcon } from "../Icons"
 import useMatchMedia from "../../assets/hooks/useMatchMedia"
 import useTheme from "../../assets/theme"
 
 const Toggle = () => {
-  const isMatched = useMatchMedia("min", "350px")
+  const isMatched = useMatchMedia("min-width", "350px")
+  const prefersDarkMode = useMatchMedia("prefers-color-scheme", "dark")
   const theme = useTheme()
+
+  useEffect(() => {
+    if (prefersDarkMode) {
+      theme.setDarkMode(true)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   function handleThemeToggle(e) {
     theme.setDarkMode(e.target.checked)
