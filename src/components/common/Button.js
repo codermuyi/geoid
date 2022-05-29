@@ -14,7 +14,8 @@ const Button = props => {
     noShadow,
     bgColor,
     onClick,
-    href
+    href,
+    name
   } = props
 
   return (
@@ -23,6 +24,7 @@ const Button = props => {
       to={to}
       href={href}
       onClick={onClick}
+      aria-label={name}
       $pad={pad}
       $padX={padX}
       $padY={padY}
