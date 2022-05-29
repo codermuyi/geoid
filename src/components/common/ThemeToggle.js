@@ -3,11 +3,13 @@ import styled from "styled-components/macro"
 import { SunIcon, MoonIcon } from "../Icons"
 import useMatchMedia from "../../assets/hooks/useMatchMedia"
 import useTheme from "../../assets/theme"
+import useScroll from "../../assets/hooks/useScroll"
 
 const Toggle = () => {
   const isMatched = useMatchMedia("min-width", "350px")
   const prefersDarkMode = useMatchMedia("prefers-color-scheme", "dark")
   const theme = useTheme()
+  const scrollY = useScroll()
 
   useEffect(() => {
     if (prefersDarkMode) {
@@ -21,7 +23,7 @@ const Toggle = () => {
   }
 
   return (
-    <Toggler>
+    <Toggler scrollY={scrollY}>
       {isMatched && <SunIcon />}
       <label aria-label="Theme toggle">
         <Checkbox
@@ -41,6 +43,7 @@ const Toggler = styled.div`
   display: flex;
   align-items: center;
   gap: .1rem;
+  color: ${props => props.scrollY > 600 && "white"};
 
   label {
     border-radius: 6rem;
