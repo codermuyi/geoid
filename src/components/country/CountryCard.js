@@ -7,7 +7,7 @@ const CountryCard = (props) => {
   const { name, flags, population, region, capital } = props
 
   return (
-    <StyledCountry isLight={!theme.isDarkMode}>
+    <Country isLight={!theme.isDarkMode}>
       <Link to={name.common}>
         <Flag src={flags.png} alt={`Flag of ${name.common}`} loading="lazy" />
         <CountryInfo>
@@ -17,11 +17,11 @@ const CountryCard = (props) => {
           <p className="other-info">Capital: <span className="light-text">{props?.capital ? capital[0] : "No Capital"}</span></p>
         </CountryInfo>
       </Link>
-    </StyledCountry>
+    </Country>
   )
 }
 
-const StyledCountry = styled.div`
+const Country = styled.div`
   --box-shadow-color: ${props => props.isLight ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.2)"};
   display: flex;
   flex-direction: column;
