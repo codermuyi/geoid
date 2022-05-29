@@ -22,7 +22,6 @@ const CountryCard = (props) => {
 }
 
 const StyledCountry = styled.div`
-  /* --box-shadow-color: rgba(0, 0, 0, 0.1); */
   --box-shadow-color: ${props => props.isLight ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.2)"};
   display: flex;
   flex-direction: column;
