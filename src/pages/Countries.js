@@ -47,13 +47,9 @@ const Countries = () => {
 
   const countries = data.map((country, index) => {
     const comp = <CountryCard key={index} {...country} />
-
     const nameList = Object.values(country.name)
     const search = searchInput.trim().toLowerCase()
-    const altSpelling = []
-    for (let spelling of country.altSpellings) {
-      altSpelling.push(spelling.toLowerCase())
-    }
+    const altSpelling = country.altSpellings.map(spelling => spelling.toLowerCase())
     const isAltSpelling = altSpelling.includes(search)
     
     if (search) {
@@ -128,14 +124,26 @@ const Filter = styled.div`
   .region-filter__control {
     border-color: var(--app-color);
     padding: .4em 1em;
+    box-shadow: none;
   }
 
+  .region-filter__control:hover {
+    border-color: transparent;
+  }
+  
   .region-filter__menu-list {
+    z-index: 100;
     padding: .1em 1em;
+    color: black;
+  }
 
-    > *:hover {
-      background-color: rgba(0, 187, 119, .5);
-    }
+  .region-filter__option:hover:not(.region-filter__option--is-selected),
+  .region-filter__option--is-focused {
+    background-color: var(--light-green);
+  }
+
+  .region-filter__option--is-selected {
+    background-color: var(--app-color);
   }
 
   @media (min-width: ${mid2}) {
@@ -191,7 +199,6 @@ const CountryList = styled.div`
   justify-content: center;
   gap: 3em;
   margin: 3em 2em;
-  /* color: var(--text-color-1); */
 
   @media (min-width: ${mid2}) {
     margin-inline: 3.5em;
