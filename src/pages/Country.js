@@ -18,7 +18,7 @@ const Country = () => {
   return (
     <div className="page">
       <br />
-      <Button size={2.7} pad={0.2} as={Link} to="/countries">
+      <Button size={2.7} pad={0.2} as={Link} to="/countries" name="Back to countries page">
         <Back />
       </Button>
       {
