@@ -13,7 +13,7 @@ import { MenuIcon } from "../Icons"
 const Header = ({ toggleSidebar }) => {
   const windowScroll = useScroll()
   const path = useLocation().pathname
-  const match = useMatchMedia("min", mid2)
+  const match = useMatchMedia("min-width", mid2)
 
   return (
     <StyledHeader $scrollY={windowScroll}
