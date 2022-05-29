@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import styled from "styled-components/macro"
 import Select from "react-select"
 import { mid2 } from "../assets/breakpoints"
@@ -22,9 +22,17 @@ const Countries = () => {
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("")
   const [data, status] = useFetch(`https://restcountries.com/v3.1/all`)
+  const searchElement = useRef({})
 
   useEffect(() => {
     document.title = "Countries | Geoid"
+    let listener = window.addEventListener("keydown", e => {
+      if (e.keyCode === 13 && searchElement.current === document.activeElement) {
+        window.scrollTo(0, 230)
+        searchElement.current.blur()
+      }
+    })
+    return () => window.removeEventListener("keydown", listener)
   }, [])
 
   function handleChange(e) {
@@ -69,6 +77,7 @@ const Countries = () => {
           <SearchInput
             value={searchInput}
             onChange={handleChange}
+            ref={searchElement}
           />
         </Search>
         <Select
