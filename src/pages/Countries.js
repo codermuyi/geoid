@@ -50,7 +50,6 @@ const Countries = () => {
     
     if (search) {
       if (isAltSpelling || nameList.includes(searchInput.trim()) || nameList.join("").toLowerCase().includes(search)) {
-        console.log(isAltSpelling, country)
         return comp
       }
     } else {
