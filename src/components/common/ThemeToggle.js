@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import styled from "styled-components/macro"
+import { useLocation } from "react-router-dom"
 import { SunIcon, MoonIcon } from "../Icons"
 import useMatchMedia from "../../assets/hooks/useMatchMedia"
 import useTheme from "../../assets/theme"
@@ -10,6 +11,7 @@ const Toggle = () => {
   const prefersDarkMode = useMatchMedia("prefers-color-scheme", "dark")
   const theme = useTheme()
   const scrollY = useScroll()
+  const isHomepage = useLocation().pathname === "/"
 
   useEffect(() => {
     if (prefersDarkMode) {
@@ -23,7 +25,7 @@ const Toggle = () => {
   }
 
   return (
-    <Toggler scrollY={scrollY}>
+    <Toggler isHomepage={isHomepage} scrollY={scrollY}>
       {isMatched && <SunIcon />}
       <label aria-label="Theme toggle">
         <Checkbox
@@ -43,7 +45,7 @@ const Toggler = styled.div`
   display: flex;
   align-items: center;
   gap: .1rem;
-  color: ${props => props.scrollY > 600 && "white"};
+  color: ${props => props.isHomepage && props.scrollY > 600 && "white"};
 
   label {
     border-radius: 6rem;
