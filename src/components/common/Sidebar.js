@@ -10,7 +10,7 @@ const Sidebar = props => {
   return (
     <StyledSidebar isOpen={isOpen}>
       <SidebarTop>
-        <Button onClick={toggle} name="open sidebar" noShadow>
+        <Button onClick={toggle} name="close sidebar" noShadow>
           <CloseIcon />
         </Button>
       </SidebarTop>
