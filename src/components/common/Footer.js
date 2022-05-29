@@ -16,6 +16,7 @@ S.Footer = styled.footer`
   padding-block: 6em;
   color: var(--app-color);
   position: relative;
+  background-color: var(--app-color-2);
 
   a:link {
     color: black !important;

@@ -40,7 +40,7 @@ const Button = props => {
 const Btn = styled.button`
   display: inline-flex;
   cursor: pointer;
-  background-color: ${props => props.bgColor ? props.bgColor : "#ffffff"};
+  background-color: ${props => props.bgColor ? props.bgColor : "var(--app-color-2)"};
   margin: .4em;
   border: 0;
   box-shadow: ${props => !props.$noShadow && "0 .1em .2em rgba(0, 0, 0, .1)"};
@@ -52,6 +52,7 @@ const Btn = styled.button`
   border-radius: ${props => props.$round && "50%"};
   transition-duration: .2s;
   text-align: center;
+  color: var(--text-color-1);
 
   :hover {
     background-color: var(--light-green);

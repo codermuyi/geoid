@@ -56,7 +56,7 @@ S.Bg = styled.div`
   position: absolute;
   inset: 0;
   bottom: 50%;
-  background: white;
+  background: var(--app-color-2);
   z-index: 2;
 
   ::after {
@@ -147,8 +147,8 @@ S.GridRow2 = styled(S.GridRow)`
     aspect-ratio: 1 / 1;
     width: 300px;
     border-radius: 50%;
-    background: conic-gradient(white 40%, var(--app-color) 40%);
-    color: black;
+    background: conic-gradient(var(--app-color-2) 40%, var(--app-color) 40%);
+    color: var(--text-color-1);
     font-size: 2rem;
     transition-duration: .1s;
     transition-timing-function: cubic-bezier(.22,.68,0,1.71);;
@@ -164,7 +164,7 @@ S.GridRow2 = styled(S.GridRow)`
     }
 
     :hover {
-      background: conic-gradient(var(--app-color) 80%, white 20%);
+      background: conic-gradient(var(--app-color) 80%, var(--app-color-2) 20%);
       transform: scale(1.1) rotate(-10deg)
     }
   }

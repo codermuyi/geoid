@@ -37,15 +37,15 @@ const About = styled.div`
   max-width: 72ch;
   margin: 0 auto 1.5rem;
   padding: 0.5rem 1rem;
-  color: #555555;
+  color: var(--text-color-2);
   text-align: center;
   overflow-x: hidden;
   border-radius: 1rem;
-  background-color: var(--app-color-2);
   margin-top: 3rem;
 
   @media (min-width: ${lg1}) {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    padding-inline: 2rem;
   }
 
   @media (min-width: ${lg2}) {

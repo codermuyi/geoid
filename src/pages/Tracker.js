@@ -7,9 +7,11 @@ const Tracker = () => {
   }, [])
 
   return (
-    <StyledLocator>
-      <p>This page is not yet available. Please check back later</p>
-    </StyledLocator>
+    <div className="page">
+      <StyledLocator>
+        <p>This page is not yet available. Please check back later</p>
+      </StyledLocator>
+    </div>
   )
 }
 
@@ -17,7 +19,7 @@ const StyledLocator = styled.div`
   font-size: 2em;
   padding-block: 10em;
   text-align: center;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--app-color-3);
 `
 
 export default Tracker

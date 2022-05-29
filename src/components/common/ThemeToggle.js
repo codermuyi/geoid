@@ -1,16 +1,24 @@
-// import { useState, useEffect } from "react"
 import styled from "styled-components/macro"
 import { SunIcon, MoonIcon } from "../Icons"
 import useMatchMedia from "../../assets/hooks/useMatchMedia"
+import useTheme from "../../assets/theme"
 
 const Toggle = () => {
   const isMatched = useMatchMedia("min", "350px")
-  
+  const theme = useTheme()
+
+  function handleThemeToggle(e) {
+    theme.setDarkMode(e.target.checked)
+  }
+
   return (
     <Toggler>
       {isMatched && <SunIcon />}
       <label aria-label="Theme toggle">
-        <Checkbox />
+        <Checkbox
+          checked={theme.isDarkMode}
+          onChange={handleThemeToggle}
+        />
       </label>
       {isMatched && <MoonIcon />}
     </Toggler>
@@ -28,7 +36,6 @@ const Toggler = styled.div`
   label {
     border-radius: 6rem;
     width: var(--width);
-    background-color: var(--app-color-2);
     display: block;
     margin: 0 auto;
     margin-right: .4rem;

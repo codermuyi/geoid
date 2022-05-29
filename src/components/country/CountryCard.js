@@ -1,11 +1,13 @@
 import styled from 'styled-components/macro'
 import { Link } from "react-router-dom"
+import useTheme from "../../assets/theme"
 
 const CountryCard = (props) => {
+  const theme = useTheme()
   const { name, flags, population, region, capital } = props
 
   return (
-    <StyledCountry>
+    <StyledCountry isLight={!theme.isDarkMode}>
       <Link to={name.common}>
         <Flag src={flags.png} alt={`Flag of ${name.common}`} loading="lazy" />
         <CountryInfo>
@@ -20,15 +22,18 @@ const CountryCard = (props) => {
 }
 
 const StyledCountry = styled.div`
+  /* --box-shadow-color: rgba(0, 0, 0, 0.1); */
+  --box-shadow-color: ${props => props.isLight ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.2)"};
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 250px;
   flex-shrink: 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
-  background-color: white;
+  background-color: var(--app-color-2);
   transition-duration: .12s;
   border-radius: 10px;
+
   
   a {
     line-height: 0;
@@ -36,7 +41,7 @@ const StyledCountry = styled.div`
 
   :hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--box-shadow-color);
   }
 `
 

@@ -13,18 +13,18 @@ const SharedLayout = () => {
 
   useEffect(() => {
     setIsSidebarOpen(false)
-  }, [location]);
+  }, [location])
 
   return (
     <>
       <ForceScrollToTop />
-      <Header toggleSidebar={toggleSidebar} />
+      <Header toggleSidebar={toggleSidebar}/>
       <Sidebar
         isOpen={isSidebarOpen}
         toggle={toggleSidebar}
       />
-      <Overlay 
-        isSidebarOpen={isSidebarOpen} 
+      <Overlay
+        isSidebarOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
       />
       <Outlet />

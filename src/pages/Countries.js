@@ -29,7 +29,7 @@ const Countries = () => {
 
   function handleChange(e) {
     if (e.target) {
-      let value = e.target.value //.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase();
+      let value = e.target.value
       setSearchInput(value)
       return
     }
@@ -183,6 +183,7 @@ const CountryList = styled.div`
   justify-content: center;
   gap: 3em;
   margin: 3em 2em;
+  /* color: var(--text-color-1); */
 
   @media (min-width: ${mid2}) {
     margin-inline: 3.5em;

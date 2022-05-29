@@ -10,7 +10,7 @@ const Logo = (props) => {
 }
 
 const StyledLogo = styled.div`
-  background: conic-gradient(white 40%, var(--app-color) 40%);
+  background: conic-gradient(var(--app-color-2) 40%, var(--app-color) 40%);
   padding: .1em;
   border-radius: 10px;
   text-align: center;

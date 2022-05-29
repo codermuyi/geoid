@@ -62,16 +62,15 @@ const StyledHeader = styled.div`
 
   img {
     display: ${props => props.$about ? "none" : "inline-block"};
-    ${props =>props.$scrollY ?
-      css`
+    ${props => props.$scrollY ?
+    css`
         transform: scale(1);
         width: 60px;
       `:
-      css`
+    css`
         transform: scale(0);
         width: 0;
-      `
-    }
+      `}
     height: 50px;
     padding-right: .5em;
     flex-shrink: 0;

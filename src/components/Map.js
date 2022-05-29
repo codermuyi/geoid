@@ -7,10 +7,11 @@ import icon from "../assets/images/marker.png"
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { mid2, lg2 } from "../assets/breakpoints"
 import useFetch from "../assets/hooks/useFetch"
+import useTheme from "../assets/theme"
 
 let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow
+  iconUrl: icon,
+  shadowUrl: iconShadow
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
@@ -27,6 +28,7 @@ function Map({ country }) {
   const mapRef = useRef({});
   const [position, setPosition] = useState(Lagos)
   const [data, status] = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}&accept-language=en&polygon_threshold=0.0`, options)
+  const theme = useTheme()
 
   useEffect(() => {
     if (status === "fetched") {
@@ -44,9 +46,16 @@ function Map({ country }) {
     }, 600)
   }, [position])
 
+  const mapUrl = theme.isDarkMode ?
+    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" :
+    "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+
   return (
     <SMap ref={mapRef} center={position} zoom={4} scrollWheelZoom={false}>
-      <TileLayer url={`https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png`} attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' />
+      <TileLayer
+        url={mapUrl}
+        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      />
       <Marker position={position}></Marker>
     </SMap>
   );

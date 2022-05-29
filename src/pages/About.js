@@ -43,12 +43,12 @@ const About = () => {
 }
 
 const Article = styled.article`
-  background: white;
+  background: var(--app-color-2);
   max-width: 60ch;
   margin-inline: auto;
   padding: 3rem 2rem;
   font-size: 1.3rem;
-  color: #555555;
+  color: var(--text-color-2);
   position: relative;
 
   h1 {
