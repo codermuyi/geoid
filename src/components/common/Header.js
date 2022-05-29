@@ -35,7 +35,7 @@ const Header = ({ toggleSidebar }) => {
         {
           match ?
             <Navbar /> :
-            <Button size={3} pad={1} onClick={toggleSidebar} noShadow>
+            <Button size={3} pad={1} onClick={toggleSidebar} name="Open Sidebar" noShadow>
               <MenuIcon />
             </Button>
         }
