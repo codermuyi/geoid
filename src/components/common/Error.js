@@ -22,7 +22,7 @@ const ErrorDisplay = styled.div`
   padding: 10rem 1rem;
   text-align: center;
   font-size: 2rem;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--app-color-3);
 
   ${props => props.page && css`
     min-height: 70vh;
