@@ -27,7 +27,7 @@ const App = () => {
               <Route path="/" element={<SharedLayout />}>
                 <Route index element={<Home />} />
                 <Route path="countries" element={<Countries />} />
-                <Route path="countries/:country" element={<Country />} />
+                <Route path="countries/:countryName" element={<Country />} />
                 <Route path="tracker" element={<Tracker />} />
                 <Route path="about" element={<About />} />
                 <Route path="*" element={<Error page />} />

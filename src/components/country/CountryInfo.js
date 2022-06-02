@@ -6,6 +6,7 @@ import Error from "../common/Error"
 import Map from "../Map"
 import AboutCountry from "./AboutCountry"
 import countryCodes from "../../assets/country-codes.json"
+import { formatName } from "../../assets/utilities"
 // Country code url in myjson: http://myjson.dit.upm.es/api/bins/h4vj
 
 const CountryInfo = ({ country, data }) => {
@@ -51,7 +52,7 @@ const CountryInfo = ({ country, data }) => {
                   return <Button
                     key={i}
                     as={Link}
-                    to={`/countries/${countryCodes[name]}`}
+                    to={`/countries/${formatName(countryCodes[name])}`}
                     padY={0.5}
                     padX={1}
                     size={6}

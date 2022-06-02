@@ -6,14 +6,17 @@ import CountryInfo from "../components/country/CountryInfo"
 import Button from "../components/common/Button"
 import Error from "../components/common/Error"
 import { CountryInfoSkeleton } from "../components/CustomSkeleton"
+import { formatName } from "../assets/utilities"
 
 const Country = () => {
-  const { country } = useParams()
-  const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+  const { countryName } = useParams()
+  const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${formatName(countryName)}?fullText=true`)
+  
+  console.log(countryName)
 
   useEffect(() => {
-    document.title = `${country} | Geoid`
-  }, [country])
+    document.title = `${formatName(countryName)} | Geoid`
+  }, [countryName])
 
   return (
     <div className="page">
@@ -28,7 +31,7 @@ const Country = () => {
           }
           if (countryDataStatus === "fetched") {
             return <CountryInfo
-              country={country}
+              country={formatName(countryName)}
               data={countryData[0]}
             />
           }

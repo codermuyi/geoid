@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import { Link } from "react-router-dom"
 import useTheme from "../../assets/theme"
+import { formatName } from "../../assets/utilities"
 
 const CountryCard = (props) => {
   const theme = useTheme()
@@ -8,7 +9,7 @@ const CountryCard = (props) => {
 
   return (
     <Country isLight={!theme.isDarkMode}>
-      <Link to={name.common}>
+      <Link to={formatName(name.common)}>
         <Flag src={flags.png} alt={`Flag of ${name.common}`} loading="lazy" />
         <CountryInfo>
           <p className="name">{"Country Name" && name.common}</p>
