@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import { mid2, lg2 } from "../assets/breakpoints"
 import useFetch from "../assets/hooks/useFetch"
 import useTheme from "../assets/theme"
-import Map, {mapRef} from "./Map"
+import Map, { mapRef } from "./Map"
 
 const options = {
   method: 'GET',
@@ -40,17 +40,17 @@ function CountryMap({ country }) {
     "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
 
   return (
-    <SMap>
+    <CountryMapContainer>
       <Map 
         url={mapUrl}
         position={position}
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
-    </SMap>
+    </CountryMapContainer>
   );
 }
 
-const SMap = styled.div`
+const CountryMapContainer = styled.div`
   --map-margin: .5em;
   width: calc(100%-4em);
   max-width: 1000px;
