@@ -11,8 +11,6 @@ import { formatName } from "../assets/utilities"
 const Country = () => {
   const { countryName } = useParams()
   const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${formatName(countryName)}?fullText=true`)
-  
-  console.log(countryName)
 
   useEffect(() => {
     document.title = `${formatName(countryName)} | Geoid`
