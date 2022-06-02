@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../../assets/breakpoints"
 import Button from "../common/Button"
 import Error from "../common/Error"
-import Map from "../Map"
+import CountryMap from "../CountryMap"
 import AboutCountry from "./AboutCountry"
 import countryCodes from "../../assets/country-codes.json"
 import { formatName } from "../../assets/utilities"
@@ -66,9 +66,7 @@ const CountryInfo = ({ country, data }) => {
           </div>
         </Col>
         <AboutCountry country={country} />
-        <div id="map">
-          <Map country={country} />
-        </div>
+        <CountryMap country={country} />
       </Content>
     )
   }
@@ -86,16 +84,6 @@ const Content = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     justify-content: center;
-    
-    #map {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (min-width: ${lg2}) {
-    #map {
-      grid-column: 2 / -1;
-    }
   }
 `
 
