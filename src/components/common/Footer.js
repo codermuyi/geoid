@@ -18,9 +18,6 @@ S.Footer = styled.footer`
   position: relative;
   background-color: var(--app-color-2);
 
-  a:link {
-    color: black !important;
-  }
   & > * {
     position: relative;
     z-index: 2;
