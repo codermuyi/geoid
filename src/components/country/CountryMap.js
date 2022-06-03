@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from "styled-components/macro"
-import { mid2, lg2 } from "../assets/breakpoints"
-import useFetch from "../assets/hooks/useFetch"
-import useTheme from "../assets/theme"
-import Map, { mapRef } from "./Map"
+import { mid2, lg2 } from "../../assets/breakpoints"
+import useFetch from "../../assets/hooks/useFetch"
+import useTheme from "../../assets/theme"
+import Map, { mapRef } from "../common/Map"
 
 const options = {
   method: 'GET',
