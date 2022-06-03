@@ -17,15 +17,13 @@ L.Marker.prototype.options.icon = DefaultIcon;
 let mapRef = {}
 
 const MapCont = styled(MapContainer)`
-  width: inherit; 
-  height: calc(100% - var(--map-margin, 0)/2);
+  width: inherit;
+  height: calc(100% - var(--map-margin, 1px)/2);
 `
 
 export default function Map(props) {
-  const {url, position, attribution} = props
+  const { url, position, attribution } = props
   mapRef = useRef({});
-  
-  // console.log("position: ", position)
 
   return (
     <MapCont ref={mapRef} center={position} zoom={10} scrollWheelZoom={false}>

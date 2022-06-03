@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import styled from "styled-components/macro"
+import TrackerMap from "../components/TrackerMap"
 
 const Tracker = () => {
   useEffect(() => {
@@ -9,7 +10,7 @@ const Tracker = () => {
   return (
     <div className="page">
       <StyledLocator>
-        <p>This page is not yet available. Please check back later</p>
+        <TrackerMap />
       </StyledLocator>
     </div>
   )
@@ -17,9 +18,10 @@ const Tracker = () => {
 
 const StyledLocator = styled.div`
   font-size: 2em;
-  padding-block: 10em;
+  /* padding-block: 10em; */
   text-align: center;
   background-color: var(--app-color-3);
+  width: 100%;
 `
 
 export default Tracker
