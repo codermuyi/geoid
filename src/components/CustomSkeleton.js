@@ -1,5 +1,18 @@
-import Skeleton from "react-loading-skeleton"
+import DefaultSkeleton from "react-loading-skeleton"
 import 'react-loading-skeleton/dist/skeleton.css'
+import useTheme from "../assets/theme"
+
+const Skeleton = props => {
+  const theme = useTheme()
+  
+  return (
+    <DefaultSkeleton
+      baseColor={theme.isDarkMode && "#10171E"}
+      highlightColor={theme.isDarkMode && "#2e475f"}
+      {...props}
+    />
+  )
+}
 
 const CountryListSkeleton = () => {
   const skeletonList = Array(20).fill()
@@ -8,12 +21,12 @@ const CountryListSkeleton = () => {
     <>
       {
         skeletonList.map((_val, index) => (
-          <div key={index} className="country" style={{ width: 250, border: "1px solid #eeeeee" }}>
+          <div key={index} className="country" style={{ width: 250, border: "1px solid var(--app-color-2)" }}>
             <Skeleton height={150} />
-            <p className="country-name" style={{ margin: "1rem"}}>
+            <p className="country-name" style={{ margin: "1rem" }}>
               <Skeleton height={36} width={`95%`} />
             </p>
-            <Skeleton width={`75%`} count={3} style={{marginLeft: "16px"}}/>
+            <Skeleton width={`75%`} count={3} style={{ marginLeft: "16px" }} />
             <div className="country-info" style={{ marginBottom: "3rem" }}></div>
           </div>
         ))
@@ -52,3 +65,4 @@ const CountryInfoSkeleton = () => {
 }
 
 export { CountryListSkeleton, CountryInfoSkeleton }
+export default Skeleton

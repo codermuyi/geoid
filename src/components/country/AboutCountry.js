@@ -1,6 +1,6 @@
 import styled from "styled-components/macro"
-import Skeleton from "react-loading-skeleton"
-import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from "../CustomSkeleton"
+// import 'react-loading-skeleton/dist/skeleton.css'
 import useFetch from "../../assets/hooks/useFetch"
 import { lg1, lg2 } from "../../assets/breakpoints"
 import Button from "../common/Button"
