@@ -8,14 +8,14 @@ const Skeleton = props => {
   return (
     <DefaultSkeleton
       baseColor={theme.isDarkMode && "#10171E"}
-      highlightColor={theme.isDarkMode && "#2e475f"}
+      highlightColor={theme.isDarkMode && "var(--app-color-2)"}
       {...props}
     />
   )
 }
 
 const CountryListSkeleton = () => {
-  const skeletonList = Array(20).fill()
+  const skeletonList = Array(10).fill()
 
   return (
     <>
