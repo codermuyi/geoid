@@ -13,7 +13,7 @@ const Country = () => {
   const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${formatName(countryName)}?fullText=true`)
 
   useEffect(() => {
-    document.title = `${formatName(countryName)} | Geoid`
+    document.title = `${formatName(countryName)} - Geoid`
   }, [countryName])
 
   return (

@@ -5,7 +5,7 @@ import { lg1 } from "../assets/breakpoints"
 
 const About = () => {
   useEffect(() => {
-    document.title = "About | Geoid"
+    document.title = "About - Geoid"
   }, [])
   
   return (
@@ -20,7 +20,7 @@ const About = () => {
         </ul>
         <p>
           I saw a similarity in the two challenges. They both exhibit something about locations. 
-          So I combined them, added several modifications and made Geoid: an app about Earth and its locations.
+          So I combined them, added more features, and made Geoid: an app about Earth and its locations.
         </p>
         <p>
           I plan to extend this app to include as much earthy stuff as possible. If you have any ideas or tips that you don’t mind sharing,
