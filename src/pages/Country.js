@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import useFetch from "../assets/hooks/useFetch"
 import { ReactComponent as Back } from "../assets/images/left-arrow.svg"
@@ -7,14 +7,12 @@ import Button from "../components/common/Button"
 import Error from "../components/common/Error"
 import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 import { formatName } from "../assets/utilities"
+import usePageTitle from "../assets/hooks/usePageTitle"
 
 const Country = () => {
   const { countryName } = useParams()
   const [countryData, countryDataStatus] = useFetch(`https://restcountries.com/v3.1/name/${formatName(countryName)}?fullText=true`)
-
-  useEffect(() => {
-    document.title = `${formatName(countryName)} - Geoid`
-  }, [countryName])
+  usePageTitle(formatName(countryName))
 
   return (
     <div className="page">

@@ -1,17 +1,15 @@
-import { useEffect } from "react"
 import styled from "styled-components/macro"
+import { Link } from "react-router-dom"
 import { mid1 } from "../assets/breakpoints"
 import image from "../assets/images/moving.gif";
-import { Link } from "react-router-dom"
+import usePageTitle from "../assets/hooks/usePageTitle"
 
 import Logo from "../components/common/Logo"
 
 const S = {}
 
 const Home = () => {
-  useEffect(() => {
-    document.title = "Geoid"
-  }, [])
+  usePageTitle("Geoid")
   
   return (
     <S.Home>

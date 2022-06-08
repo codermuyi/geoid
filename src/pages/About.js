@@ -1,13 +1,11 @@
-import { useEffect } from "react"
 import styled from "styled-components/macro"
+import usePageTitle from "../assets/hooks/usePageTitle"
 import earthSrc from "../assets/images/world.png"
 import { lg1 } from "../assets/breakpoints"
 
 const About = () => {
-  useEffect(() => {
-    document.title = "About - Geoid"
-  }, [])
-  
+  usePageTitle("About")
+
   return (
     <div className="page">
       <Article>

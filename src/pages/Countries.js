@@ -8,15 +8,16 @@ import ScrollToTop from "../components/ScrollToTop"
 import Error from "../components/common/Error"
 import { CountryListSkeleton } from "../components/CustomSkeleton"
 import Filter from "../components/country/Filter"
+import usePageTitle from "../assets/hooks/usePageTitle"
 
 const Countries = () => {
   const [searchInput, setSearchInput] = useState("")
   const [region, setRegion] = useState("")
   const [data, status] = useFetch(`https://restcountries.com/v3.1/all`)
   const searchElement = useRef({})
+  usePageTitle("Countries of the Earth - Geoid")
 
   useEffect(() => {
-    document.title = "Countries of the Earth - Geoid"
     let listener = window.addEventListener("keydown", e => {
       if (e.keyCode === 13 && searchElement.current === document.activeElement) {
         window.scrollTo(0, 230)
