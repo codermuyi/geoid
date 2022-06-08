@@ -16,7 +16,7 @@ const Countries = () => {
   const searchElement = useRef({})
 
   useEffect(() => {
-    document.title = "Countries | Geoid"
+    document.title = "Countries of the Earth - Geoid"
     let listener = window.addEventListener("keydown", e => {
       if (e.keyCode === 13 && searchElement.current === document.activeElement) {
         window.scrollTo(0, 230)
