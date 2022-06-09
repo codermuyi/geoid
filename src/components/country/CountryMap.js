@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import { mid2, lg2 } from "../../assets/breakpoints"
 import useFetch from "../../assets/hooks/useFetch"
 import useTheme from "../../assets/theme"
-import Map, { mapRef } from "../common/Map"
+import Map, { useFlyTo } from "../common/Map"
 
 const options = {
   method: 'GET',
@@ -25,15 +25,7 @@ function CountryMap({ country }) {
     }
   }, [data, status])
 
-  useEffect(() => {
-    if (!mapRef.current) return
-
-    setTimeout(() => {
-      mapRef.current?.flyTo(position, 5, {
-        duration: 2.2
-      })
-    }, 600)
-  }, [position])
+  useFlyTo(position, 2.2)
 
   const mapUrl = theme.isDarkMode ?
     "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" :

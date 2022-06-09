@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -21,6 +21,18 @@ const MapCont = styled(MapContainer)`
   height: calc(100% - var(--map-margin, 1px)/2);
 `
 
+function useFlyTo(position, dur = 1, zoom = 5) {
+  useEffect(() => {
+    if (!mapRef.current) return
+
+    setTimeout(() => {
+      mapRef.current?.flyTo(position, zoom, {
+        duration: dur
+      })
+    }, 600)
+  }, [position, dur, zoom])
+}
+
 export default function Map(props) {
   const { url, position, attribution } = props
   mapRef = useRef({});
@@ -36,4 +48,4 @@ export default function Map(props) {
   );
 }
 
-export { mapRef }
+export { useFlyTo }
