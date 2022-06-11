@@ -31,7 +31,7 @@ S.Footer = styled.footer`
     top: 0;
     width: 200px;
     /* background-color: var(--app-color); */
-    background-color: var(--light-green);
+    background-color: var(--light-app-color);
     z-index: 1;
   }
   ::before {

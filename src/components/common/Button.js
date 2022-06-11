@@ -57,7 +57,7 @@ const Btn = styled.button`
   color: var(--text-color-1);
 
   :hover {
-    background-color: var(--light-green);
+    background-color: var(--light-app-color);
   }
 
   :active {

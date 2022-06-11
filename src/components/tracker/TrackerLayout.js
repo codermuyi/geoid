@@ -52,7 +52,7 @@ button {
   margin: 0;
 
   :focus {
-    background-color: var(--light-green);
+    background-color: var(--light-app-color);
   }
 }
 `

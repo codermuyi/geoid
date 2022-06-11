@@ -65,7 +65,7 @@ const Checkbox = styled.input.attrs(props => ({
   width: var(--width);
   height: var(--height);
   border-radius: inherit;
-  background-color: var(--light-green);
+  background-color: var(--light-app-color);
   
   :before {
     content: "";

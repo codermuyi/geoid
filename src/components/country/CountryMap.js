@@ -48,7 +48,7 @@ const CountryMapContainer = styled.div`
   max-width: ${breakpoints.mid2};
   height: 30rem;
   margin: 2em 2rem 5em var(--ml);
-  border: .5em solid var(--light-green);
+  border: .5em solid var(--light-app-color);
   border-radius: 20px;
   transition: border .4s linear;
   overflow: hidden;

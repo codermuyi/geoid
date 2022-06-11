@@ -34,7 +34,7 @@ const NavItem = styled.div`
   transition-duration: .2s;
  
   &:hover {
-    background-color: var(--light-green);
+    background-color: var(--light-app-color);
   }
   
   a {

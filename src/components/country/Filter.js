@@ -67,7 +67,7 @@ const CountryFilter = styled.div`
 
   .region-filter__option:hover:not(.region-filter__option--is-selected),
   .region-filter__option--is-focused {
-    background-color: var(--light-green);
+    background-color: var(--light-app-color);
   }
 
   .region-filter__option--is-selected {

@@ -46,7 +46,7 @@ const GlobalStyles = createGlobalStyle`
     --app-color: #00bb77;
     --app-color-2: white;
     --app-color-3: hsl(0, 0%, 98%);
-    --light-green: rgba(0, 187, 119, .4);
+    --light-app-color: rgba(0, 187, 119, .4);
     --text-color: #202124;
     --text-color: hsl(200, 15%, 8%);
     --text-color-2: #555555;
@@ -70,7 +70,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--app-color);
   }
   a.link:visited {
-    color: var(--light-green);
+    color: var(--light-app-color);
     text-decoration: underline;
   }
   a.link:hover {
