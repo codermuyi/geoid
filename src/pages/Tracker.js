@@ -6,6 +6,7 @@ import Button from "../components/common/Button"
 import Skeleton from "../components/CustomSkeleton"
 import usePageTitle from "../assets/hooks/usePageTitle"
 import useFetch from "../assets/hooks/useFetch"
+import webdev from "../assets/images/webdev.gif"
 
 const { 
   StyledTracker, 
@@ -135,6 +136,7 @@ const DemoTracker = () => {
   return (
     <div className="page">
       <StyledDemoTracker>
+        <img src={webdev} alt="under development" style={{width: "250px"}}/>
         <p>This page is under development. Please check back later</p>
       </StyledDemoTracker>
     </div>
@@ -142,7 +144,7 @@ const DemoTracker = () => {
 }
 
 const StyledDemoTracker = styled.div`
-  font-size: 2em;
+  font-size: 1.5rem;
   padding-block: 10em;
   text-align: center;
   background-color: var(--app-color-3);
