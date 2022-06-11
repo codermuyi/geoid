@@ -2,7 +2,6 @@ import { useReducer, useEffect, useRef } from "react"
 import styled from "styled-components"
 import TrackerMap from "../components/tracker/TrackerMap"
 import Layout from "../components/tracker/TrackerLayout"
-// import { StyledTracker, Row, Search, Info } from "../components/tracker/TrackerLayout"
 import Button from "../components/common/Button"
 import Skeleton from "../components/CustomSkeleton"
 import usePageTitle from "../assets/hooks/usePageTitle"
@@ -136,7 +135,7 @@ const DemoTracker = () => {
   return (
     <div className="page">
       <StyledDemoTracker>
-        <p>This page is not yet available. Please check back later</p>
+        <p>This page is under development. Please check back later</p>
       </StyledDemoTracker>
     </div>
   )
