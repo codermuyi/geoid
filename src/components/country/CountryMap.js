@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from "styled-components/macro"
-import { mid2, lg2 } from "../../assets/breakpoints"
+import breakpoints from "../../assets/breakpoints"
 import useFetch from "../../assets/hooks/useFetch"
 import useTheme from "../../assets/theme"
 import Map, { useFlyTo } from "../common/Map"
@@ -33,7 +33,7 @@ function CountryMap({ country }) {
 
   return (
     <CountryMapContainer>
-      <Map 
+      <Map
         url={mapUrl}
         position={position}
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -43,30 +43,24 @@ function CountryMap({ country }) {
 }
 
 const CountryMapContainer = styled.div`
-  --map-margin: .5em;
-  width: calc(100%-4em);
-  max-width: 1000px;
+  --ml: 4rem;
+  width: calc(100% - var(--ml));
+  max-width: ${breakpoints.mid2};
   height: 30rem;
-  margin-block: 6em;
-  margin-right: 4em;
-  margin-left: 1em;
-  border: .5em solid var(--app-color);
+  margin: 2em 2rem 5em var(--ml);
+  border: .5em solid var(--light-green);
   border-radius: 20px;
   transition: border .4s linear;
   overflow: hidden;
-  
-  :hover {
-    border: .5em solid var(--light-green);
-  }
 
-  @media (min-width: ${mid2}) {
-    width: calc(100%-8em);
-    margin-right: 8em;
+  @media (min-width: ${breakpoints.mid2}) {
     grid-column: 1 / -1;
+    margin-left: auto;
   }
-
-  @media (min-width: ${lg2}) {
-    margin-right: 1rem;
+  @media (min-width: ${breakpoints.lg2}) {
+    margin-right: auto;
+  }
+  @media (min-width: ${breakpoints.lg3}) {
     grid-column: 2 / -1;
   }
 `

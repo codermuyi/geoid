@@ -17,7 +17,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 let mapRef = {}
 
 const MapCont = styled(MapContainer)`
-  width: inherit;
+  width: 100%;
   height: calc(100% - var(--map-margin, 1px)/2);
 `
 

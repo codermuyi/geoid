@@ -1,4 +1,3 @@
-// import { useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import useFetch from "../assets/hooks/useFetch"
 import { ReactComponent as Back } from "../assets/images/left-arrow.svg"

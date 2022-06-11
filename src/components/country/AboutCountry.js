@@ -1,8 +1,7 @@
 import styled from "styled-components/macro"
 import Skeleton from "../CustomSkeleton"
-// import 'react-loading-skeleton/dist/skeleton.css'
 import useFetch from "../../assets/hooks/useFetch"
-import { lg1, lg2 } from "../../assets/breakpoints"
+import breakpoints from "../../assets/breakpoints"
 import Button from "../common/Button"
 
 const AboutCountry = ({ country }) => {
@@ -28,29 +27,32 @@ const AboutCountry = ({ country }) => {
 }
 
 const About = styled.div`
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-column: 1 / -1;
   width: 100%;
   max-width: 72ch;
-  margin: 0 auto 1.5rem;
-  padding: 0.5rem 1rem;
+  margin: 3rem auto;
+  padding: 1rem;
   color: var(--text-color-2);
   text-align: center;
   overflow-x: hidden;
   border-radius: 1rem;
-  margin-top: 3rem;
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(var(--app-color-2) 70%, transparent);
 
-  @media (min-width: ${lg1}) {
-    font-size: 1.15rem;
-    padding-inline: 2rem;
+  @media (min-width: ${breakpoints.lg1}) {
+    padding: 2rem;
   }
-
-  @media (min-width: ${lg2}) {
+  @media (min-width: ${breakpoints.lg2}) {
+    font-size: 1.15rem;
+    max-width: 100ch;
+    padding-inline: 4rem;
+  }
+  @media (min-width: ${breakpoints.lg3}) {
     grid-column: 1 / 2;
-    margin-top: 5rem;
   }
 `
 

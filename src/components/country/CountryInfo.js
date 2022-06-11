@@ -97,7 +97,7 @@ const Col = styled.div`
   img {
     width: 100%;
     max-height: max-content;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
     margin-inline: auto;
   }
 
