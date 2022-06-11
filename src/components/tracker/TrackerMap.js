@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components/macro"
-import Map, { useFlyTo } from "./common/Map"
+import Map, { useFlyTo } from "../common/Map"
 
 const TrackerMap = props => {
   const [position, setPosition] = useState([16.7783, 100.4179])

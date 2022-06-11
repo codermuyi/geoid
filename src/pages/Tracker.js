@@ -1,11 +1,19 @@
-import { useReducer } from "react"
-import styled from "styled-components/macro"
-import TrackerMap from "../components/TrackerMap"
+import { useReducer, useEffect, useRef } from "react"
+import styled from "styled-components"
+import TrackerMap from "../components/tracker/TrackerMap"
+import Layout from "../components/tracker/TrackerLayout"
+// import { StyledTracker, Row, Search, Info } from "../components/tracker/TrackerLayout"
 import Button from "../components/common/Button"
+import Skeleton from "../components/CustomSkeleton"
 import usePageTitle from "../assets/hooks/usePageTitle"
 import useFetch from "../assets/hooks/useFetch"
-import { lg1, lg2 } from "../assets/breakpoints"
-import Skeleton from "../components/CustomSkeleton"
+
+const { 
+  StyledTracker, 
+  Row, 
+  Search, 
+  Info 
+} = Layout
 
 const options = {
   method: 'GET',
@@ -36,7 +44,7 @@ function reducer(state, action) {
       return {
         ...initialState,
         completeSearch: action.payload,
-        searchInput: state.searchInput
+        // searchInput: state.searchInput
       }
     default:
       return state
@@ -48,11 +56,22 @@ const Tracker = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [data, IPStatus] = useFetch(`https://geo.ipify.org/api/v2/country?apiKey=at_1qY0VaVYm5K0gHb9IBpw1qphkWsXh&domain=${state.completeSearch}`)
   // const [data2, status2] = useFetch(`https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation?${state.completeSearch ? `ip=${state.completeSearch}&` : ""}apikey=873dbe322aea47f89dcf729dcc8f60e8`, options)
-  const [data2, status2] = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${data.location && data.location.region}&accept-language=en&polygon_threshold=0.0`, options2)
+  const [data2, status2] = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${IPStatus === "fetched" ? `${data.location.region}, ${data.location.country}` : "Nigeria"}&accept-language=en&polygon_threshold=0.0`, options2)
 
-  console.log(data)
+  const bigRef = useRef({})
+  useEffect(() => {
+    // if (state.completeSearch) {
+    //   bigRef.current = state.completeSearch === ""
+    // } else {
+    //   bigRef.current = false
+    // }
+    dispatch({ type: "SEARCH_IP", payload: IPStatus === "fetched" ? data.ip : ""})
+  }, [IPStatus])
+
+  // console.log(data)
 
   const isInputEmpty = state.completeSearch === ""
+  
   const handleChange = e => dispatch({ type: "UPDATE_INPUT", payload: e.target.value })
   const trackIP = () => dispatch({ type: "SEARCH_IP", payload: state.searchInput })
 
@@ -105,130 +124,29 @@ const Tracker = () => {
         </Row>
         <Row>
           <TrackerMap data={data2[0]} status={status2} />
-          {/* <TrackerMap /> */}
         </Row>
       </StyledTracker>
     </div>
   )
 }
 
-const StyledTracker = styled.div`
-  --gap: 250px;
-  --info-bottom: -180%;
-  display: grid;
-  gap: ${props => props.isInputEmpty ? "1rem" : "var(--gap)"};
-  width: 100%;
-  font-size: 2rem;
+const DemoTracker = () => {
+  usePageTitle("IP Address Tracker")
+
+  return (
+    <div className="page">
+      <StyledDemoTracker>
+        <p>This page is not yet available. Please check back later</p>
+      </StyledDemoTracker>
+    </div>
+  )
+}
+
+const StyledDemoTracker = styled.div`
+  font-size: 2em;
+  padding-block: 10em;
   text-align: center;
   background-color: var(--app-color-3);
-  margin-bottom: 3rem;
-
-  @media (min-width: ${lg1}) {
-    --gap: 4rem;
-    --info-bottom: -100%;
-  }
 `
 
-const Row = styled.div`
-  position: relative;
-
-  h3 {
-    margin-block: 1rem 0;
-  }
-`
-
-const Search = styled.div`
-  /* border: 1px solid var(--light-green); */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 40rem;
-  padding: 0;
-  margin: 1rem auto;
-  display: flex;
-
-  input {
-    padding: 1rem;
-    display: block;
-    width: 100%;
-    border: 0;
-  }
-
-  button {
-    background-color: var(--app-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    max-width: 60px;
-    margin: 0;
-
-    :focus {
-      background-color: var(--light-green);
-    }
-  }
-`
-
-const Info = styled.div`
-  background-color: var(--app-color-2);
-  padding: 1rem;
-  border-radius: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  position: absolute;
-  bottom: var(--info-bottom);
-  left: 0;
-  right: 0;
-  z-index: 900;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-size: 1rem;
-  transition-duration: .2s;
-  transform: scale(${props => props.isInputEmpty ? "0" : "1"});
-  left: 10%;
-  right: 10%;
-
-  @media (min-width: ${lg1}) {
-    & {
-      flex-direction: row;
-      gap: 2rem;
-      justify-content: center;
-      padding-block: 2rem;
-    }
-
-    & > div:not(:last-child) {
-      border-right: 2px solid #dddddd;
-      padding-right: 4rem;
-    }
-
-    & > div {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      margin: 0;
-    }
-  }
-
-  @media (min-width: ${lg2}) {
-    font-size: 1.1rem;
-  }
-
-  & > div {
-    p {
-      margin: 0;
-    }
-
-    .key {
-      text-transform: uppercase;
-      font-size: .7em;
-      color: var(--text-color-2);
-      font-weight: 600;
-    }
-
-    .value {
-      font-weight: 800;
-      font-size: 1.2em;
-    }
-  }
-`
-
-export default Tracker
+export default DemoTracker
