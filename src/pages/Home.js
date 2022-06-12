@@ -1,6 +1,6 @@
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
-import { mid1 } from "../assets/breakpoints"
+import { mid1, mid2 } from "../assets/breakpoints"
 import image from "../assets/images/moving.gif";
 import usePageTitle from "../assets/hooks/usePageTitle"
 
@@ -10,7 +10,7 @@ const S = {}
 
 const Home = () => {
   usePageTitle("Geoid")
-  
+
   return (
     <S.Home>
       <S.Grid>
@@ -92,7 +92,7 @@ S.GridRow = styled.div`
   margin-inline: auto;
   padding-block: 8em;
 
-  @media (min-width: ${mid1}) {
+  @media (min-width: ${mid2}) {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -122,7 +122,6 @@ S.GridCol2 = styled(S.GridCol)`
 `;
 
 S.Container = styled.div`
-
   h2 {
     color: white;
     font-size: 3em;
@@ -141,7 +140,6 @@ S.GridRow2 = styled(S.GridRow)`
 
   div {
     justify-self: center;
-    border: 0em solid var(--app-color);
     aspect-ratio: 1 / 1;
     width: 300px;
     border-radius: 50%;
@@ -154,18 +152,54 @@ S.GridRow2 = styled(S.GridRow)`
     overflow: hidden;
     margin-block: 1em;
 
+    @media (min-width: ${mid1}) {
+      grid-template-columns: initial;
+      width: 350px;
+    }
+
+    @media (min-width: ${mid2}) {
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: 500px;
+      margin: 0;
+      font-size: 2.2rem;
+      --box-shadow: 
+          3rem 5rem 1rem rgba(255, 255, 255, 0.3), 
+        0 3rem 5rem rgba(255, 255, 255, 0.3);
+      
+      :nth-child(odd) {
+        justify-self: start;
+        background: conic-gradient(var(--app-color-2) 135deg, var(--app-color) -225deg);
+        :hover {
+          box-shadow: 20rem var(--box-shadow);
+          background: conic-gradient(var(--app-color) 135deg, var(--app-color-2) -225deg);
+        }
+      }
+      :nth-child(even) {
+        justify-self: end;
+        background: conic-gradient(var(--app-color-2) 225deg, var(--app-color) 135deg);
+        :hover {
+          box-shadow: -20rem var(--box-shadow);
+          background: conic-gradient(var(--app-color) 225deg, var(--app-color-2) 135deg);
+        }
+      }
+    }
+
     a {
-      display: block;
       width: inherit;
       aspect-ratio: 1 / 1;
       padding-block: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     :hover {
       background: conic-gradient(var(--app-color) 80%, var(--app-color-2) 20%);
-      transform: scale(1.1) rotate(-10deg)
+      transform: scale(1.1) rotate(-10deg);
+      box-shadow: 50rem 3rem 5rem 4rem rgba(255, 255, 255, 0.3);
     }
   }
-`;
+`
 
 export default Home
