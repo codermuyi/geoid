@@ -2,87 +2,81 @@ import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
 import { mid1, mid2, lg1, lg2 } from "../../assets/breakpoints"
 import Button from "../common/Button"
-import Error from "../common/Error"
 import CountryMap from "./CountryMap"
 import AboutCountry from "./AboutCountry"
 import countryCodes from "../../assets/country-codes.json"
 import { formatName } from "../../assets/utilities"
 import countryCities from "../../assets/country-cities.json"
 import City from "./City"
-// Country code url in myjson: http://myjson.dit.upm.es/api/bins/h4vj
 
 const CountryInfo = ({ country, data }) => {
-  if (data) {
-    let commonName = data.name.common,
-      flagSrc = data.flags.svg,
-      nativeName = data.name.nativeName ? new Set(Object.values(data.name.nativeName).map(v => v.common)).join(", ") : "None",
-      population = data.population.toLocaleString(),
-      region = data.region,
-      subregion = data.subregion ? data.subregion : "None",
-      capital = data.capital ? data.capital : "None",
-      tld = data.tld,
-      currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
-      languages = data.languages ? Object.values(data.languages).join(", ") : "None",
-      borders = data.borders ? data.borders : ["None"]
+  let commonName = data.name.common,
+    flagSrc = data.flags.svg,
+    nativeName = data.name.nativeName ? new Set(Object.values(data.name.nativeName).map(v => v.common)).join(", ") : "None",
+    population = data.population.toLocaleString(),
+    region = data.region,
+    subregion = data.subregion ? data.subregion : "None",
+    capital = data.capital ? data.capital : "None",
+    tld = data.tld,
+    currencies = data.currencies ? Object.values(data.currencies).map(v => v.name) : "None",
+    languages = data.languages ? Object.values(data.languages).join(", ") : "None",
+    borders = data.borders ? data.borders : ["None"]
 
-    return (
-      <Content>
-        <Col>
-          <img src={flagSrc} alt={`Flag of ${commonName}`} loading="lazy" />
-        </Col>
-        <Col>
-          <h2 className="name">{data.name.common}</h2>
-          <div className="list-of-info">
-            <div className="first">
-              <p className="other-info">Native Name(s): <span className="light-text">{nativeName}</span></p>
-              <p className="other-info">Population: <span className="light-text">{population}</span></p>
-              <p className="other-info">Region: <span className="light-text">{region}</span></p>
-              <p className="other-info">Sub Region: <span className="light-text">{subregion}</span></p>
-              <p className="other-info">Capital: <span className="light-text">{capital}</span></p>
-            </div>
-            <div className="second">
-              <p className="other-info">Top Level Domain: <span className="light-text">{tld}</span></p>
-              <p className="other-info">Currencies: <span className="light-text">{currencies}</span></p>
-              <p className="other-info">Languages: <span className="light-text">{languages}</span></p>
-            </div>
+  return (
+    <Content>
+      <Col>
+        <img src={flagSrc} alt={`Flag of ${commonName}`} loading="lazy" />
+      </Col>
+      <Col>
+        <h2 className="name">{data.name.common}</h2>
+        <div className="list-of-info">
+          <div className="first">
+            <p className="other-info">Native Name(s): <span className="light-text">{nativeName}</span></p>
+            <p className="other-info">Population: <span className="light-text">{population}</span></p>
+            <p className="other-info">Region: <span className="light-text">{region}</span></p>
+            <p className="other-info">Sub Region: <span className="light-text">{subregion}</span></p>
+            <p className="other-info">Capital: <span className="light-text">{capital}</span></p>
           </div>
-          <div style={{ marginTop: 30 }}>
-            <h3>Border Countries:</h3>
-            <div className="border-links">
-              {borders?.map((name, i) => {
-                if (name !== "None")
-                  return <Button
-                    key={i}
-                    as={Link}
-                    to={`/countries/${formatName(countryCodes[name])}`}
-                    padY={0.5}
-                    padX={1}
-                    size={6}
-                    fontSize={.7}
-                  >
-                    {countryCodes[name]}
-                  </Button>
-                return <p key={i}>{name}</p>
-              })}
-            </div>
+          <div className="second">
+            <p className="other-info">Top Level Domain: <span className="light-text">{tld}</span></p>
+            <p className="other-info">Currencies: <span className="light-text">{currencies}</span></p>
+            <p className="other-info">Languages: <span className="light-text">{languages}</span></p>
           </div>
-        </Col>
-        <AboutCountry country={country} />
-        <CountryMap country={country} />
-        <Cities>
-          <h2>Cities in {country}</h2>
-          <p>Links go to <a className="link" href="https://www.wikipedia.org">Wikipedia</a>. Cities without links do not have wikipedia pages</p>
-          {
-            countryCities[country].map((city, index) => 
-              <City key={index} city={city} />
-            )
-          }
-        </Cities>
-      </Content>
-    )
-  }
-
-  return <Error page />
+        </div>
+        <div style={{ marginTop: 30 }}>
+          <h3>Border Countries:</h3>
+          <div className="border-links">
+            {borders?.map((name, i) => {
+              if (name !== "None")
+                return <Button
+                  key={i}
+                  as={Link}
+                  to={`/countries/${formatName(countryCodes[name])}`}
+                  padY={0.5}
+                  padX={1}
+                  size={6}
+                  fontSize={.7}
+                >
+                  {countryCodes[name]}
+                </Button>
+              return <p key={i}>{name}</p>
+            })}
+          </div>
+        </div>
+      </Col>
+      <AboutCountry country={country} />
+      <CountryMap country={country} />
+      {countryCities[country] && <Cities>
+        <h2>Cities in {country}</h2>
+        <p>Links go to <a className="link" href="https://www.wikipedia.org">Wikipedia</a>. Cities without links do not have wikipedia pages</p>
+        {
+          countryCities[country].map((city, index) =>
+            <City key={index} city={city} />
+          )
+        }
+      </Cities>}
+    </Content>
+  )
 }
 
 const Content = styled.div`

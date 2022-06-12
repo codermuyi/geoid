@@ -14,6 +14,8 @@ function reducer(state, action) {
       return { ...initialState, status: "fetched", data: action.payload }
     case "ERROR":
       return { ...initialState, status: "error", error: action.payload }
+    case "ERROR++":
+      return { ...initialState, status: "error++", error: action.payload }
     default:
       return state
   }
@@ -34,7 +36,7 @@ const useFetch = (url, options = {}) => {
 
     const fetchData = async () => {
       dispatch({ type: "FETCHING" })
-      
+
       if (cache.current[url]) {
         const data = cache.current[url]
         dispatch({ type: "FETCHED", payload: data })
@@ -48,7 +50,7 @@ const useFetch = (url, options = {}) => {
             dispatch({ type: "FETCHED", payload: data })
           } else {
             if (abort) return
-            dispatch({ type: "ERROR", payload: "Error" })
+            dispatch({ type: "ERROR++", payload: "Critical Error" })
           }
         } catch (err) {
           if (abort) return

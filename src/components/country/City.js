@@ -9,12 +9,14 @@ const Cities = ({ city }) => {
     (() => {
       if (cityInfoStatus === "fetched") {
         return <Button as="a" href={cityInfo.content_urls?.desktop.page} padY={.5} padX={1} fontSize={.8}>{city}</Button>
-      } else if (cityInfoStatus === "error") {
-        return <Button padY={.5} padX={1} fontSize={.8} disabled>{city}</Button>
-      } else if (cityInfoStatus === "fetching") {
+      }
+      if (cityInfoStatus === "fetching") {
         return <Button noShadow pad={0} bgColor="blue">
           <Skeleton width={100} height={35} />
         </Button>
+      }
+      if (cityInfoStatus === "error++") {
+        return <Button padY={.5} padX={1} fontSize={.8} disabled>{city}</Button>
       }
     })()
   )

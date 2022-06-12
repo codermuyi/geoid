@@ -33,6 +33,9 @@ const Country = () => {
           if (countryDataStatus === "error") {
             return <Error fetch />
           }
+          if (countryDataStatus === "error++") {
+            return <Error page />
+          }
         })()
       }
     </div>
