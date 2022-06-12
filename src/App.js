@@ -79,6 +79,11 @@ const GlobalStyles = createGlobalStyle`
   a.link:active {
     color: var(--text-color);
   }
+
+  &::selection {
+    background-color: var(--light-app-color);
+    color: ${props => props.isDarkMode ? "white" : "black"};
+  }
 `
 
 S.App = styled.div`
