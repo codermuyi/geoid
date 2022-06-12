@@ -7,6 +7,8 @@ import CountryMap from "./CountryMap"
 import AboutCountry from "./AboutCountry"
 import countryCodes from "../../assets/country-codes.json"
 import { formatName } from "../../assets/utilities"
+import countryCities from "../../assets/country-cities.json"
+import City from "./City"
 // Country code url in myjson: http://myjson.dit.upm.es/api/bins/h4vj
 
 const CountryInfo = ({ country, data }) => {
@@ -67,6 +69,15 @@ const CountryInfo = ({ country, data }) => {
         </Col>
         <AboutCountry country={country} />
         <CountryMap country={country} />
+        <Cities>
+          <h2>Cities in {country}</h2>
+          <p>Links go to <a className="link" href="https://www.wikipedia.org">Wikipedia</a>. Cities without links do not have wikipedia pages</p>
+          {
+            countryCities[country].map((city, index) => 
+              <City key={index} city={city} />
+            )
+          }
+        </Cities>
       </Content>
     )
   }
@@ -150,6 +161,15 @@ const Col = styled.div`
     .list-of-info {
       gap: 6em;
     }
+  }
+`
+
+const Cities = styled.div`
+  grid-column: 1 / -1;
+
+  margin-left: 1rem;
+  h2 {
+    font-size: 2.2rem;
   }
 `
 
