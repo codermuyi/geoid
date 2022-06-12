@@ -34,19 +34,22 @@ const useFetch = (url, options = {}) => {
 
     const fetchData = async () => {
       dispatch({ type: "FETCHING" })
+      
       if (cache.current[url]) {
         const data = cache.current[url]
         dispatch({ type: "FETCHED", payload: data })
-        // console.log("cached")
       } else {
         try {
           const response = await fetch(url, optRef.current)
-          const data = await response.json()
-          // console.log(data)
-          cache.current[url] = data
-          if (abort) return
-          dispatch({ type: "FETCHED", payload: data })
-          // console.log("fetched")
+          if (response.ok) {
+            const data = await response.json()
+            cache.current[url] = data
+            if (abort) return
+            dispatch({ type: "FETCHED", payload: data })
+          } else {
+            if (abort) return
+            dispatch({ type: "ERROR", payload: "Error" })
+          }
         } catch (err) {
           if (abort) return
           dispatch({ type: "ERROR", payload: err.message })
