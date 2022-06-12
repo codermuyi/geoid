@@ -9,3 +9,7 @@ export function formatName(text) {
   }
   return text
 }
+
+export function displayFetchResults(resultsObj, status) {
+  return resultsObj[status]
+}

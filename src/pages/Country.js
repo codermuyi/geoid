@@ -7,6 +7,7 @@ import Error from "../components/common/Error"
 import { CountryInfoSkeleton } from "../components/CustomSkeleton"
 import { formatName } from "../assets/utilities"
 import usePageTitle from "../assets/hooks/usePageTitle"
+import { displayFetchResults } from "../assets/utilities"
 
 const Country = () => {
   const { countryName } = useParams()
@@ -20,23 +21,15 @@ const Country = () => {
         <Back />
       </Button>
       {
-        (() => {
-          if (countryDataStatus === "fetching") {
-            return <CountryInfoSkeleton />
-          }
-          if (countryDataStatus === "fetched") {
-            return <CountryInfo
-              country={formatName(countryName)}
-              data={countryData[0]}
-            />
-          }
-          if (countryDataStatus === "error") {
-            return <Error fetch />
-          }
-          if (countryDataStatus === "error++") {
-            return <Error page />
-          }
-        })()
+        displayFetchResults({
+          "fetching": <CountryInfoSkeleton />,
+          "fetched": <CountryInfo
+            country={formatName(countryName)}
+            data={countryData[0]}
+          />,
+          "error": <Error fetch />,
+          "error++": <Error page />
+        }, countryDataStatus)
       }
     </div>
   )

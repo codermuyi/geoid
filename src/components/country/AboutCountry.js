@@ -2,25 +2,23 @@ import styled from "styled-components/macro"
 import Skeleton from "../CustomSkeleton"
 import useFetch from "../../assets/hooks/useFetch"
 import breakpoints from "../../assets/breakpoints"
+import { displayFetchResults } from "../../assets/utilities"
 import Button from "../common/Button"
 
 const AboutCountry = ({ country }) => {
   const [wikiInfo, wikiInfoStatus] = useFetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${country}`)
-  
+
   return (
     <About>
       {
-        (() => {
-          if (wikiInfoStatus === "fetched") {
-            return <>
-              <div dangerouslySetInnerHTML={{ __html: wikiInfo.extract_html }}></div>
-              <Button as="a" href={wikiInfo.content_urls?.desktop.page} pad="1">Go to Wikipedia</Button>
-            </>
-          }
-          if (wikiInfoStatus === "fetching") {
-            return <div><Skeleton height={15} width={1000} count={9} style={{paddingInline: "1rem"}}/></div>
-          }
-        })()
+        displayFetchResults({
+          "fetching": <div><Skeleton height={15} width={1000} count={9} style={{ paddingInline: "1rem" }} /></div>,
+          "fetched": <>
+            <div dangerouslySetInnerHTML={{ __html: wikiInfo.extract_html }}></div>
+            <Button as="a" href={wikiInfo.content_urls?.desktop.page} pad="1">Go to Wikipedia</Button>
+          </>,
+          "error": "Unable to load info"
+        }, wikiInfoStatus)
       }
     </About>
   )

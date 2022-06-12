@@ -9,6 +9,7 @@ import Error from "../components/common/Error"
 import { CountryListSkeleton } from "../components/CustomSkeleton"
 import Filter from "../components/country/Filter"
 import usePageTitle from "../assets/hooks/usePageTitle"
+import { displayFetchResults } from "../assets/utilities"
 
 const Countries = () => {
   const [searchInput, setSearchInput] = useState("")
@@ -43,7 +44,7 @@ const Countries = () => {
     const searchValue = searchInput.trim().toLowerCase()
     const altSpelling = country.altSpellings.map(spelling => spelling.toLowerCase())
     const isAltSpelling = altSpelling.includes(searchValue)
-    
+
     if (searchValue) {
       if (isAltSpelling || nameList.includes(searchInput.trim()) || nameList.join("").toLowerCase().includes(searchValue)) {
         return countryCard
@@ -64,24 +65,19 @@ const Countries = () => {
         searchElement={searchElement}
         handleChange={handleChange}
       />
-      {status === "fetched" && <p style={{ textAlign: "center", marginTop: "2rem" }}>Click country for details</p>}
-
       {
-        (() => {
-          if (status === "fetching") {
-            return <CountryList>
-                <CountryListSkeleton />
-              </CountryList>
-          }
-          if (status === "fetched") {
-            return <CountryList>
-                {countries.every(country => country === undefined) ? <Error result /> : countries}
-              </CountryList>
-          }
-          if (status === "error") {
-            return <Error fetch />
-          }
-        })()
+        status === "fetched" && <p style={{ textAlign: "center", marginTop: "2rem" }}>Click country for details</p>
+      }
+      {
+        displayFetchResults({
+          "fetching": <CountryList>
+            <CountryListSkeleton />
+          </CountryList>,
+          "fetched": <CountryList>
+            {countries.every(country => country === undefined) ? <Error result /> : countries}
+          </CountryList>,
+          "error": <Error fetch />
+        }, status)
       }
       <ScrollToTop />
     </div>
