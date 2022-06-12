@@ -15,7 +15,8 @@ const Button = props => {
     bgColor,
     onClick,
     href,
-    name
+    name,
+    disabled
   } = props
 
   return (
@@ -33,6 +34,7 @@ const Button = props => {
       $fontSize={fontSize}
       $noShadow={noShadow}
       $bgColor={bgColor}
+      disabled={disabled}
     >
       {children}
     </Btn>
@@ -40,9 +42,10 @@ const Button = props => {
 }
 
 const Btn = styled.button`
+  --button-bg-color: ${props => props.bgColor ? props.bgColor : "var(--app-color-2)"};
   display: inline-flex;
   cursor: pointer;
-  background-color: ${props => props.bgColor ? props.bgColor : "var(--app-color-2)"};
+  background-color: var(--button-bg-color);
   margin: .4em;
   border: 0;
   box-shadow: ${props => !props.$noShadow && "0 .1em .2em rgba(0, 0, 0, .1)"};
@@ -62,6 +65,15 @@ const Btn = styled.button`
 
   :active {
     box-shadow: inset 0 .1em .2em rgba(0, 0, 0, .1);
+  }
+
+  :disabled {
+    cursor: default;
+    box-shadow: none;
+    :hover {
+      box-shadow: none;
+      background-color: var(--button-bg-color);
+    }
   }
 `
 
