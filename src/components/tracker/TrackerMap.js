@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components/macro"
 import Map, { useFlyTo } from "../common/Map"
+import useFetch from "../../assets/hooks/useFetch"
 
-const TrackerMap = props => {
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com',
+    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY
+  }
+};
+
+const TrackerMap = ({location, depStatus}) => {
   const [position, setPosition] = useState([16.7783, 100.4179])
-  const { data, status } = props
-
-  console.log(data)
+  const [data, status] = useFetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${location}&accept-language=en&polygon_threshold=0.0`, options)
 
   useEffect(() => {
-    if (status !== "fetched") return
-    // if (data.status === 200) {
-      setPosition([data.lat, data.lon])
-      // setPosition([data.latitude, data.longitude])
-    // }
-  }, [data, status])
+    if (status === "fetched" && depStatus === "fetched") {
+      console.log("haha", data)
+      setPosition([data[0].lat, data[0].lon])
+    }
+  }, [data, status, depStatus])
 
   useFlyTo(position, 1.5, 10)
 
@@ -35,6 +41,3 @@ const TrackerMapContainer = styled.div`
 `
 
 export default TrackerMap
-
-// url={`https://maptiles.p.rapidapi.com/local/osm/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_RAPID_API_KEY}`}
-// url={`https://retina-tiles.p.rapidapi.com/local/osm{r}/v1/{z}/{x}/{y}.png?rapidapi-key=${process.env.REACT_APP_RAPID_API_KEY}`}

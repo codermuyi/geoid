@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { lg1, lg2 } from "../../assets/breakpoints"
+import breakpoints from "../../assets/breakpoints"
 
 const S = {}
 
@@ -7,14 +7,14 @@ S.StyledTracker = styled.div`
 --gap: 250px;
 --info-bottom: -180%;
 display: grid;
-gap: ${props => props.isInputEmpty ? "1rem" : "var(--gap)"};
+gap: ${props => props.isInfoHidden ? "1rem" : "var(--gap)"};
 width: 100%;
 font-size: 2rem;
 text-align: center;
 background-color: var(--app-color-3);
 margin-bottom: 3rem;
 
-@media (min-width: ${lg1}) {
+@media (min-width: ${breakpoints.lg1}) {
   --gap: 4rem;
   --info-bottom: -100%;
 }
@@ -72,11 +72,11 @@ flex-direction: column;
 gap: 1rem;
 font-size: 1rem;
 transition-duration: .2s;
-transform: scale(${props => props.isInputEmpty ? "0" : "1"});
+transform: scale(${props => props.isInfoHidden ? "0" : "1"});
 left: 10%;
 right: 10%;
 
-@media (min-width: ${lg1}) {
+@media (min-width: ${breakpoints.lg1}) {
   & {
     flex-direction: row;
     gap: 2rem;
@@ -98,7 +98,7 @@ right: 10%;
   }
 }
 
-@media (min-width: ${lg2}) {
+@media (min-width: ${breakpoints.lg2}) {
   font-size: 1.1rem;
 }
 
