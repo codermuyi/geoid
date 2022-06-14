@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useRef, useCallback } from "react"
+import { useReducer, useRef} from "react"
 import TrackerMap from "../components/tracker/TrackerMap"
 import Layout from "../components/tracker/TrackerLayout"
 import Button from "../components/common/Button"
@@ -7,11 +7,11 @@ import usePageTitle from "../assets/hooks/usePageTitle"
 import useFetch from "../assets/hooks/useFetch"
 import { displayFetchResults } from "../assets/utilities"
 
-const { 
-  StyledTracker, 
-  Row, 
-  Search, 
-  Info 
+const {
+  StyledTracker,
+  Row,
+  Search,
+  Info
 } = Layout
 
 const initialState = {
@@ -23,10 +23,10 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "UPDATE_INPUT":
-      return { 
-        ...initialState, 
+      return {
+        ...initialState,
         searchInput: action.payload,
-        hideInfo: true 
+        hideInfo: true
       }
     case "SEARCH_IP":
       return {
@@ -46,32 +46,19 @@ const Tracker = () => {
   const [data, IPStatus] = useFetch(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_IP_API_KEY}&domain=${state.completeSearch}`)
   const searchElement = useRef({})
 
-  console.log(data)
-
-  // const trackIP = () => dispatch({ type: "SEARCH_IP", payload: state.searchInput })
-  const trackIP = useCallback(() => {
-    console.log("tracking")
-    dispatch({ type: "SEARCH_IP", payload: state.searchInput })
-  }, [state.searchInput])
+  const trackIP = () => dispatch({ type: "SEARCH_IP", payload: state.searchInput })
 
   // useEffect(() => {
   //   let listener = window.addEventListener("keydown", e => {
   //     if (e.keyCode === 13 && searchElement.current === document.activeElement) {
+  //       console.log("yasss")
+  //       e.preventDefault()
   //       trackIP()
   //       searchElement.current.blur()
   //     }
   //   })
   //   return () => window.removeEventListener("keydown", listener)
   // }, [])
-  // useEffect(() => {
-  //   let listener = window.addEventListener("keydown", e => {
-  //     if (e.keyCode === 13 && searchElement.current === document.activeElement) {
-  //       trackIP()
-  //       searchElement.current.blur()
-  //     }
-  //   })
-  //   return () => window.removeEventListener("keydown", listener)
-  // }, [trackIP])
 
   const handleChange = e => dispatch({ type: "UPDATE_INPUT", payload: e.target.value })
 
