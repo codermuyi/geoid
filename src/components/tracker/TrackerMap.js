@@ -17,7 +17,6 @@ const TrackerMap = ({location, depStatus}) => {
 
   useEffect(() => {
     if (status === "fetched" && depStatus === "fetched") {
-      console.log("haha", data)
       setPosition([data[0].lat, data[0].lon])
     }
   }, [data, status, depStatus])
