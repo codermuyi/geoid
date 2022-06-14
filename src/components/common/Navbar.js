@@ -9,13 +9,13 @@ const Navbar = (props) => {
         <NavLink to="/">Home</NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="/about">About</NavLink>
-      </NavItem>
-      <NavItem>
         <NavLink to="/countries">Countries</NavLink>
       </NavItem>
       <NavItem>
         <NavLink to="/tracker">Tracker</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink to="/about">About</NavLink>
       </NavItem>
     </Nav>
   )
