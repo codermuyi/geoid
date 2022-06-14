@@ -26,14 +26,14 @@ const About = () => {
         </p>
         <h2>Helpful sources</h2>
         <ul>
-          <li><a className="link" href="https://frontendmentor.io">Frontend Mentor</a></li>
-          <li><a className="link" href="https://www.flaticon.com/">Flaticon</a></li>
-          <li><a className="link" href="https://svgrepo.com">svgrepo</a></li>
-          <li><a className="link" href="https://bennettfeely.com/clippy/">Clippy</a></li>
-          <li><a className="link" href="https://restcountries.com/">REST Countries</a></li>
-          <li><a className="link" href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
-          <li><a className="link" href="https://stadiamaps.com/">Stadia Maps</a></li>
-          <li><a className="link" href="https://en.wikipedia.org/api/rest_v1/#/">Wikimedia REST API</a></li>
+          <li>Inspiration from <a className="link" href="https://frontendmentor.io">Frontend Mentor</a></li>
+          <li>Icons from <a className="link" href="https://www.flaticon.com/">Flaticon</a>, <a className="link" href="https://svgrepo.com">svgrepo</a> and <a className="link" href="https://css.gg">css.gg</a></li>
+          <li>Used <a className="link" href="https://bennettfeely.com/clippy/">Clippy</a> for custom clip-path in footer</li>
+          <li>Used <a className="link" href="https://restcountries.com/">REST Countries API</a> to get information about countries</li>
+          <li>Used <a className="link" href="https://en.wikipedia.org/api/rest_v1/#/">Wikimedia REST API</a> for country summary and city links</li>
+          <li>Used <a className="link" href="https://www.openstreetmap.org/">OpenStreetMap</a> for Tracker map</li>
+          <li>Used <a className="link" href="https://stadiamaps.com/">Stadia Maps</a> for country map</li>
+          <li>Cities data was generated from <a className="link" href="https://simplemaps.com/data/world-cities">Simple Maps Cities Database</a></li>
         </ul>
       </Article>
     </div>
