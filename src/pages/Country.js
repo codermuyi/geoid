@@ -5,6 +5,7 @@ import CountryInfo from "../components/country/CountryInfo"
 import Button from "../components/common/Button"
 import Error from "../components/common/Error"
 import { CountryInfoSkeleton } from "../components/CustomSkeleton"
+import ScrollToTopButton from "../components/ScrollToTop"
 import { formatName } from "../assets/utilities"
 import usePageTitle from "../assets/hooks/usePageTitle"
 import { displayFetchResults } from "../assets/utilities"
@@ -16,6 +17,7 @@ const Country = () => {
 
   return (
     <div className="page">
+      <ScrollToTopButton />
       <br />
       <Button size={2.7} pad={0.2} as={Link} to="/countries" name="Back to countries page">
         <Back />
