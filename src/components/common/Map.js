@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import icon from "../../assets/images/marker.png"
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styled from "styled-components/macro"
