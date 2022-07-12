@@ -10,7 +10,7 @@ const CountryCard = (props) => {
   return (
     <Country isLight={!theme.isDarkMode}>
       <Link to={formatName(name.common)}>
-        <Flag src={flags.png} alt={`Flag of ${name.common}`} loading="lazy" />
+        <Flag src={flags.png} alt={`Flag of ${name.common}`} />
         <CountryInfo>
           <p className="name">{"Country Name" && name.common}</p>
           <p className="other-info">Population: <span className="light-text">{population.toLocaleString()}</span></p>
